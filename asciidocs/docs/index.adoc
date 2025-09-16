@@ -1,4 +1,22 @@
-= Index page
+= 25/26 - 3bhif - syp - Lecture Notes
+Thomas Stütz, Peter Bauer
+1.0.0, {docdate}: Lecture Notes for Courses at HTL Leonding
+:icons: font
+:experimental:
+:sectnums:
+:source-highlighter: rouge
+:docinfo: shared
 ifndef::imagesdir[:imagesdir: images]
+:toc:
+ifdef::backend-html5[]
+// https://fontawesome.com/v4.7.0/icons/
+icon:file-text-o[link=https://github.com/2526-4ahitm-sew/2526-4ahitm-sew-lecture-notes/main/asciidocs/{docname}.adoc] ‏ ‏ ‎
+icon:github-square[link=https://github.com/2526-4ahitm-sew/2526-4ahitm-sew-lecture-notes] ‏ ‏ ‎
+icon:home[link=http://edufs.edu.htl-leonding.ac.at/~t.stuetz/hugo/2021/01/lecture-notes/]
+endif::backend-html5[]
 
-image::img.png[]
+== 2025-09-16
+
+
+
+
