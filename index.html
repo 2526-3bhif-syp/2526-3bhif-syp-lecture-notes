@@ -481,6 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_branching_2">6.1. Branching</a></li>
 <li><a href="#_merging_vs_rebasing">6.2. Merging vs. Rebasing</a></li>
 <li><a href="#_merging_vs_rebasing_2">6.3. Merging vs. Rebasing</a></li>
+<li><a href="#_stashing">6.4. Stashing</a></li>
 </ul>
 </li>
 </ul>
@@ -732,7 +733,35 @@ Thomas Stütz, Peter Bauer
 <div class="sect2">
 <h3 id="_branching_2"><a class="anchor" href="#_branching_2"></a>6.1. Branching</h3>
 <div class="sect3">
-<h4 id="_branching_strategies_2"><a class="anchor" href="#_branching_strategies_2"></a>6.1.1. Branching-Strategies</h4>
+<h4 id="_types_of_branches"><a class="anchor" href="#_types_of_branches"></a>6.1.1. Types of Branches</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Feature Branch</p>
+</li>
+<li>
+<p>Bugfix Branch</p>
+</li>
+<li>
+<p>Hotfix Branch (wie Bugfix nur dringender)</p>
+</li>
+<li>
+<p>Main Branch (Release Branch)</p>
+<div class="paragraph">
+<p>Main Branch wurde früher Master Branch genannt</p>
+</div>
+</li>
+<li>
+<p>Develop Branch</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" class="bare">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_branching_strategies_2"><a class="anchor" href="#_branching_strategies_2"></a>6.1.2. Branching-Strategies</h4>
 <div class="sect4">
 <h5 id="_no_flow"><a class="anchor" href="#_no_flow"></a>No-Flow</h5>
 <div class="imageblock">
@@ -750,9 +779,9 @@ Thomas Stütz, Peter Bauer
 <p><a href="https://www.hsbi.de/elearning/data/FH-Bielefeld/lm_data/lm_1359639/git/branching-strategies.html#komplexe-branching-strategie-git-flow" target="_blank" rel="noopener">Git-Flow workflow (FH Bielefeld)</a></p>
 <div class="imageblock">
 <div class="content">
-<img src="images/git-flow.png" alt="git flow">
+<img src="images/gitflow_diagram_gfg.png" alt="gitflow diagram gfg">
 </div>
-<div class="title">Figure 2. <a href="https://blog.programster.org/git-workflows">Git-Flow in Programster&#8217;s Blog</a></div>
+<div class="title">Figure 2. <a href="https://www.geeksforgeeks.org/git/git-workflows-for-agile-development-teams/">Git Workflows For Agile Development Teams</a></div>
 </div>
 </li>
 </ul>
@@ -857,13 +886,17 @@ Thomas Stütz, Peter Bauer
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_stashing"><a class="anchor" href="#_stashing"></a>6.4. Stashing</h3>
+
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2025-09-24 08:56:30 UTC
+Last updated 2025-09-24 09:10:19 UTC
 </div>
 </div>
 </body>
