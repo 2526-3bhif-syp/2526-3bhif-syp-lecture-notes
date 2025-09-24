@@ -134,6 +134,19 @@ image::git-12-most-common-commands.gif[]
 
 === Branching
 
+==== Types of Branches
+
+* Feature Branch
+* Bugfix Branch
+* Hotfix Branch (wie Bugfix nur dringender)
+* Main Branch (Release Branch)
++
+Main Branch wurde früher Master Branch genannt
+* Develop Branch
+
+
+https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow[]
+
 ==== Branching-Strategies
 
 ===== No-Flow
@@ -145,8 +158,8 @@ image::no-flow.png[]
 ===== Git-Flow Workflow
 ** https://www.hsbi.de/elearning/data/FH-Bielefeld/lm_data/lm_1359639/git/branching-strategies.html#komplexe-branching-strategie-git-flow[Git-Flow workflow (FH Bielefeld)^]
 +
-.https://blog.programster.org/git-workflows[Git-Flow in Programster's Blog]
-image::git-flow.png[]
+.https://www.geeksforgeeks.org/git/git-workflows-for-agile-development-teams/[Git Workflows For Agile Development Teams]
+image::gitflow_diagram_gfg.png[]
 
 
 ===== GitHub Flow
@@ -190,3 +203,5 @@ image::github-flow.png[]
 * https://seibert.group/blog/2015/08/17/git-merging-vs-rebasing-teil-1/[Git: Merging vs. Rebasing (Teil 1)^]
 
 * https://seibert.group/blog/2015/08/18/git-merging-vs-rebasing-teil-2/[Git: Merging vs. Rebasing (Teil 2)^]
+
+=== Stashing
