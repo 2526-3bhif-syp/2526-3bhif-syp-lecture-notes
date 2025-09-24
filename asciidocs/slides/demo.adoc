@@ -1,4 +1,4 @@
-= Some Slide
+= Some Slides
 :author: firstname lastname
 :email: x.y@htl.at
 :revnumber: 1.0

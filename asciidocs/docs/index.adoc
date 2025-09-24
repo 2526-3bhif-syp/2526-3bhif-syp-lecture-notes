@@ -17,6 +17,17 @@ endif::backend-html5[]
 
 == 2025-09-16
 
+== 2025-09-23
+
+Testtermine:
+
+* 2025-11-04: 1. Test
+* 2026-01-13: 2. Test
+* 2026-04-21: 3. Test
+* 2026-06-09: 4. Test
 
 
+=== Einführung git
+
+https://htl-leonding-college.github.io/git-lecture-notes/
 
