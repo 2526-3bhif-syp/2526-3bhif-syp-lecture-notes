@@ -26,6 +26,14 @@ Testtermine:
 * 2026-04-21: 3. Test
 * 2026-06-09: 4. Test
 
+=== Static Site Generators
+
+https://jamstack.org/generators/
+
+* Was sind Static Site Generators (SSG)?
+* Vorteile von SSG
+* Bekannte SSG
+
 
 === Einführung git
 
