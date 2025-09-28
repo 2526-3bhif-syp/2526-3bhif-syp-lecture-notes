@@ -17,6 +17,11 @@ endif::backend-html5[]
 
 == 2025-09-16
 
+* Memory Types: Stack/Heap
+* Value Type/Reference Type
+* Call by Value/Call by Reference
+* Distributed vs centralized version control
+
 == 2025-09-23
 
 Testtermine:
@@ -137,3 +142,4 @@ image::github-flow.png[]
 * https://seibert.group/blog/2015/08/18/git-merging-vs-rebasing-teil-2/[Git: Merging vs. Rebasing (Teil 2)^]
 
 === Stashing
+
