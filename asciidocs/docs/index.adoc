@@ -1,4 +1,4 @@
-* = 25/26 - 3bhif - syp - Lecture Notes
+= 25/26 - 3bhif - syp - Lecture Notes
 Thomas Stütz, Peter Bauer
 1.0.0, {docdate}: Lecture Notes for Courses at HTL Leonding
 :icons: font
