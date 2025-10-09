@@ -67,6 +67,15 @@ image::git-architecture.png[]
 
 == 2025-10-07
 
+* Grundbegriffe Projektmanagement (aus Buch)
+** Kap. 1.1, 1.2, 1.3
+** Kap. 2.1, 2.2
+
+
+
+
+== 2025-10-xx
+
 image::git-12-most-common-commands.gif[]
 
 === Branching
