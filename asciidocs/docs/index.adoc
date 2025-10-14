@@ -26,7 +26,7 @@ endif::backend-html5[]
 
 Testtermine:
 
-* 2025-11-04: 1. Test
+* 2025-11-25: 1. Test
 * 2026-01-13: 2. Test
 * 2026-04-21: 3. Test
 * 2026-06-09: 4. Test
@@ -70,6 +70,25 @@ image::git-architecture.png[]
 * Grundbegriffe Projektmanagement (aus Buch)
 ** Kap. 1.1, 1.2, 1.3
 ** Kap. 2.1, 2.2
+
+=== 2025-10-14
+
+==== V-Modell
+
+image::v-modell.png[]
+
+image::v-modell-scrum.png[]
+
+==== Projektziele
+
+siehe Buch
+
+image::projektziele.png[]
+
+siehe Buch
+
+==== Projektantrag
+
 
 
 
@@ -151,4 +170,5 @@ image::github-flow.png[]
 * https://seibert.group/blog/2015/08/18/git-merging-vs-rebasing-teil-2/[Git: Merging vs. Rebasing (Teil 2)^]
 
 === Stashing
+
 
