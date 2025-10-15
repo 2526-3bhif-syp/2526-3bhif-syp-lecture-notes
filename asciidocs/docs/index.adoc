@@ -54,6 +54,10 @@ https://jamstack.org/generators/
 +
 image::git-architecture.png[]
 
+****
+
+*Fragen*:
+
 * Unterschied zwischen git und GitHub/gitlab/bitbucket/...?
 
 * Wie erstellt man ein lokales Repository?
@@ -65,11 +69,28 @@ image::git-architecture.png[]
 * Was ist der Unterschied zwischen `git commit` und `git push`?
 
 
+****
+
 == 2025-10-07
 
 * Grundbegriffe Projektmanagement (aus Buch)
 ** Kap. 1.1, 1.2, 1.3
 ** Kap. 2.1, 2.2
+
+==== Kreativitätstechniken
+
+Buch Kap. 2.1
+
+****
+*Fragen*:
+
+* Nennen Sie sieben Krativitätstechniken. (Antwort: Brainstorming, 6-3-5 Methode, Synektik, Morphologischer Kasten, , Mind-Mapping, Bionik, Delphi-Methode)
+
+* Erläutern Sie ... (zB Brainstorming)
+
+
+
+****
 
 === 2025-10-14
 
@@ -79,18 +100,74 @@ image::v-modell.png[]
 
 image::v-modell-scrum.png[]
 
-==== Projektziele
 
-siehe Buch
+==== Projektantrag (project proposal)
+
+siehe Buch Kap. 2.2.1
+
+image::projektantrag.png[]
+
+
+
+****
+*Fragen*:
+
+* Was ist eine Machbarkeitsstudie (feasibility study)? Wozu dient sie? Nenne ein Beispiel.
+
+* Inhalt eines Projektantrags?
+
+* Was versteht man unter Projektvarianten?
+** Wozu dienen diese?
+
+* Wie kann man Projektvarianten bewerten?
+Antwort: SWOT-Analyse
+** Wie ist eine SWOT-Analyse aufgebaut?
+** Warum ist eine SWOT-Analyse sinnvoll?
+
+****
+
+==== Zielbestimmung
+
+siehe Buch Kap. 2.3
+
+image::magische-dreieck.png[]
+
 
 image::projektziele.png[]
 
-siehe Buch
-
-==== Projektantrag
+image::effektivitaet-vs-effizienz.png[]
 
 
+****
+*Fragen*:
 
+* Nennen und erläutern Sie die 3 Kategorien von Projektzielen.
+(Antwort: Magische Dreieck: Leistung, Termine, Kosten)
+** Durch welche Kategorie kann das Magische Dreieck ergänzt werden?
+(Antwort: Qualität)
+
+
+* Merkmale der Zielsetzung?
+(Antwort: erreichbar und quantifizierbar)
+** Bsp für ein messbares Ziel (quantifizierbar)?
+
+* Was versteht man unter Operatiionalisierung von Zielen?
+(Antwort: Ziele so lange in Unterziele zerlegen, bis sie messbar sind)
+** Nenne ein Beispiel.
+
+* Welche Zielbeziehungen gibt es? Nenne und erläutere diese.
+(Antwort: Zielkomplementarität, Zielneutralität, Zielkonkurrenz)
+
+* Erläutere das Verfahren nach Coverdale?
+
+* Was ist ein Projektkontext?
+
+* Was versteht man unter Projektabgrenzung?
+** Warum ist diese sehr wichtig?
+
+* Was ist ein Stakeholder?
+
+****
 
 
 == 2025-10-xx
@@ -153,7 +230,7 @@ image::github-flow.png[]
 
 * Fazit:
 ** Beim *Rebasing* werden die Commits des Branches in die Historie des Ziel-Branches eingefügt, als ob sie direkt dort erstellt worden wären. Dies führt zu einer geradlinigeren und saubereren Historie, kann jedoch die ursprüngliche Kontextinformation der Commits verändern.
-** Beim *Mergen* hingegen bleibt die ursprüngliche Historie erhalten, was zu einer komplexeren Struktur führen kann, aber den Kontext bewahrt. Branches werden oft nach dem Merge gelöscht, um die Repository-Historie übersichtlich zu halten.
+** Beim *Merge* hingegen bleibt die ursprüngliche Historie erhalten, was zu einer komplexeren Struktur führen kann, aber den Kontext bewahrt. Branches werden oft nach dem Merge gelöscht, um die Repository-Historie übersichtlich zu halten.
 
 
 
