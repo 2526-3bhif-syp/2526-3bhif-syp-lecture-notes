@@ -46,17 +46,20 @@ https://jamstack.org/generators/
 
 * https://www.w3schools.com/git/default.asp[W3C Git Tutorial^]
 
+
+****
+
+*Fragen*:
+
 * Was ist ein VCS?
 * Welche Probleme lösen VCS?
-* Unterschiede zwischen git und VCS wie zB SVN?
+* Unterschiede zwischen git und VCS wie zB SVN? (verteiltes vs zentrales VCS)
 * git - clients
 * git - workflow
 +
 image::git-architecture.png[]
 
-****
 
-*Fragen*:
 
 * Unterschied zwischen git und GitHub/gitlab/bitbucket/...?
 
