@@ -1,0 +1,95 @@
+= Projekte -  Begriff und Merkmale (Jan Brunner)
+
+
+== Gründe für Projekt (Jan Brunner)
+    - Die Häufigkeit *"individueller" Problemlösungen* nimmt zu, standardisierbare Produktionsprozesse oder Tätigkeiten werden maschinell und/oder durch Informationstechnologien weitgehend automatisiert.
+    - Die zu lösenden *Aufgaben werden komplexer* und können oft nur bereichsübergreifend bewältigt werden.
+    - *Betriebliche Innovationen* können in herkömmlicher Linienorganisation nur schwer bewältigt werden.
+    - Projekte heben sich von der Alltagsroutine ab - im richtigen Maß eingesetzt, wirken sie *motivierend*, da sie dem individuelleren Selbstbewusstsein heutiger Erwerbsträger besser entsprechen.
+    - Im Zuge der Globalisierung arbeiten verteilte Teams an gemeinsamen Aufgaben.
+
+*Linienorganisation*  = Eine Linie im Organigan (Vom Chef über Abteilungsleiter zu den Angestellten)
+
+=== Die Durchführung von Projekten kann Innovationen in folgenden Bereichen unterstützen (Jan Brunner)
+    - *Technik*
+    - *Markt*
+    - *Organisation*
+
+
+== Projektmerkmale (Jan Brunner)
+
+Projekt -> Merkmale -> höheres Risiko -> erfordert den Einsatz von Projektphasen und Projektmanagement.
+
+*!!! Verweis Grafik S.3*
+
+=== Merkmale (Jan Brunner)
+    - *inhaltliche Zielsetzung* / Was mache ich
+    - *zeitliche Zielsetzung* / Von wann bis wann 
+    - *relative Neuartigkeit* / Habe ich es schonmal gemacht
+    - *beschränkte Ressourcen* / Wie viel Budget habe ich zum Beispiel oder wie viel Material
+    - *Komplexität* / Wie viele Personen arbeiten an dem Projekt. Wie viele verschiedene Teilaufgaben gibt es und wie ist die Abhängigkeit von diesen.
+
+=== Risiko (Jan Brunner)
+
+Wegen der Neuartigkeit und Komplexität hat ein Projekt eine höhere Wahrscheinlichkeit zu scheitern.
+
+*Risiken treten in allen Bereichen eines Projektes auf*
+
+    - *als technisches Realisierungsrisiko* / Zum Beispiel Beamen oder Zeitreisen
+    - *als Zeitrisiko* / / Zu großes Projekt für die angegebene Zeit
+    - *als Aufwandsrisiko* / Wenn das Projekt zu viele Ressourcen braucht
+    - *als Zielsetungsrisiko* / Das gesetzte Ziel wird nicht erreicht
+    - *als Verwertbarkeitsrisiko* / Das Projekt wird nicht genutzt, d. h. im umkehrschluss kein Geld, wenn es ein Monitäresprojekt war. Außerdem großer Verlust vom Unternehmen selber.
+
+Um Risiken zu verringern braucht man das Risikomanagement. Hier werden rechtzeitig Vorkehrungen getroffen, um Risiken zu senken.
+
+== Weitere Projektmerkmale (Jan Brunner)
+Um so mehr Merkmale um so genauer kann ein Projekt beschrieben werden.
+
+    * *Bedeutung*
+    - Die Auswirkung der Erreichung (oder Nichterreichung) des Projektziels auf Teilziele oder das Gesamtziel des Projektträgers wird untersucht
+    * *Umfang*
+    - Der Projektumfang beschreibt ein Projekt in mehreren Dimensionen:
+    - Anzahl der im Rahmen des Projekts durchzuführenden Einzelaufgaben
+    - Anzahl der am Projekt beteiligten Personen oder Stellen
+    - Umfang (Mengeneinheit) der festgelegten Leistung
+    - einzusetzende Mittel (Geldmittel, betriebliche Ressourcen)
+    * *Anzahl von Projekten*
+    - Die Projektanzahl gibt an, ob von einem Unternehmen oder einer Stelle überwiegend (und daher meist gleichzeitig mehrere) Projekte durchgeführt werden oder ob Projekte eine Ausnahme darstellen.
+    * *Kontinuität des Projekts*
+    - Dieses Kriterium definiert, ob die Projektmitarbeiter kontinuierlich (hauptamtlich) oder nur zeitweise für das Projekt tätig sind.
+    * *Intensität des Projekts*
+    - Die Projektintensität beschreibt die Beanspruchung des Projektteams. Die Teammitglieder können (im Rahmen des Projekts) ausgelastet, über - oder unterbeschäftigt sein.
+
+
+== Projektablauf - Projektphasen (Jan Brunner)
+
+=== Projektphasen (Jan Brunner)
+
+
+*Projektinitiierung* -> *Projektplanung* -> *Projektdurchführung* -> *Projektfortschritt*
+
+*!!! Verweis* Grafik Systemplanung und Projektentwicklung Buchseite 5 untere Grafik
+
+
+=== Begriffs Erklärungen (Jan Brunner)
+* *Definition*: Die Definition beschreibt die im Auftrag formulierten Ziele. Ergebnis ist eine detaillierte Leistungsbeschreibung, etwa in Form eines Pflichtenhefts.
+* *Analyse*: In der Analyse erfolgt die Strukturierung und Gliederung des geplanten Projektergebnisses sowie des Ablaufes, um das Projekt plan - und abwickelbar zu machen. Ergebnisse daraus sind *Produktstrukturplan*, der *Objektstrukturplan* sowie der *Projektstrukturplan* *(PSP)*.
+* *Realisierungsplanung*:In der Realisierungsplanung wird der erforderliche Zeitaufwand für die einzelnen Tätigkeiten, sowie der notwendige Ressourceneinsatz ermittelt. Ergebnisse sind: *Terminlisten*, Balkendiagramme, *Kosten- und Finanzpläne*, *Ressourcenbedarf*(Wie viele Ressourcen werden benötigt, um eine Aufgabe erfolgreich durchzuführen) und *Ressourcenauslastung* (Zu wie viel Prozent werden die verfügbaren Ressourcen genutzt).
+* *Machbarkeitsstudie*: Ist das Projekt überhaupt umsetzbar. Sei es technisch (Gibt es das technische Wissen oder Maschinen), wirtschaftlich (Lohnt sich das Projekt finanziell), zeitlich (Ist es umsetzbar im geplanten Zeitraum), organisatorisch (Kann das derzeitige Unternehmen das Projekt überhaupt bewältigen. Z. B. genug Personal?)
+* *Projektvarianten*: Sind die verschiedenen Wege wie ein Projekt bewältigt werden kann und nach der Abwiegung der Vor- und Nachteile entscheidet man sich dann für eine Variante.
+* *Projektentscheid*: Wie das Projekt genehmigt und durchgeführt oder nicht.
+* *Reporting*: Beim Reporting werden Daten so aufbereitet, dass man sehen kann wie gut ein Projekt läuft.
+* *Claim-Management*: Alles was zum Projekt dazu gehört. Kurz gesagt was ist im Projekt mitinbegriffen
+* *Projekt-Controlling*: Projekt Steuerung. Wie viel Geld habe ich gebraucht. Bin ich zeitlich gut im Rahmen usw.
+
+
+== Projektarten (Jan Brunner)
+
+* *nach dem Auftraggeber*: intern oder extern
+* *nach dem Zielen*: sachzielorientiert oder prozessorientiert
+* *nach der Häufigkeit*: repetitive (wiederholend) oder nicht repetitiv(einmalig).
+
+*!!! Verweis* Grafik Seite 13.   
+
+
