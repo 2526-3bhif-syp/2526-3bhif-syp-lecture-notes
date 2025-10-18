@@ -1,4 +1,4 @@
-= Projekte -  Begriff und Merkmale (Jan Brunner)
+= Projekte - Begriff und Merkmale (Jan Brunner)
 
 
 == Gründe für Projekt (Jan Brunner)
