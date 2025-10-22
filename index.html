@@ -464,7 +464,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_einführung_git">2.2. Einführung git</a></li>
 </ul>
 </li>
-<li><a href="#_2025_10_07">3. 2025-10-07</a></li>
+<li><a href="#_2025_10_07">3. 2025-10-07</a>
+<ul class="sectlevel2">
+<li><a href="#_zielbestimmung">3.1. Zielbestimmung</a></li>
+</ul>
+</li>
+<li><a href="#_2025_10_xx">4. 2025-10-xx</a>
+<ul class="sectlevel2">
+<li><a href="#_branching">4.1. Branching</a></li>
+<li><a href="#_merging_vs_rebasing">4.2. Merging vs. Rebasing</a></li>
+<li><a href="#_merging_vs_rebasing_2">4.3. Merging vs. Rebasing</a></li>
+<li><a href="#_stashing">4.4. Stashing</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -627,6 +639,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p><a href="creativity-Jan-Brunner.adoc">Link zu Kapitel 2.1, 2.2</a></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Fragen</strong>:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -661,11 +678,10 @@ Antwort: SWOT-Analyse</p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>==== Zielbestimmung</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_zielbestimmung"><a class="anchor" href="#_zielbestimmung"></a>3.1. Zielbestimmung</h3>
 <div class="paragraph">
 <p>siehe Buch Kap. 2.3</p>
 </div>
@@ -684,8 +700,8 @@ Antwort: SWOT-Analyse</p>
 <img src="images/effektivitaet-vs-effizienz.png" alt="effektivitaet vs effizienz">
 </div>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="paragraph">
 <p><strong>Fragen</strong>:</p>
 </div>
@@ -750,22 +766,23 @@ Antwort: SWOT-Analyse</p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>== 2025-10-xx</p>
 </div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2025_10_xx"><a class="anchor" href="#_2025_10_xx"></a>4. 2025-10-xx</h2>
+<div class="sectionbody">
 <div class="imageblock">
 <div class="content">
 <img src="images/git-12-most-common-commands.gif" alt="git 12 most common commands">
 </div>
 </div>
-<div class="paragraph">
-<p>=== Branching</p>
-</div>
-<div class="paragraph">
-<p>==== Types of Branches</p>
-</div>
+<div class="sect2">
+<h3 id="_branching"><a class="anchor" href="#_branching"></a>4.1. Branching</h3>
+<div class="sect3">
+<h4 id="_types_of_branches"><a class="anchor" href="#_types_of_branches"></a>4.1.1. Types of Branches</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -791,43 +808,57 @@ Antwort: SWOT-Analyse</p>
 <div class="paragraph">
 <p><a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow" class="bare">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a></p>
 </div>
-<div class="paragraph">
-<p>==== Branching-Strategies</p>
 </div>
-<div class="paragraph">
-<p>===== No-Flow</p>
-</div>
+<div class="sect3">
+<h4 id="_branching_strategies"><a class="anchor" href="#_branching_strategies"></a>4.1.2. Branching-Strategies</h4>
+<div class="sect4">
+<h5 id="_no_flow"><a class="anchor" href="#_no_flow"></a>No-Flow</h5>
 <div class="imageblock">
 <div class="content">
 <img src="images/no-flow.png" alt="no flow">
 </div>
 <div class="title">Figure 1. <a href="https://blog.programster.org/git-workflows">No-Flow in Programster&#8217;s Blog</a></div>
 </div>
-<div class="paragraph">
-<p>===== Git-Flow Workflow
-** <a href="https://www.hsbi.de/elearning/data/FH-Bielefeld/lm_data/lm_1359639/git/branching-strategies.html#komplexe-branching-strategie-git-flow" target="_blank" rel="noopener">Git-Flow workflow (FH Bielefeld)</a></p>
 </div>
-<div class="paragraph">
-<p>+
-.https://www.geeksforgeeks.org/git/git-workflows-for-agile-development-teams/[Git Workflows For Agile Development Teams]
-image::gitflow_diagram_gfg.png[]</p>
+<div class="sect4">
+<h5 id="_git_flow_workflow"><a class="anchor" href="#_git_flow_workflow"></a>Git-Flow Workflow</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.hsbi.de/elearning/data/FH-Bielefeld/lm_data/lm_1359639/git/branching-strategies.html#komplexe-branching-strategie-git-flow" target="_blank" rel="noopener">Git-Flow workflow (FH Bielefeld)</a></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/gitflow_diagram_gfg.png" alt="gitflow diagram gfg">
 </div>
-<div class="paragraph">
-<p>===== GitHub Flow
-<strong> <a href="https://www.w3schools.com/git/git_github_flow.asp?remote=github" target="_blank" rel="noopener">GitHub flow</a>
-</strong> <a href="https://www.hsbi.de/elearning/data/FH-Bielefeld/lm_data/lm_1359639/git/branching-strategies.html#vereinfachte-braching-strategie-github-flow" target="_blank" rel="noopener">Vereinfachte Braching-Strategie: GitHub Flow (FH-Bielefeld)</a></p>
+<div class="title">Figure 2. <a href="https://www.geeksforgeeks.org/git/git-workflows-for-agile-development-teams/">Git Workflows For Agile Development Teams</a></div>
 </div>
-<div class="paragraph">
-<p>+
-.https://blog.programster.org/git-workflows[GitHub-Flow in Programster&#8217;s Blog]
-image::github-flow.png[]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_github_flow"><a class="anchor" href="#_github_flow"></a>GitHub Flow</h5>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.w3schools.com/git/git_github_flow.asp?remote=github" target="_blank" rel="noopener">GitHub flow</a></p>
+</li>
+<li>
+<p><a href="https://www.hsbi.de/elearning/data/FH-Bielefeld/lm_data/lm_1359639/git/branching-strategies.html#vereinfachte-braching-strategie-github-flow" target="_blank" rel="noopener">Vereinfachte Braching-Strategie: GitHub Flow (FH-Bielefeld)</a></p>
+<div class="imageblock">
+<div class="content">
+<img src="images/github-flow.png" alt="github flow">
+</div>
+<div class="title">Figure 3. <a href="https://blog.programster.org/git-workflows">GitHub-Flow in Programster&#8217;s Blog</a></div>
 </div>
 <div class="ulist">
 <ul>
 <li>
 <p>Fazit:</p>
-<div class="ulist">
-<ul>
+</li>
+</ul>
+</div>
+</li>
 <li>
 <p><strong>Git-Flow Workflow</strong>: Es gibt 2 Haupt-Branches (main, develop) und mehrere Neben-Branches (feature, release, hotfix)</p>
 </li>
@@ -836,15 +867,13 @@ image::github-flow.png[]</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
-<div class="paragraph">
-<p>=== Merging vs. Rebasing</p>
 </div>
-<div class="paragraph">
-<p>==== Technische Grundlagen</p>
 </div>
+<div class="sect2">
+<h3 id="_merging_vs_rebasing"><a class="anchor" href="#_merging_vs_rebasing"></a>4.2. Merging vs. Rebasing</h3>
+<div class="sect3">
+<h4 id="_technische_grundlagen"><a class="anchor" href="#_technische_grundlagen"></a>4.2.1. Technische Grundlagen</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -852,9 +881,9 @@ image::github-flow.png[]</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Warum Rebasing?</p>
 </div>
+<div class="sect3">
+<h4 id="_warum_rebasing"><a class="anchor" href="#_warum_rebasing"></a>4.2.2. Warum Rebasing?</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -878,12 +907,12 @@ image::github-flow.png[]</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Merging vs. Rebasing</p>
 </div>
-<div class="paragraph">
-<p>==== Technische Grundlagen</p>
 </div>
+<div class="sect2">
+<h3 id="_merging_vs_rebasing_2"><a class="anchor" href="#_merging_vs_rebasing_2"></a>4.3. Merging vs. Rebasing</h3>
+<div class="sect3">
+<h4 id="_technische_grundlagen_2"><a class="anchor" href="#_technische_grundlagen_2"></a>4.3.1. Technische Grundlagen</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -891,9 +920,9 @@ image::github-flow.png[]</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>==== Warum Rebasing?</p>
 </div>
+<div class="sect3">
+<h4 id="_warum_rebasing_2"><a class="anchor" href="#_warum_rebasing_2"></a>4.3.2. Warum Rebasing?</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -904,10 +933,11 @@ image::github-flow.png[]</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>=== Stashing</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_stashing"><a class="anchor" href="#_stashing"></a>4.4. Stashing</h3>
+
 </div>
 </div>
 </div>
@@ -915,7 +945,7 @@ image::github-flow.png[]</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2025-10-22 08:15:26 UTC
+Last updated 2025-10-22 08:24:07 UTC
 </div>
 </div>
 </body>
