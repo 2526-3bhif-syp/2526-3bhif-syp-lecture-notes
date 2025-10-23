@@ -8,7 +8,10 @@
     - Projekte heben sich von der Alltagsroutine ab - im richtigen Maß eingesetzt, wirken sie *motivierend*, da sie dem individuelleren Selbstbewusstsein heutiger Erwerbsträger besser entsprechen.
     - Im Zuge der Globalisierung arbeiten verteilte Teams an gemeinsamen Aufgaben.
 
-*Linienorganisation*  = Eine Linie im Organigan (Vom Chef über Abteilungsleiter zu den Angestellten)
+*Linienorganisation*  = Eine Linie im Organigramm (Vom Chef über Abteilungsleiter zu den Angestellten)
+
+.Quelle: https://t2informatik.de/wissen-kompakt/organigramm/
+image::https://t2informatik.de/wp-content/uploads/2024/01/organigramm.png[]
 
 === Die Durchführung von Projekten kann Innovationen in folgenden Bereichen unterstützen (Jan Brunner)
     - *Technik*
@@ -27,7 +30,7 @@ Projekt -> Merkmale -> höheres Risiko -> erfordert den Einsatz von Projektphase
     - *zeitliche Zielsetzung* / Von wann bis wann 
     - *relative Neuartigkeit* / Habe ich es schonmal gemacht
     - *beschränkte Ressourcen* / Wie viel Budget habe ich zum Beispiel oder wie viel Material
-    - *Komplexität* / Wie viele Personen arbeiten an dem Projekt. Wie viele verschiedene Teilaufgaben gibt es und wie ist die Abhängigkeit von diesen.
+    - *Komplexität* / Wie viele Personen arbeiten an dem Projekt. Wie viele verschiedene Teilaufgaben gibt es und wie ist die Abhängigkeit zwischen diesen.
 
 === Risiko (Jan Brunner)
 
@@ -39,9 +42,9 @@ Wegen der Neuartigkeit und Komplexität hat ein Projekt eine höhere Wahrscheinl
     - *als Zeitrisiko* / / Zu großes Projekt für die angegebene Zeit
     - *als Aufwandsrisiko* / Wenn das Projekt zu viele Ressourcen braucht
     - *als Zielsetungsrisiko* / Das gesetzte Ziel wird nicht erreicht
-    - *als Verwertbarkeitsrisiko* / Das Projekt wird nicht genutzt, d. h. im umkehrschluss kein Geld, wenn es ein Monitäresprojekt war. Außerdem großer Verlust vom Unternehmen selber.
+    - *als Verwertbarkeitsrisiko* / Das Projekt wird nicht genutzt, d. h. im Umkehrschluss kein Geld, wenn es ein Monitäresprojekt war. Außerdem großer Verlust vom Unternehmen selber.
 
-Um Risiken zu verringern braucht man das Risikomanagement. Hier werden rechtzeitig Vorkehrungen getroffen, um Risiken zu senken.
+Um Risiken zu verringern, braucht man das Risikomanagement. Hier werden rechtzeitig Vorkehrungen getroffen, um Risiken zu senken.
 
 == Weitere Projektmerkmale (Jan Brunner)
 Um so mehr Merkmale um so genauer kann ein Projekt beschrieben werden.
@@ -80,15 +83,15 @@ Um so mehr Merkmale um so genauer kann ein Projekt beschrieben werden.
 * *Projektvarianten*: Sind die verschiedenen Wege wie ein Projekt bewältigt werden kann und nach der Abwiegung der Vor- und Nachteile entscheidet man sich dann für eine Variante.
 * *Projektentscheid*: Wie das Projekt genehmigt und durchgeführt oder nicht.
 * *Reporting*: Beim Reporting werden Daten so aufbereitet, dass man sehen kann wie gut ein Projekt läuft.
-* *Claim-Management*: Alles was zum Projekt dazu gehört. Kurz gesagt was ist im Projekt mitinbegriffen
-* *Projekt-Controlling*: Projekt Steuerung. Wie viel Geld habe ich gebraucht. Bin ich zeitlich gut im Rahmen usw.
+* *Claim-Management*: Alles, was zum Projekt dazu gehört. Kurz gesagt was ist im Projekt inbegriffen
+* *Projekt-Controlling*: Projektsteuerung. Wie viel Geld habe ich gebraucht. Bin ich zeitlich gut im Rahmen usw.
 
 
 == Projektarten (Jan Brunner)
 
 * *nach dem Auftraggeber*: intern oder extern
 * *nach dem Zielen*: sachzielorientiert oder prozessorientiert
-* *nach der Häufigkeit*: repetitive (wiederholend) oder nicht repetitiv(einmalig).
+* *nach der Häufigkeit*: repetitive (wiederholend) oder nicht repetitiv (einmalig).
 
 *!!! Verweis* Grafik Seite 13.   
 
