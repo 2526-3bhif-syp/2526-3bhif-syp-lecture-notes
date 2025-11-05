@@ -227,10 +227,10 @@ image::github-flow.png[]
 === Forks and Pull Requests
 In case somebody wants to contribute to a repo (owned by another person or organization) a fork of the original repo has to be done. The contributor can now change the forked repo without any limitations. When the contributor to get their changes back into the original repo they do a pull request, i.e., the contributor asks the owner to merge the changes back to the original repo.
 
-image::git-merge-request-scenarios.001.png[]
+image::merge-request-scenarios.001.png[]
 
 A fork of a repo can be seen as a smart copy of the original repository. Smart in this sense that the fork has a "backlink" to the original repo and is aware if the original has changed. As a contributor be aware if you ask for a pull request to have your fork synchronized with the original before creating a merge request.
 
-image::git-merge-request-scenarios.002.png[]
+image::merge-request-scenarios.002.png[]
 
 === Exercises
