@@ -1,0 +1,47 @@
+=== Lecture Notes 11.11.2025 - Haider Nico
+
+== Klassen - Objekte
+
+* Klasse: Blueprint für ein Objekt
+* Objekt: allokierter Speicher am Heap
+* Identität (Identity): Adresse wo das Objekt im Heap gespeichert ist
+
+=== Unterschied: Klassen- zu Objektdiagramm
+
+* Klassendiagramm: Bauplan
+* Objektdiagramm: Objekt kann mehrmals vorkommen, da man sie öfters initialisieren (mehrere Instanzen erstellen) kann
+
+=== Multiplizität:
+- 0 Instanzen: Utility KLasse
+- 1 Instanz: Singleton
+- mehrere Instanzen: Standard Klasse
+
+=== Generalisierung
+- Vererbungsbeziehung
+- genauer siehe Foliensatz
+
+=== Assoziation
+** Strukturelle Beziehung zwischen Elementen (Person arbeitet im Firma)
+** Multiplizität:
+- Eine Person arbeitet in einer Firma
+- Eine Firma kann mehrere Personen anstellen
+- von Person kann über Firma auf Firmaname zugegriffen werden, ABER nicht von Firma auf Person, bräuchte eigene List Person in Firma => wartungsintensiv, da mehr Code => keine Zugriffe in beide Richtungen erwünscht
+
+** Multiplikation = Kardinalität
+
+=== Assoziationsklasse
+
+* Tabelle zwischen zwei Klassen mit " * zu * " Beziehung
+
+=== Warum Normalisieren?
+* Datenbestand so aufbereiten damit man nach verschiedenen Kriterien / Dimensionen abfragen kann.
+* Informationswürfel: hat mehrere Dimensionen (z.B. Kunde, Produkt, Zeit,...)
+* konzeptionelles Schema: gilt für alle, wird durch Views aufgeteilt
+* externes Schema: Views (Sicht auf Datenbestand nach mehreren Dimensionen, SELECT in db)
+
+
+== UML-Diagramm
+
+* Modell: Abbildung der Realität unter Berücksichtigung eines besonderen Aspekts
+
+
