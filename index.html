@@ -477,6 +477,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_stashing">4.4. Stashing</a></li>
 </ul>
 </li>
+<li><a href="#_2025_11_05">5. 2025-11-05</a>
+<ul class="sectlevel2">
+<li><a href="#_forks_and_pull_requests">5.1. Forks and Pull Requests</a></li>
+<li><a href="#_exercises">5.2. Exercises</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -935,11 +941,114 @@ Antwort: SWOT-Analyse</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2025_11_05"><a class="anchor" href="#_2025_11_05"></a>5. 2025-11-05</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_forks_and_pull_requests"><a class="anchor" href="#_forks_and_pull_requests"></a>5.1. Forks and Pull Requests</h3>
+<div class="paragraph">
+<p>In case somebody wants to contribute to a repo (owned by another person or organization) a fork of the original repo has to be done. The contributor can now change the forked repo without any limitations. When the contributor to get their changes back into the original repo they do a pull request, i.e., the contributor asks the owner to merge the changes back to the original repo.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/merge-request-scenarios.001.png" alt="merge request scenarios.001">
+</div>
+</div>
+<div class="paragraph">
+<p>A fork of a repo can be seen as a smart copy of the original repository. Smart in this sense that the fork has a "backlink" to the original repo and is aware if the original has changed. As a contributor be aware if you ask for a pull request to have your fork synchronized with the original before creating a merge request.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/merge-request-scenarios.002.png" alt="merge request scenarios.002">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exercises"><a class="anchor" href="#_exercises"></a>5.2. Exercises</h3>
+<div class="paragraph">
+<p>Work in pairs (called Student A and student B in the sequel) and accomplish the following tasks.</p>
+</div>
+<div class="sect3">
+<h4 id="_simple_pull_request"><a class="anchor" href="#_simple_pull_request"></a>5.2.1. Simple Pull Request</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A creates a repository with one text file <code>Readme.md</code>.</p>
+</li>
+<li>
+<p>B forks it and clones it</p>
+</li>
+<li>
+<p>B makes some changes to <code>Readme.md</code> commits them and pushes them</p>
+</li>
+<li>
+<p>B creates a pull request to A to get the changes back to the original</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Play around with the GitHub UI to get used to it. Reflect the different directions when to compare the pulled changes. Look closely on the arrows in the UI.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_sync_a_given_fork"><a class="anchor" href="#_sync_a_given_fork"></a>5.2.2. Sync A Given Fork</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A does some changes to <code>Readme.md`</code> commits and pushes</p>
+</li>
+<li>
+<p>B reloads their fork to get the info that the original has changed</p>
+</li>
+<li>
+<p>B syncs the changes</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Again try the different scenarios GitHub offers (direct syncing, comparing) and get acquainted to the UI and functionality.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_create_a_pull_request_from_a_non_synced_fork"><a class="anchor" href="#_create_a_pull_request_from_a_non_synced_fork"></a>5.2.3. Create a Pull Request from a Non-Synced Fork</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A changes their repo and B reloads but <strong>does not</strong> sync!</p>
+</li>
+<li>
+<p>B changes their repo (same file and line as A) and creates a pull request</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>See what happens. How to deal with merge conflicts? How to avoid these?</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_pull_requests_from_a_non_synced_fork_but_using_a_branch"><a class="anchor" href="#_pull_requests_from_a_non_synced_fork_but_using_a_branch"></a>5.2.4. Pull Requests from a Non-Synced Fork But Using a Branch</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A changes their repo and B reloads but <strong>does not</strong> sync!</p>
+</li>
+<li>
+<p>B creates a new branch, changes the same file and line as A and creates a pull request</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Look again what&#8217;s happening? Prepare for a discussion next week about how to deal best with pull requests and especially which discipline to establish to avoid pain.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2025-11-14 10:15:57 UTC
+Last updated 2025-11-14 10:16:56 UTC
 </div>
 </div>
 </body>
