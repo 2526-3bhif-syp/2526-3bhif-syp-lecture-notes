@@ -235,7 +235,7 @@ image::merge-request-scenarios.002.png[]
 
 === Exercises
 
-Work in pairs (Student A and student B in the sequel) and accomplish the following tasks
+Work in pairs (called Student A and student B in the sequel) and accomplish the following tasks.
 
 ==== Simple Pull Request
 
@@ -244,25 +244,25 @@ Work in pairs (Student A and student B in the sequel) and accomplish the followi
 3. B makes some changes to `Readme.md` commits them and pushes them
 4. B creates a pull request to A to get the changes back to the original
 
-Play around with the GitHub UI to get used to it. Reflect the different directions when to compare the pulled changes.
+Play around with the GitHub UI to get used to it. Reflect the different directions when to compare the pulled changes. Look closely on the arrows in the UI.
 
 ==== Sync A Given Fork
 
 1. A does some changes to `Readme.md`` commits and pushes
-2. B reloads his fork to get the info that the original has changed
+2. B reloads their fork to get the info that the original has changed
 3. B syncs the changes
 
-Again try the different scenarios GitHub offers (directly syncing, comparing) and get acquainted with the UI and the functionality.
+Again try the different scenarios GitHub offers (direct syncing, comparing) and get acquainted to the UI and functionality.
 
 ==== Create a Pull Request from a Non-Synced Fork
 
-1. A changes his repo and B reloads but **does not** sync!
-2. B changes his repo (same file and line as A) and creates a pull request
+1. A changes their repo and B reloads but **does not** sync!
+2. B changes their repo (same file and line as A) and creates a pull request
 
 See what happens. How to deal with merge conflicts? How to avoid these?
 
 ==== Pull Requests from a Non-Synced Fork But Using a Branch
-1. A changes his repo and B reloads but **does not** sync!
+1. A changes their repo and B reloads but **does not** sync!
 2. B creates a new branch, changes the same file and line as A and creates a pull request
 
-Again: what happens? Prepare for a discussion next week about how to deal best with pull requests and especially which discipline to establish to avoid pain.
+Look again what's happening? Prepare for a discussion next week about how to deal best with pull requests and especially which discipline to establish to avoid pain.
