@@ -1,0 +1,21 @@
+@startuml
+
+class Tier {
+}
+
+class Rasse {
+}
+
+class Gehege {
+}
+
+class Aufenthalt {
+  von: Date
+  bis: Date
+}
+
+(Tier,Gehege) .. Aufenthalt
+
+
+Rasse "1" <-- "*" Tier
+@enduml
