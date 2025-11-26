@@ -26,7 +26,7 @@ endif::backend-html5[]
 
 Testtermine:
 
-* 2025-11-25: 1. Test
+ * [.line-through]#2025-11-25# 2026-12-02: 1. Test
 * 2026-01-13: 2. Test
 * 2026-04-21: 3. Test
 * 2026-06-09: 4. Test
@@ -142,6 +142,10 @@ image::effektivitaet-vs-effizienz.png[]
 * Was ist ein Stakeholder?
 
 ****
+
+== 2025-11-04
+
+
 
 
 == 2025-10-xx
@@ -278,3 +282,20 @@ Repeat the steps given in the last exercise but instead of merging the main bran
 
 == 2025-12-03
 Work on the exercises given on November 19.
+
+
+== 2025-11-11
+
+
+* xref:lecture-notes-11-11-25-haider-nico.adoc[]
+
+
+
+
+image::informationswuerfel.png[]
+
+
+== 2025-11-25
+[Max Mustermann]
+
+....
