@@ -26,7 +26,7 @@ endif::backend-html5[]
 
 Testtermine:
 
-* 2025-11-25: 1. Test
+ * [.line-through]#2025-11-25# 2026-12-02: 1. Test
 * 2026-01-13: 2. Test
 * 2026-04-21: 3. Test
 * 2026-06-09: 4. Test
@@ -142,6 +142,10 @@ image::effektivitaet-vs-effizienz.png[]
 * Was ist ein Stakeholder?
 
 ****
+
+== 2025-11-04
+
+
 
 
 == 2025-10-xx
@@ -266,3 +270,21 @@ See what happens. How to deal with merge conflicts? How to avoid these?
 2. B creates a new branch, changes the same file and line as A and creates a pull request
 
 Look again what's happening? Prepare for a discussion next week about how to deal best with pull requests and especially which discipline to establish to avoid pain.
+
+
+
+== 2025-11-11
+
+
+* xref:lecture-notes-11-11-25-haider-nico.adoc[]
+
+
+
+
+image::informationswuerfel.png[]
+
+
+== 2025-11-25
+[Max Mustermann]
+
+....
