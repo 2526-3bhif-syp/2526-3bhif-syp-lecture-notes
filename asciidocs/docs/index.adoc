@@ -294,8 +294,47 @@ Work on the exercises given on November 19.
 
 image::informationswuerfel.png[]
 
+== 2025-11-19
+=== Merging vs. Rebasing
 
-== 2025-11-25
-[Max Mustermann]
+==== Technische Grundlagen
 
-....
+* https://www.atlassian.com/git/tutorials/merging-vs-rebasing[Merging vs. rebasing^]
+
+==== Warum Rebasing?
+
+* https://seibert.group/blog/2015/08/17/git-merging-vs-rebasing-teil-1/[Git: Merging vs. Rebasing (Teil 1)^]
+
+* https://seibert.group/blog/2015/08/18/git-merging-vs-rebasing-teil-2/[Git: Merging vs. Rebasing (Teil 2)^]
+
+* Fazit:
+** Beim *Rebasing* werden die Commits des Branches in die Historie des Ziel-Branches eingefügt, als ob sie direkt dort erstellt worden wären. Dies führt zu einer geradlinigeren und saubereren Historie, kann jedoch die ursprüngliche Kontextinformation der Commits verändern.
+** Beim *Merge* hingegen bleibt die ursprüngliche Historie erhalten, was zu einer komplexeren Struktur führen kann, aber den Kontext bewahrt. Branches werden oft nach dem Merge gelöscht, um die Repository-Historie übersichtlich zu halten.
+
+=== Exercises
+Work in teams of two students, accomplish the tasks given below and document each step in an adoc or md file. Grading will be done by taking a sample of your documentations. We will especially check the clarity and understandability of your documentation. Think of your document that it could serve as an explanation for your younger sibling (or any other younger relative you have and like) to understand merging and rebasing by reading the documentation of the following two tasks.
+
+==== Merging
+1. Create a repository, add a file `onMain.md` and commit
+2. Create a branch `a-feature`, check it out, create a file `onBranch.md` and commit
+3. Add some more lines to `onBranch.md` and commit
+4. View and document the history
+4. Switch back to main branch and view and document the history as well as the content of your repository.
+5. Reflect and document: are there differences between the two histories and contents and why?
+6. Add some more lines to `onMain.md` and commit
+7. Repeat the last step a few times (at least twice)
+7. Document the history again
+8. Switch back to the feature branch
+9. Merge the main branch into the feature branch
+10. Document the history of the feature branch
+
+==== Rebasing
+Repeat the steps given in the last exercise but instead of merging the main branch into the feature branch rebase the feature branch on the last commit of the main branch. Of course, you need not document the histories etc. what you already did in the first example.
+
+**BUT** document the history of the feature branch after rebasing. There should be a difference. Analyse and document it clearly.
+
+== 2025-12-03
+=== Exercise
+Work on exercises given on November 19.
+
+=== Templating vs. Forking
