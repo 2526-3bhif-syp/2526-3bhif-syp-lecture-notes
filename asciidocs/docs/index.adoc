@@ -293,5 +293,20 @@ Repeat the steps given in the last exercise but instead of merging the main bran
 **BUT** document the history of the feature branch after rebasing. There should be a difference. Analyse and document it clearly.
 
 == 2025-12-03
+=== Exercise
 Work on the exercises given on November 19.
 
+=== Forking vs. Templating
+GitHub allows two ways to create a new repository based on the content of another:
+
+* Fork
+* Create from Templates
+
+==== Forking
+- Creates a new repository with the same name in a different name space
+- Link to the "original" repo is maintained, therefore updates of the original can be merged rather easily into the fork and also the original can get content from the fork easily (Pull requests)
+
+==== Templating
+- A template is a repository which is especially marked as a Template repo (Settings)
+- When creating a new repository one can choose the option to create it from a template
+- The new repository has no link back to the template
