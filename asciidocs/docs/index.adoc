@@ -241,6 +241,18 @@ See what happens. How to deal with merge conflicts? How to avoid these?
 
 Look again what's happening? Prepare for a discussion next week about how to deal best with pull requests and especially which discipline to establish to avoid pain.
 
+== 2025-11-11
+
+
+* xref:lecture-notes-11-11-25-haider-nico.adoc[]
+
+
+
+
+image::informationswuerfel.png[]
+
+
+
 == 2025-11-19
 === Merging vs. Rebasing
 
@@ -283,19 +295,3 @@ Repeat the steps given in the last exercise but instead of merging the main bran
 == 2025-12-03
 Work on the exercises given on November 19.
 
-
-== 2025-11-11
-
-
-* xref:lecture-notes-11-11-25-haider-nico.adoc[]
-
-
-
-
-image::informationswuerfel.png[]
-
-
-== 2025-11-25
-[Max Mustermann]
-
-....
