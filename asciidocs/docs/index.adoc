@@ -275,3 +275,6 @@ Work in teams of two students, accomplish the tasks given below and document eac
 Repeat the steps given in the last exercise but instead of merging the main branch into the feature branch rebase the feature branch on the last commit of the main branch. Of course, you need not document the histories etc. what you already did in the first example.
 
 **BUT** document the history of the feature branch after rebasing. There should be a difference. Analyse and document it clearly.
+
+== 2025-12-03
+Work on the exercises given on November 19.
