@@ -293,9 +293,9 @@ Repeat the steps given in the last exercise but instead of merging the main bran
 **BUT** document the history of the feature branch after rebasing. There should be a difference. Analyse and document it clearly.
 
 == 2025-12-03
-=== Exercise
-Work on the exercises given on November 19.
+Work on the exercises given on November 19. Keep the required documentation of your work. Maybe we need it to tie break unclear grading cases.
 
+== 2025-12-10
 === Forking vs. Templating
 GitHub allows two ways to create a new repository based on the content of another:
 
