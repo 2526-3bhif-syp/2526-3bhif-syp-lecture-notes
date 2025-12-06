@@ -473,9 +473,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_2025_10_xx">5. 2025-10-xx</a>
 <ul class="sectlevel2">
 <li><a href="#_branching">5.1. Branching</a></li>
-<li><a href="#_merging_vs_rebasing">5.2. Merging vs. Rebasing</a></li>
-<li><a href="#_merging_vs_rebasing_2">5.3. Merging vs. Rebasing</a></li>
-<li><a href="#_stashing">5.4. Stashing</a></li>
+<li><a href="#_stashing">5.2. Stashing</a></li>
 </ul>
 </li>
 <li><a href="#_2025_11_05">6. 2025-11-05</a>
@@ -485,7 +483,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_2025_11_11">7. 2025-11-11</a></li>
-<li><a href="#_2025_11_25">8. 2025-11-25</a></li>
+<li><a href="#_2025_11_19">8. 2025-11-19</a>
+<ul class="sectlevel2">
+<li><a href="#_merging_vs_rebasing">8.1. Merging vs. Rebasing</a></li>
+<li><a href="#_exercises_2">8.2. Exercises</a></li>
+</ul>
+</li>
+<li><a href="#_2025_12_03">9. 2025-12-03</a></li>
+<li><a href="#_2025_12_10">10. 2025-12-10</a>
+<ul class="sectlevel2">
+<li><a href="#_forking_vs_templating">10.1. Forking vs. Templating</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -880,72 +889,7 @@ Antwort: SWOT-Analyse</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_merging_vs_rebasing"><a class="anchor" href="#_merging_vs_rebasing"></a>5.2. Merging vs. Rebasing</h3>
-<div class="sect3">
-<h4 id="_technische_grundlagen"><a class="anchor" href="#_technische_grundlagen"></a>5.2.1. Technische Grundlagen</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing" target="_blank" rel="noopener">Merging vs. rebasing</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_warum_rebasing"><a class="anchor" href="#_warum_rebasing"></a>5.2.2. Warum Rebasing?</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://seibert.group/blog/2015/08/17/git-merging-vs-rebasing-teil-1/" target="_blank" rel="noopener">Git: Merging vs. Rebasing (Teil 1)</a></p>
-</li>
-<li>
-<p><a href="https://seibert.group/blog/2015/08/18/git-merging-vs-rebasing-teil-2/" target="_blank" rel="noopener">Git: Merging vs. Rebasing (Teil 2)</a></p>
-</li>
-<li>
-<p>Fazit:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Beim <strong>Rebasing</strong> werden die Commits des Branches in die Historie des Ziel-Branches eingefügt, als ob sie direkt dort erstellt worden wären. Dies führt zu einer geradlinigeren und saubereren Historie, kann jedoch die ursprüngliche Kontextinformation der Commits verändern.</p>
-</li>
-<li>
-<p>Beim <strong>Merge</strong> hingegen bleibt die ursprüngliche Historie erhalten, was zu einer komplexeren Struktur führen kann, aber den Kontext bewahrt. Branches werden oft nach dem Merge gelöscht, um die Repository-Historie übersichtlich zu halten.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_merging_vs_rebasing_2"><a class="anchor" href="#_merging_vs_rebasing_2"></a>5.3. Merging vs. Rebasing</h3>
-<div class="sect3">
-<h4 id="_technische_grundlagen_2"><a class="anchor" href="#_technische_grundlagen_2"></a>5.3.1. Technische Grundlagen</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing" target="_blank" rel="noopener">Merging vs. rebasing</a></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_warum_rebasing_2"><a class="anchor" href="#_warum_rebasing_2"></a>5.3.2. Warum Rebasing?</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://seibert.group/blog/2015/08/17/git-merging-vs-rebasing-teil-1/" target="_blank" rel="noopener">Git: Merging vs. Rebasing (Teil 1)</a></p>
-</li>
-<li>
-<p><a href="https://seibert.group/blog/2015/08/18/git-merging-vs-rebasing-teil-2/" target="_blank" rel="noopener">Git: Merging vs. Rebasing (Teil 2)</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_stashing"><a class="anchor" href="#_stashing"></a>5.4. Stashing</h3>
+<h3 id="_stashing"><a class="anchor" href="#_stashing"></a>5.2. Stashing</h3>
 
 </div>
 </div>
@@ -1071,11 +1015,161 @@ Antwort: SWOT-Analyse</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2025_11_25"><a class="anchor" href="#_2025_11_25"></a>8. 2025-11-25</h2>
+<h2 id="_2025_11_19"><a class="anchor" href="#_2025_11_19"></a>8. 2025-11-19</h2>
 <div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre></pre>
+<div class="sect2">
+<h3 id="_merging_vs_rebasing"><a class="anchor" href="#_merging_vs_rebasing"></a>8.1. Merging vs. Rebasing</h3>
+<div class="sect3">
+<h4 id="_technische_grundlagen"><a class="anchor" href="#_technische_grundlagen"></a>8.1.1. Technische Grundlagen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.atlassian.com/git/tutorials/merging-vs-rebasing" target="_blank" rel="noopener">Merging vs. rebasing</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_warum_rebasing"><a class="anchor" href="#_warum_rebasing"></a>8.1.2. Warum Rebasing?</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://seibert.group/blog/2015/08/17/git-merging-vs-rebasing-teil-1/" target="_blank" rel="noopener">Git: Merging vs. Rebasing (Teil 1)</a></p>
+</li>
+<li>
+<p><a href="https://seibert.group/blog/2015/08/18/git-merging-vs-rebasing-teil-2/" target="_blank" rel="noopener">Git: Merging vs. Rebasing (Teil 2)</a></p>
+</li>
+<li>
+<p>Fazit:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Beim <strong>Rebasing</strong> werden die Commits des Branches in die Historie des Ziel-Branches eingefügt, als ob sie direkt dort erstellt worden wären. Dies führt zu einer geradlinigeren und saubereren Historie, kann jedoch die ursprüngliche Kontextinformation der Commits verändern.</p>
+</li>
+<li>
+<p>Beim <strong>Merge</strong> hingegen bleibt die ursprüngliche Historie erhalten, was zu einer komplexeren Struktur führen kann, aber den Kontext bewahrt. Branches werden oft nach dem Merge gelöscht, um die Repository-Historie übersichtlich zu halten.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exercises_2"><a class="anchor" href="#_exercises_2"></a>8.2. Exercises</h3>
+<div class="paragraph">
+<p>Work in teams of two students, accomplish the tasks given below and document each step in an adoc or md file. Grading will be done by taking a sample of your documentations. We will especially check the clarity and understandability of your documentation. Think of your document that it could serve as an explanation for your younger sibling (or any other younger relative you have and like) to understand merging and rebasing by reading the documentation of the following two tasks.</p>
+</div>
+<div class="sect3">
+<h4 id="_merging"><a class="anchor" href="#_merging"></a>8.2.1. Merging</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a repository, add a file <code>onMain.md</code> and commit</p>
+</li>
+<li>
+<p>Create a branch <code>a-feature</code>, check it out, create a file <code>onBranch.md</code> and commit</p>
+</li>
+<li>
+<p>Add some more lines to <code>onBranch.md</code> and commit</p>
+</li>
+<li>
+<p>View and document the history</p>
+</li>
+<li>
+<p>Switch back to main branch and view and document the history as well as the content of your repository.</p>
+</li>
+<li>
+<p>Reflect and document: are there differences between the two histories and contents and why?</p>
+</li>
+<li>
+<p>Add some more lines to <code>onMain.md</code> and commit</p>
+</li>
+<li>
+<p>Repeat the last step a few times (at least twice)</p>
+</li>
+<li>
+<p>Document the history again</p>
+</li>
+<li>
+<p>Switch back to the feature branch</p>
+</li>
+<li>
+<p>Merge the main branch into the feature branch</p>
+</li>
+<li>
+<p>Document the history of the feature branch</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_rebasing"><a class="anchor" href="#_rebasing"></a>8.2.2. Rebasing</h4>
+<div class="paragraph">
+<p>Repeat the steps given in the last exercise but instead of merging the main branch into the feature branch rebase the feature branch on the last commit of the main branch. Of course, you need not document the histories etc. what you already did in the first example.</p>
+</div>
+<div class="paragraph">
+<p><strong>BUT</strong> document the history of the feature branch after rebasing. There should be a difference. Analyse and document it clearly.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2025_12_03"><a class="anchor" href="#_2025_12_03"></a>9. 2025-12-03</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Work on the exercises given on November 19. Keep the required documentation of your work. Maybe we need it to tie break unclear grading cases.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2025_12_10"><a class="anchor" href="#_2025_12_10"></a>10. 2025-12-10</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_forking_vs_templating"><a class="anchor" href="#_forking_vs_templating"></a>10.1. Forking vs. Templating</h3>
+<div class="paragraph">
+<p>GitHub allows two ways to create a new repository based on the content of another:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fork</p>
+</li>
+<li>
+<p>Create from Templates</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_forking"><a class="anchor" href="#_forking"></a>10.1.1. Forking</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Creates a new repository with the same name in a different name space</p>
+</li>
+<li>
+<p>Link to the "original" repo is maintained, therefore updates of the original can be merged rather easily into the fork and also the original can get content from the fork easily (Pull requests)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_templating"><a class="anchor" href="#_templating"></a>10.1.2. Templating</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>A template is a repository which is especially marked as a Template repo (Settings)</p>
+</li>
+<li>
+<p>When creating a new repository one can choose the option to create it from a template</p>
+</li>
+<li>
+<p>The new repository has no link back to the template</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1084,7 +1178,7 @@ Antwort: SWOT-Analyse</p>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2025-12-06 20:08:19 UTC
+Last updated 2025-12-06 20:08:40 UTC
 </div>
 </div>
 </body>
