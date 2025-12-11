@@ -310,3 +310,18 @@ GitHub allows two ways to create a new repository based on the content of anothe
 - A template is a repository which is especially marked as a Template repo (Settings)
 - When creating a new repository one can choose the option to create it from a template
 - The new repository has no link back to the template
+
+
+== 2025-12-09
+
+=== Virtualisierung mit Docker
+
+* https://htl-leonding-college.github.io/docker-lecture-notes/docker.html#_leichtgewichtige_virtualisierung[Leichtgewichtige vs. schwergewichtige Virtualisierung^]
+
+
+
+
+
+
+
+
