@@ -271,21 +271,21 @@ image::informationswuerfel.png[]
 ** Beim *Merge* hingegen bleibt die ursprüngliche Historie erhalten, was zu einer komplexeren Struktur führen kann, aber den Kontext bewahrt. Branches werden oft nach dem Merge gelöscht, um die Repository-Historie übersichtlich zu halten.
 
 === Exercises
-Work in teams of two students, accomplish the tasks given below and document each step in an adoc or md file. Grading will be done by taking a sample of your documentations. We will especially check the clarity and understandability of your documentation. Think of your document that it could serve as an explanation for your younger sibling (or any other younger relative you have and like) to understand merging and rebasing by reading the documentation of the following two tasks.
+Work in teams of two students, accomplish the tasks given below and document each step in an adoc or md file. Grading will be done by taking a sample of your documentation. We will especially check the clarity and understandability of your documentation. Think of your document that it could serve as an explanation for your younger sibling (or any other younger relative you have and like) to understand merging and rebasing by reading the documentation of the following two tasks.
 
 ==== Merging
-1. Create a repository, add a file `onMain.md` and commit
-2. Create a branch `a-feature`, check it out, create a file `onBranch.md` and commit
-3. Add some more lines to `onBranch.md` and commit
-4. View and document the history
-4. Switch back to main branch and view and document the history as well as the content of your repository.
-5. Reflect and document: are there differences between the two histories and contents and why?
-6. Add some more lines to `onMain.md` and commit
-7. Repeat the last step a few times (at least twice)
-7. Document the history again
-8. Switch back to the feature branch
-9. Merge the main branch into the feature branch
-10. Document the history of the feature branch
+. Create a repository, add a file `onMain.md` and commit
+. Create a branch `a-feature`, check it out, create a file `onBranch.md` and commit
+. Add some more lines to `onBranch.md` and commit
+. View and document the history
+. Switch back to main branch and view and document the history as well as the content of your repository.
+. Reflect and document: are there differences between the two histories and contents and why?
+. Add some more lines to `onMain.md` and commit
+. Repeat the last step a few times (at least twice)
+. Document the history again
+. Switch back to the feature branch
+. Merge the main branch into the feature branch
+. Document the history of the feature branch
 
 ==== Rebasing
 Repeat the steps given in the last exercise but instead of merging the main branch into the feature branch rebase the feature branch on the last commit of the main branch. Of course, you need not document the histories etc. what you already did in the first example.
@@ -318,6 +318,129 @@ GitHub allows two ways to create a new repository based on the content of anothe
 
 * https://htl-leonding-college.github.io/docker-lecture-notes/docker.html#_leichtgewichtige_virtualisierung[Leichtgewichtige vs. schwergewichtige Virtualisierung^]
 
+
+== 2025-01-xx
+
+=== Software-Engineering
+
+* Buch Kap. 6, S.184ff
+
+[plantuml,methoden-im-se,png]
+----
+@startwbs
++ Software-\nEntwicklungsprojekt
+++ allgemeine Methoden\ndes Projektmanagements
+***_ Projektstrukturplan
+***_ Netzplantechnik
+***_ ...
+++ Methoden des Software-Engineerings
+***_ Phasenmodell
+***_ Entwurfsstrategien
+***_ Teststrategien
+***_ ...
+@endwbs
+----
+
+* Vorgehensweise, um von der Realität zum "Modell" zu kommen
+** Top-down-Ansatz
+** Bottom-up-Ansatz
+** der evolutionäre Ansatz
+
+
+* Arten des Prototypings
++
+image::arten-des-prototypings.png[]
+
+
+=== Phasenkonzepte und Phasenmodelle
+
+* SDLC - Software Development Life Cycle
++
+image::software-development-life-cycle.png[]
+
+=== Prozessmodelle
+
+Die Begriffe "*Phasenmodell*" und *Prozessmodell*" werden
+synonym als Bezeichnung für die Vorgehensanleitung bei Software-Entwicklungsprojekten verwendet.
+
+* *Phasenmodell* ist der ältere Begriff. Er betont die zeitlich klar
+strukturierte Abfolge von Projektabschnitten. Aus der Bezeichnung der
+Abschnitte, zB "*Analyse*", "*Entwurf*" …., leiten sich die zu erledigenden Aufgaben ab.
+* *Prozessmodell* ist der neuere Begriff. Er streicht die Tätigkeiten (oder Prozesse) während des Software-Entwicklungsprojekts heraus. Aktivitäten im Projekt sind nicht mehr an eine strenge chronologische Anordnung gebunden, sondern können in kurzen, iterativen Zyklen oder überlappend erfolgen.
+
+* Bekannte Prozessmodelle:
+** Wasserfallmodell
+** Spiralmodell nach Boehm
+** V-Modell
+
+Grundsätzlich unterscheidet man:
+
+[plantuml,vorgehensmodelle,png]
+----
+@startwbs
++ Vorgehensmodelle
+++ klassisch
+***_ Wasserfallmodell
+***_ Spiralmodell
+***_ V-Modell
+***_ ...
+++ agil
+***_ XP (Extreme Programming)
+***_ Kanban
+***_ SCRUM
+***_ ...
+@endwbs
+----
+
+image::v-modell.png[]
+
+
+IMPORTANT: Bei den klassischen Vorgehensmodellen legt man i.a. sehr früh die Anforderungen fest und entwirft das Softwareprodukt im Voraus, um es dann zu implementieren und zu testen. Änderungen sind nur schwer möglich.
+
+
+Darum wurden agile Vorgehensmodelle entwickelt, die flexibler auf Änderungen reagieren können.
+
+image::v-modell-scrum.png[]
+
+Die agilen Methoden besprechen wir später im https://edufs.edu.htl-leonding.ac.at/moodle/pluginfile.php/274428/mod_resource/content/0/01.Vorgehensmodelle.pdf[Detail^].
+
+=== Systemanalyse und Anforderungen
+
+Buch Kap. 7, S. 235ff
+
+Da bei den klassischen Vorgehensmodellen die Anforderungen sehr früh festgelegt werden, ist eine sorgfältige Systemanalyse notwendig. Auch kann nun eine Systemspezifikation (Pflichtenheft) erstellt werden.
+
+Spezifikation ... technische Beschreibung
+
+==== Anforderungsanalyse
+
+* Interview
+* Fragebogen
+* Beobachtung
+* Selbstaufschreibung
+* Dokumentenanalyse
+
+
+==== Pflichtenheft (!)
+
+****
+
+*Fragen*:
+
+* Unterschied Lastenheft vs Pflichtenheft?
+* *Gliederung eines Pflichtenhefts?*
+* Unterschied funktionale vs nicht-funktionale Anforderungen (NFA)? Nennen Sie Beispiele.
+* Welche NFAs gibt es?
+** https://www.johner-institut.de/blog/iec-62304-medizinische-software/funktionale-und-nicht-funktionale-anforderungen/[Unterscheidung von funktionalen und nicht-funktionale Anforderungen^]
++
+.Quelle: https://www.qz-online.de/a/fachartikel/gute-software-braucht-klare-kriterien-5074378
+image::nfa-iso25010.jpg[]
+* Was ist ein Mengengerüst?
+
+
+
+
+****
 
 
 
