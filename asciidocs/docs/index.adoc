@@ -415,7 +415,7 @@ Da bei den klassischen Vorgehensmodellen die Anforderungen sehr früh festgelegt
 
 Spezifikation ... technische Beschreibung
 
-==== Anforderungsanalyse
+==== Anforderungsanalyse (Requirements Elicitation)
 
 (siehe Buch für Details)
 
