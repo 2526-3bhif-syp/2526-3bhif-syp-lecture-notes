@@ -504,8 +504,15 @@ image::https://www.globalcertllc.com/images/ISOIEC1.jpg[]
 
 * Was ist ein Mengengerüst?
 
+* Kreieren Sie ein Bsp für
+** Ausgangssituation
+** Istzustand
+** Problemstellung
+** Aufgabenstellung (Sollzustand)
+** Ziele
 
-
++
+Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ****
 
