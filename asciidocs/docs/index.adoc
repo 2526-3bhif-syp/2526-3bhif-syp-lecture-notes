@@ -57,8 +57,11 @@ https://jamstack.org/generators/
 * git - clients
 * git - workflow
 +
+.Antwort
+[%collapsible]
+====
 image::git-architecture.png[]
-
+====
 
 
 * Unterschied zwischen git und GitHub/gitlab/bitbucket/...?
@@ -474,6 +477,9 @@ Ja, auch wenn es keine Papierdokumente gibt, so sind digitale Dokumente (z.B. Wo
 
 
 ==== Pflichtenheft (!)
+
+* Ein Template steht https://htl-leonding-college.github.io/asciidoctor-html-template/sysspec.html[hier^] bzw.
+https://github.com/htl-leonding-college/asciidoctor-html-template/blob/main/asciidocs/docs/sysspec.adoc[hier als asciidoc^] zur Verfügung
 
 ****
 
