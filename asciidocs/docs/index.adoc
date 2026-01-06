@@ -414,11 +414,63 @@ Spezifikation ... technische Beschreibung
 
 ==== Anforderungsanalyse
 
+(siehe Buch für Details)
+
 * Interview
 * Fragebogen
 * Beobachtung
 * Selbstaufschreibung
 * Dokumentenanalyse
+
+****
+
+*Fragen*:
+
+* Welche Arten der Erfassungsmethoden gibt es?
++
+.Antwort
+[%collapsible]
+====
+* direkte Erfassungsmethoden (Daten entstehen im Moment der Erhebung an der Quelle)
+** Interview
+** Beobachtung
+* indirekte Erfassungsmethoden (Daten werden über Aufzeichnungen oder vorhandene Unterlagen gewonnen)
+** Fragebogen
+** Selbstaufschreibung
+** Dokumentenanalyse
+====
+
+* Interviewformen?
+
+* Durchführung von Interviews?
+
+* Phasen bei der Durchführung von Interviews?
+
+* Vor- und Nachteile von Interviews?
+
+* Arten von Fragebögen?
+
+* Fragebogen: Vor- und Nachteile?
+
+* Beobachtungsformen?
+
+* Beobachtung: Vor- und Nachteile?
+
+* Vorgehensrahmen bei der Selbstaufschreibung?
+
+* Selbstaufschreibung: Vor- und Nachteile?
+
+* Ist eine Dokumentenanalyse in einer Zeit der Digitalisierung noch sinnvoll?
++
+.Antwort
+[%collapsible]
+====
+Ja, auch wenn es keine Papierdokumente gibt, so sind digitale Dokumente (z.B. Word, PDF, Excel, E-Mails, ...) immer noch Dokumente, die analysiert werden können. Auch Bildschirmformulare oder Reports können als Dokumente angesehen werden.
+====
+
+
+
+****
 
 
 ==== Pflichtenheft (!)
@@ -431,10 +483,19 @@ Spezifikation ... technische Beschreibung
 * *Gliederung eines Pflichtenhefts?*
 * Unterschied funktionale vs nicht-funktionale Anforderungen (NFA)? Nennen Sie Beispiele.
 * Welche NFAs gibt es?
-** https://www.johner-institut.de/blog/iec-62304-medizinische-software/funktionale-und-nicht-funktionale-anforderungen/[Unterscheidung von funktionalen und nicht-funktionale Anforderungen^]
++
+.Antwort
+[%collapsible]
+====
+* https://www.johner-institut.de/blog/iec-62304-medizinische-software/funktionale-und-nicht-funktionale-anforderungen/[Unterscheidung von funktionalen und nicht-funktionale Anforderungen^]
 +
 .Quelle: https://www.qz-online.de/a/fachartikel/gute-software-braucht-klare-kriterien-5074378
 image::nfa-iso25010.jpg[]
+* siehe https://www.globalcertllc.com/page.php?id=97&title=ISO/IEC%2025010[auch^]
++
+image::https://www.globalcertllc.com/images/ISOIEC1.jpg[]
+====
+
 * Was ist ein Mengengerüst?
 
 
