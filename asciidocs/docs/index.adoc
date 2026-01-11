@@ -516,9 +516,17 @@ Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ****
 
+== 2025-12-23
 
+[cols="2,1,1,1,1,1", options="header"]
+|===
+| Projekt | 1 | 2 | 3 | 4 | (5)
 
-
-
-
-
+| DnD Character Builder.     | Marazovic(1) | Mamsaleh(1)   | Music(1)     | Trkulja(1) | Becer(1)
+| Dnd MapGenerator           | Hadzic(1)    | Reitbauer(1)  | Grünzweil(1) | Haider(1)  | Hasem(1)
+| Vinylverwaltung            | Stoica(1)    | Dirnberger(1) | Solomun(1)   | Darabos(1) | Dürk(1)
+| Flashcards                 | Mostbauer(1) | Brunner(1)    | Parzer(1)    | Yagci(1)   |
+| Mobility Games Recommender | Ibo(1)       | Kurtic(1)     | Maric(1)     |            | 
+| TripPlanner                | Hassani(1)   | Elgit(1)      | Gashi(1)     |            |
+| BetterMindMaps             | Heissinger(1)| Lohninger(1)  | James(1)     | Dönmez(1)  | Satybaldy(1)
+|===
