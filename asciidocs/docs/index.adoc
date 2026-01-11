@@ -530,4 +530,4 @@ Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ****
 
-link:/img/Unit04_RequirementsPresentation.pdf
+link:img/Unit04_RequirementsPresentation.pdf
