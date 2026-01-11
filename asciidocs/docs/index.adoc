@@ -439,6 +439,11 @@ Spezifikation ... technische Beschreibung
 * Selbstaufschreibung
 * Dokumentenanalyse
 
+.Link to the presentation concerning Requirements (click on the image)
+[link=pdf/Unit04_RequirementsPresentation.pdf]
+image::pdf-requirements.png[]
+
+
 ****
 
 *Fragen*:
@@ -530,4 +535,4 @@ Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ****
 
-link:images/Unit04_RequirementsPresentation.pdf[Link to the presentation concerning Requirements^]
+
