@@ -530,4 +530,4 @@ Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ****
 
-link:images/Unit04_RequirementsPresentation.pdf[]
+link:images/Unit04_RequirementsPresentation.pdf[Link to the presentation concerning Requirements^]
