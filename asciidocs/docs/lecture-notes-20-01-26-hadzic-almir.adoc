@@ -1,0 +1,69 @@
+== Lecture Notes 20.01.2026 - Hadzic Almir
+:icons: font
+
+* Persistent: dauerhaft speichern. Die Daten überleben wenn der Prozess geschlossen wird.
+** z.B: Datenbanken
+
+* Transient: flüchtig, temporär speichern
+** z.B: Variablen in einem Java Programm, wenn der Prozess beendet wird
+
+* Serialisierung: Umwandlung von Daten in ein speicherbares Format.
+** z.B: JSON
+
+=== Einstieg in Docker
+
+* Docker Registry
+** Hier findet man die Docker Images. z.B: dockerhub
+
+* Docker Daemon
+** Läuft im Hintergrund und verwaltet Container und Images. Besitzt Root Rechte (im Gegensatz zu Podman)
+
+* Docker Build
+** Erstellt ein Image aus einem Dockerfile
+
+* Docker Pull
+** Holt ein Image aus dem Registry
+
+* Docker Start
+** Startet einen Container
+
+In einem Container läuft immer EIN Dienst.
+z.B: Webserver, Datenbank, ...
+
+Standartmäßig sind sie von außen nicht zugreifbar. Daher braucht man Ports.
+
+* z.B: docker run -p 8081:80
+** Host Port: 8081
+** Container Port: 80
+
+=== Bind Mount
+Mappen = zuordnen.
+
+Ein Ordner auf dem Host wird mit einem Ordner im Container verbunden.
+
+z.B: Ich erstelle im Container, innerhalb des verbunden Ordners, eine neue Datei. Diese Datei erscheint nun auch auf dem Host.
+
+=== Volume
+Volume speichert in einem eigenen Verzeichnis und wird von Docker verwaltet.
+
+Aufrufen unter:
+
+* in IntelliJ im "Volumes" Menü
+* docker desktop
+* docker volume ls
+
+=== Wichtige Befehle
+* docker run -it --name syp_ubuntu -v ${PWD}/my_opt:/opt ubuntu:latest /bin/bash
+
+** Erstellt einen neuen Container namens syp_ubuntu.
+** Verbindet das Host Verzeichnis ${PWD}/my_opt mit dem Container Verzeichnis /opt
+
+IMPORTANT: Alles links neben dem ':' ist auf dem Host. Alles rechts daneben ist in dem Container.
+
+IMPORTANT: Man soll beim Pullen von den Images immer eine Version angeben. NICHT 'latest' verwenden! Da es zu Versionskonflikten kommen kann.
+
+* docker container ls -a
+** Zeigt alle geschlossenen Container an
+
+* docker rm 'name'
+** Löscht den container
