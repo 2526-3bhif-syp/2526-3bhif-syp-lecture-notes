@@ -535,4 +535,8 @@ Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ****
 
+== 2026-01-20
 
+* Docker
+
+** xref:lecture-notes-20-01-26-hadzic-almir.adoc[]
