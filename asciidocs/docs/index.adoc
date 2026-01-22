@@ -535,4 +535,14 @@ Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ****
 
+== 2026-01-20
+
+* Persistenz: dauerhaft speichern von Daten. (Wenn die Daten den erstellenden Prozes überleben)
+* Transienz: flüchtig, temporär speichern von Daten
+
+=== Docker
+
+==== Volumes
+
+==== Ports
 
