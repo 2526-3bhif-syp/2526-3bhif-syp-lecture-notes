@@ -1,0 +1,67 @@
+= Implementierung (Doenmez Arda, 3BHIF)
+
+Bei einem Interface implementiert eine Klasse das Interface (nicht umgekehrt).
+
+*Code*:
+
+interface InterfaceA
+
+class ClassA
+
+ClassA ..|> InterfaceA : implements
+
+URL:(https://img.plantuml.biz/plantuml/svg/oymhIIrAIqnELV24iHovk99p4ekB5Pn19907eHNqz6hia5GfM2bavXRafEQcvfKK0m00)](https://editor.plantuml.com/uml/oymhIIrAIqnELV24iHovk99p4ekB5Pn19907eHNqz6hia5GfM2bavXRafEQcvfKK0m00)
+
+
+== Ports
+
+In jedem Container läuft ein Port und es laufen meist Dienste wie zB WEbserver oder Datenbanken.
+Die müssen über das Netzwerk erreichbar sein. Container sind per default von außen nicht erreichbar
+
+== Docker
+- *Persistenz*: bedeutet, dass Daten dauerhaft gespeichert werden,
+damit sie auch nach dem Ausschalten des Computers oder Beenden eines Programms erhalten bleiben.
+
+- *Transienz*: bedeutet, dass Daten nur vorübergehend existieren und nach dem Schließen eines Programms
+oder Ausschalten des Computers verschwinden.
+
+=== Registrie:
+
+=== Übung Docker Whalesay
+
+- "docker run --rm docker/whalesay cowsay hello 3bhif"
+
+
+< hello 3bhif >
+
+    \
+     \
+      \
+                    ##        .
+              ## ## ##       ==
+           ## ## ## ##      ===
+       /""""""""""""""""___/ ===
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+       \______ o          __/
+        \    \        __/
+          \____\______/
+
+
+
+=== bind Mount
+Ein Bind Mount ist wenn ein Ordner an einem Ort auf dem Computer genommen
+und an einem anderen Ort "eingehängt" wird so, dass beide Stellen auf die selben Dateien zugreifen
+
+=== Übung: nginx
+
+`docker run --rm -p 8081:80 --name nginx nginx`
+
+
+Schritt für Schritt:
+
+-  `docker run`: Erstellt und startet einen neuen Container aus einem Image.
+-  `--rm`: Löscht den Container automatisch, sobald er gestoppt wird.
+-  `-p 8081:80`: Verbindet den Port 8081 des Hosts mit dem Port 80 des Containers.
+So kann man im Browser `http://localhost:8081` auf den Container zugreifen.
+-  `--name nginx`: Vergibt den Namen "nginx" für den Container. Praktisch zum Stoppen oder Ansprechen.
+-  `nginx`: Das Docker-Image, aus dem der Container erstellt wird. In diesem Fall der offizielle Nginx-Webserver.
