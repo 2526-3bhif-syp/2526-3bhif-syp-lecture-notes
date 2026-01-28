@@ -5,9 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<meta name="author" content="Thomas W. Stütz">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>Asciidoctor-Features</title>
+<title>Implementierung (Doenmez Arda, 3BHIF)</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,120 +435,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-pre.rouge table td { padding: 5px; }
-pre.rouge table pre { margin: 0; }
-pre.rouge, pre.rouge .w {
-  color: #24292f;
-  background-color: #f6f8fa;
-}
-pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
-  color: #cf222e;
-}
-pre.rouge .gr {
-  color: #f6f8fa;
-}
-pre.rouge .gd {
-  color: #82071e;
-  background-color: #ffebe9;
-}
-pre.rouge .nb {
-  color: #953800;
-}
-pre.rouge .nc {
-  color: #953800;
-}
-pre.rouge .no {
-  color: #953800;
-}
-pre.rouge .nn {
-  color: #953800;
-}
-pre.rouge .sr {
-  color: #116329;
-}
-pre.rouge .na {
-  color: #116329;
-}
-pre.rouge .nt {
-  color: #116329;
-}
-pre.rouge .gi {
-  color: #116329;
-  background-color: #dafbe1;
-}
-pre.rouge .kc {
-  color: #0550ae;
-}
-pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
-  color: #0550ae;
-}
-pre.rouge .sb {
-  color: #0550ae;
-}
-pre.rouge .bp {
-  color: #0550ae;
-}
-pre.rouge .ne {
-  color: #0550ae;
-}
-pre.rouge .nl {
-  color: #0550ae;
-}
-pre.rouge .py {
-  color: #0550ae;
-}
-pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
-  color: #0550ae;
-}
-pre.rouge .o, pre.rouge .ow {
-  color: #0550ae;
-}
-pre.rouge .gh {
-  color: #0550ae;
-  font-weight: bold;
-}
-pre.rouge .gu {
-  color: #0550ae;
-  font-weight: bold;
-}
-pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
-  color: #0a3069;
-}
-pre.rouge .nd {
-  color: #8250df;
-}
-pre.rouge .nf, pre.rouge .fm {
-  color: #8250df;
-}
-pre.rouge .err {
-  color: #f6f8fa;
-  background-color: #82071e;
-}
-pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
-  color: #6e7781;
-}
-pre.rouge .gl {
-  color: #6e7781;
-}
-pre.rouge .gt {
-  color: #6e7781;
-}
-pre.rouge .ni {
-  color: #24292f;
-}
-pre.rouge .si {
-  color: #24292f;
-}
-pre.rouge .ge {
-  color: #24292f;
-  font-style: italic;
-}
-pre.rouge .gs {
-  color: #24292f;
-  font-weight: bold;
-}
-</style>
-<style>
     pre.rouge .hll {
         background-color: #ffc;
         display: block;
@@ -561,229 +446,142 @@ pre.rouge .gs {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Asciidoctor-Features</h1>
-<div class="details">
-<span id="author" class="author">Thomas W. Stütz</span><br>
-<span id="revnumber">version 1.0,</span>
-<span id="revdate">2026-01-28</span>
-</div>
+<h1>Implementierung (Doenmez Arda, 3BHIF)</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_include_source_code">1. Include Source Code</a></li>
-<li><a href="#_line_numbering_the_source_code">2. Line Numbering the source code</a></li>
-<li><a href="#_highlight_source_code">3. Highlight Source Code</a></li>
-<li><a href="#_line_numbering_highlighting">4. Line-Numbering + Highlighting</a></li>
-<li><a href="#_images">5. Images</a></li>
-<li><a href="#_diagrams">6. Diagrams</a></li>
-<li><a href="#_links">7. Links:</a></li>
+<li><a href="#_ports">1. Ports</a></li>
+<li><a href="#_docker">2. Docker</a>
+<ul class="sectlevel2">
+<li><a href="#_registrie">2.1. Registrie:</a></li>
+<li><a href="#_übung_docker_whalesay">2.2. Übung Docker Whalesay</a></li>
+<li><a href="#_bind_mount">2.3. bind Mount</a></li>
+<li><a href="#_übung_nginx">2.4. Übung: nginx</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div class="sect1">
-<h2 id="_include_source_code"><a class="anchor" href="#_include_source_code"></a>1. Include Source Code</h2>
-<div class="sectionbody">
-<details>
-<summary class="title">A collapsed list</summary>
-<div class="content">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>a</p>
-</li>
-<li>
-<p>b</p>
-</li>
-<li>
-<p>c</p>
-</li>
-</ol>
-</div>
-</div>
-</details>
-<div class="listingblock">
-<div class="title">Source Code File</div>
-<div class="content">
-<pre class="rouge highlight"><code data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FileRenamer</span> <span class="o">{</span>
-<span class="o">...</span>
-    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">renameFiles</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">try</span> <span class="o">(</span><span class="nc">Stream</span><span class="o">&lt;</span><span class="nc">Path</span><span class="o">&gt;</span> <span class="n">walk</span> <span class="o">=</span> <span class="nc">Files</span><span class="o">.</span><span class="na">walk</span><span class="o">(</span><span class="nc">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="no">DIRECTORY</span> <span class="o">+</span> <span class="nc">File</span><span class="o">.</span><span class="na">separator</span> <span class="o">+</span> <span class="s">"styles"</span><span class="o">)))</span> <span class="o">{</span>
-            <span class="n">walk</span>
-                    <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="nl">Files:</span><span class="o">:</span><span class="n">isRegularFile</span><span class="o">)</span>
-                    <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">file</span> <span class="o">-&gt;</span> <span class="o">{</span>
-                        <span class="nc">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="na">getFileName</span><span class="o">().</span><span class="na">toString</span><span class="o">();</span>
-                        <span class="nc">String</span> <span class="n">newFileName</span> <span class="o">=</span>
-                                <span class="n">fileName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">fileName</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">4</span><span class="o">)</span>
-                                        <span class="o">+</span> <span class="s">".min"</span>
-                                        <span class="o">+</span> <span class="n">fileName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">fileName</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="mi">4</span><span class="o">);</span>
-<span class="hll">                        <span class="c1">// tag::rename-file[]</span>
-</span>                        <span class="k">try</span> <span class="o">{</span>
-                            <span class="nc">Files</span><span class="o">.</span><span class="na">move</span><span class="o">(</span><span class="n">file</span><span class="o">,</span> <i class="conum" data-value="1"></i><b>(1)</b>
-                                    <span class="n">file</span><span class="o">.</span><span class="na">getParent</span><span class="o">().</span><span class="na">resolve</span><span class="o">(</span><span class="n">newFileName</span><span class="o">));</span> <i class="conum" data-value="2"></i><b>(2)</b>
-                        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-                            <span class="nc">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
-                        <span class="o">}</span>
-<span class="hll">                        <span class="c1">// end::rename-file[]</span>
-</span>                    <span class="o">});</span>
-        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
-        <span class="o">}</span>
-    <span class="o">}</span>
-<span class="o">...</span>
-<span class="o">}</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><code>[source, java]</code><br>
-<code>.Java code from project</code><br>
-<code>----</code><br>
-<code>include::src/main/java/at/htl/asciidoc/FileRenamer.java[tag=rename-file,indent=0]</code><br>
-<code>----</code></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_line_numbering_the_source_code"><a class="anchor" href="#_line_numbering_the_source_code"></a>2. Line Numbering the source code</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>[source,java,linenums]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_highlight_source_code"><a class="anchor" href="#_highlight_source_code"></a>3. Highlight Source Code</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>[source,java,highlight=4..5]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><a href="https://asciidoctor.org/docs/user-manual/#highlight-select-lines">Asciidoctor User Manual: Highlight Select Lines</a></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_line_numbering_highlighting"><a class="anchor" href="#_line_numbering_highlighting"></a>4. Line-Numbering + Highlighting</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>[source,java,linenums,highlight=4..5]</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_images"><a class="anchor" href="#_images"></a>5. Images</h2>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>With the backend attribute, it is possible to control the output:</p>
+<p>Bei einem Interface implementiert eine Klasse das Interface (nicht umgekehrt).</p>
 </div>
+<div class="paragraph">
+<p><strong>Code</strong>:</p>
+</div>
+<div class="paragraph">
+<p>interface InterfaceA</p>
+</div>
+<div class="paragraph">
+<p>class ClassA</p>
+</div>
+<div class="paragraph">
+<p>ClassA ..|&gt; InterfaceA : implements</p>
+</div>
+<div class="paragraph">
+<p>URL:(<a href="https://img.plantuml.biz/plantuml/svg/oymhIIrAIqnELV24iHovk99p4ekB5Pn19907eHNqz6hia5GfM2bavXRafEQcvfKK0m00" class="bare">https://img.plantuml.biz/plantuml/svg/oymhIIrAIqnELV24iHovk99p4ekB5Pn19907eHNqz6hia5GfM2bavXRafEQcvfKK0m00</a>)](<a href="https://editor.plantuml.com/uml/oymhIIrAIqnELV24iHovk99p4ekB5Pn19907eHNqz6hia5GfM2bavXRafEQcvfKK0m00" class="bare">https://editor.plantuml.com/uml/oymhIIrAIqnELV24iHovk99p4ekB5Pn19907eHNqz6hia5GfM2bavXRafEQcvfKK0m00</a>)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ports"><a class="anchor" href="#_ports"></a>1. Ports</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In jedem Container läuft ein Port und es laufen meist Dienste wie zB WEbserver oder Datenbanken.
+Die müssen über das Netzwerk erreichbar sein. Container sind per default von außen nicht erreichbar</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_docker"><a class="anchor" href="#_docker"></a>2. Docker</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>In the pdf the image is full-size</p>
+<p><strong>Persistenz</strong>: bedeutet, dass Daten dauerhaft gespeichert werden,
+damit sie auch nach dem Ausschalten des Computers oder Beenden eines Programms erhalten bleiben.</p>
 </li>
 <li>
-<p>in the slides and html the image is 50% sized</p>
+<p><strong>Transienz</strong>: bedeutet, dass Daten nur vorübergehend existieren und nach dem Schließen eines Programms
+oder Ausschalten des Computers verschwinden.</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre>ifdef::backend-html5,backend-revealjs[image:animal-pet-cute-kitten-45201.jpg[width=50%]]
-ifdef::backend-pdf[image:animal-pet-cute-kitten-45201.jpg[]]</pre>
-</div>
-</div>
-<div class="paragraph">
-<div class="title">Cute kitten (credits to <a href="https://www.pexels.com/@pixabay">pixabay</a>)</div>
-<p><span class="image"><img src="images/animal-pet-cute-kitten-45201.jpg" alt="animal pet cute kitten 45201" width="50%"></span></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_diagrams"><a class="anchor" href="#_diagrams"></a>6. Diagrams</h2>
-<div class="sectionbody">
-<div class="listingblock">
-<div class="content">
-<pre>[plantuml,bsp,png]
+<div class="sect2">
+<h3 id="_registrie"><a class="anchor" href="#_registrie"></a>2.1. Registrie:</h3>
 
-@startuml
-class A
-class B
-A -left-&gt; B
-@enduml</pre>
 </div>
+<div class="sect2">
+<h3 id="_übung_docker_whalesay"><a class="anchor" href="#_übung_docker_whalesay"></a>2.2. Übung Docker Whalesay</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>"docker run --rm docker/whalesay cowsay hello 3bhif"</p>
+</li>
+</ul>
 </div>
-<div class="imageblock">
+<div class="paragraph">
+<p>&lt; hello 3bhif &gt;</p>
+</div>
+<div class="literalblock">
 <div class="content">
-<img src="images/bsp.png" alt="bsp" width="130" height="61">
+<pre>  \
+   \
+    \
+                  ##        .
+            ## ## ##       ==
+         ## ## ## ##      ===
+     /""""""""""""""""___/ ===
+~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+     \______ o          __/
+      \    \        __/
+        \____\______/</pre>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_bind_mount"><a class="anchor" href="#_bind_mount"></a>2.3. bind Mount</h3>
+<div class="paragraph">
+<p>Ein Bind Mount ist wenn ein Ordner an einem Ort auf dem Computer genommen
+und an einem anderen Ort "eingehängt" wird so, dass beide Stellen auf die selben Dateien zugreifen</p>
 </div>
-<div class="sect1">
-<h2 id="_links"><a class="anchor" href="#_links"></a>7. Links:</h2>
-<div class="sectionbody">
+</div>
+<div class="sect2">
+<h3 id="_übung_nginx"><a class="anchor" href="#_übung_nginx"></a>2.4. Übung: nginx</h3>
+<div class="paragraph">
+<p><code>docker run --rm -p 8081:80 --name nginx nginx</code></p>
+</div>
+<div class="paragraph">
+<p>Schritt für Schritt:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://mrhaki.blogspot.com/2019/12/awesome-asciidoctor-auto-number-callouts.html">Haki-Blog</a> &#8594; look at the "related posts" - links at the end of the post</p>
+<p><code>docker run</code>: Erstellt und startet einen neuen Container aus einem Image.</p>
 </li>
 <li>
-<p><a href="https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/" class="bare">https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/</a></p>
+<p><code>--rm</code>: Löscht den Container automatisch, sobald er gestoppt wird.</p>
 </li>
 <li>
-<p><a href="https://asciidoctor.org/docs/asciidoc-writers-guide/" class="bare">https://asciidoctor.org/docs/asciidoc-writers-guide/</a></p>
+<p><code>-p 8081:80</code>: Verbindet den Port 8081 des Hosts mit dem Port 80 des Containers.
+So kann man im Browser <code><a href="http://localhost:8081" class="bare">http://localhost:8081</a></code> auf den Container zugreifen.</p>
 </li>
 <li>
-<p><a href="https://powerman.name/doc/asciidoc">Powerman Cheat Sheet</a></p>
+<p><code>--name nginx</code>: Vergibt den Namen "nginx" für den Container. Praktisch zum Stoppen oder Ansprechen.</p>
 </li>
 <li>
-<p>Froscon 18: Documentation with any editor
-<a href="https://media.ccc.de/v/froscon2018-2192-documentation_with_any_editor">movie</a>,
-<a href="https://programm.froscon.de/2018/system/event_attachments/attachments/000/000/498/original/froscon13-documentationwithanyeditor.pdf">pdf</a></p>
-</li>
-<li>
-<p><a href="https://www.vogella.com/tutorials/AsciiDoc/article.html">Vogella</a></p>
-</li>
-<li>
-<p>Writing documentation with Asciidoctor
-<a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;ved=2ahUKEwj2v4nf4oroAhVkrHEKHbwPCWQQwqsBMAB6BAgKEAQ&amp;url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DaAEXZaL9UUE&amp;usg=AOvVaw3wAmZiQkYusBQ8_BNRBLJi">movie</a>,
-<a href="https://www.eclipsecon.org/europe2015/sites/default/files/slides/2015-11-03_Writing_documentation_with_Asciidoctor.pdf">pdf</a></p>
-</li>
-<li>
-<p><a href="https://www.eclipsecon.org/europe2015/sites/default/files/slides/2015-11-03_Writing_documentation_with_Asciidoctor.pdf">Asciidoc Book Editor based on JavaFX 8</a></p>
-</li>
-<li>
-<p><a href="https://plugins.jetbrains.com/plugin/7391-asciidoc">Asciidoctor IntelliJ Plugin Project</a></p>
-</li>
-<li>
-<p>A very nice example of a reveal presentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/bentolor/java9to13">github-repo</a>,
-<a href="https://bentolor.github.io/java9to13/#/">slides</a></p>
-</li>
-<li>
-<p>CyberlandConf 2020 <a href="https://github.com/CodeFX-org/slides/tree/master/java-after-eight">github-repo</a>,
-<a href="https://slides.codefx.org/java-after-eight/2020-03-17-cyberland/#/">slides</a></p>
+<p><code>nginx</code>: Das Docker-Image, aus dem der Container erstellt wird. In diesem Fall der offizielle Nginx-Webserver.</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0<br>
 Last updated 2026-01-28 16:29:06 UTC
 </div>
 </div>
