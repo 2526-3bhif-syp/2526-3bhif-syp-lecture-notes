@@ -546,8 +546,61 @@ Erläutern Sie die Begriffe anhand Ihres Beispiels.
 
 ==== Ports
 
+== 2026-01-21
+=== General Overview on Scrum
+==== The Roles
+* Product Owner: the one who knows the product, has the best technical overview, drives the project, represents the customer's view
+* Scrum Master: the one who is coaching the team, removing impediments fostering continuous improvement
+* Team: developers, testers, architects, ...
+
+==== The Most Important Artifacts
+* Product Backlog: Collection of user stories, prioritized and effort estimated; owned by the product owner
+* User Story:
+  ** A short story that describes a feature.
+  ** In the form: As a <role> I want to <feature> in order to <reason>
+  ** This form ensures that every feature described shows *who* is doing *what* with the system and *why* it is necessary to do it.
+* Sprint Backlog: Collection of tasks to be done during a sprint; owned by the team
+* Impediment Backlog: Collection of impediments; owned by the scrum master
+
+==== Meetings and Folklore
+* Sprint: Period of time where features are implemented
+* Sprint planning meeting:
+   ** Done at the beginning of each sprint
+   ** Team defines which stories (based on the prios) to be done in the next sprint and refines them into clear tasks
+   ** Team and product owner refine the user stories which should come after this sprint
+* Daily scrum: aka Daily standup
+   ** Max 15 minutes every day where team stands together
+   ** Every team member tells what did I yesterday, what will I do today, are there any impediments?
+   ** Scrum master updates the team about the tasks in the impediment log
+* Sprint review
+   ** At the end of the sprint a shippable product is released and reviewed by the product owner and (ideally) the customer (product stake holders)
+   ** User stories are ticked off if ok
+   ** Progress and/or changes in the project are discussed
+* Sprint Retrospective: Team, scrum master and product owner reflect the last sprint: what was good, what was bad, how can we improve?
+
+.Link to the presentation concerning SW development lifecycle (click on the image)
+[link=pdf/Unit09_SWDevelopmentProcessHandout.pdf]
+image::pdf-sw-lifecycle.png[]
+
 
 == 2026-01-27
 
 * xref:lecture-notes-27-1-26-yagci-kerimcan.adoc[Mitschrift Docker Compose - Kerimcan Yagci]
 
+== 2026-01-28
+Review of system specs (Pflichtenheft) was done along one concrete example: *DnD Character Builder*
+
+We discussed how to improve the Initial Situation (*Ausgangssituation*) by describing more details of the game. In general this section must contain enough information to make the reader understand the domain.
+
+We found that the Actual State (*Istzustand*) must be improved by listing the already existing solutions available in the market. Further the feature set of the existing solutions should be briefly described. In general this section must contain enough information to make the reader understand how the problem can currently be tackled with existing solutions.
+
+We found that the Problem (*Problemstellung*) must be improved by briefly adding shortcomings of the existing solution described in Actual State. This is also the general approach. In this section your way of thinking is *Let me feel the pain*.
+
+We found that the functional requirements must not be one simple use case diagram. Although the diagram is important it is necessary to add a brief description of each requirement what it means in detail and why it is necessary. Think of the form of user stories: "As a <role> I want to <feature> in order to <reason>. The parts in the angular brackets have to be part of your description here.
+
+General things discussed
+
+* Avoid general Bla-sentences, they only annoy the reader and make them skip lines and reading sloppy
+* If you use GenAI to make your text better readable *YOU are the master of content!!*
+  ** `Generate a system spec for a DnD character builder` *BAD PROMPT!!* You will only get Bla text which is immediately recognizable as being generated. *If we get aware of such bullshit you are in DEEP TROUBLE!!*
+  ** `Please explain the game DnD in 8 lines. Especially emphasize the terms Dungeon Master, Problems, Classes, Peoples, Characters. The explanation shall be understandable by absolute beginners.` Good prompt *under the assumption* that you read the generated text and add more specific prompts to improve the text.
