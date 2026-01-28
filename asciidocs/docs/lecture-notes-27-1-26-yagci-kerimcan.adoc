@@ -1,0 +1,87 @@
+= Lecture Notes 27.01.2026 - Docker Compose
+Kerimcan Yagci
+1.0.0, {docdate}: Lecture Notes
+
+== Docker Compose
+
+Zusammenfassung von https://htl-leonding-college.github.io/docker-lecture-notes/docker-compose.html[Docker Compose Lecture Notes].
+
+=== Was bisher geschah (Entwicklung)
+
+* *Architektur:*
+** Früher: Mehrere Dienste pro Betriebssystem installiert.
+** -> Neu: Ein Dienst (Service) pro Container.
+
+* *Netzwerk:*
+** Früher: Manuelles Erstellen von Netzwerken (`docker network create`) und Einbinden von Containern (`--network`).
+** -> Neu: Verwendung von `docker-compose` (oder Kubernetes) zur Orchestrierung von Multi-Container-Applikationen.
+
+=== Überblick
+
+* `docker-compose` dient der *Orchestrierung* mehrerer Container.
+** _Orchestrierung_ bezeichnet die automatisierte Konfiguration, Koordination und Verwaltung von Computersystemen und Software.
+** Im Kontext von Docker bedeutet das: Verwaltung von Containern, deren Netzwerke, Volumes und Startreihenfolge.
+* Container laufen in einem gemeinsamen virtuellen Docker-Netzwerk.
+* Direkter Zugriff zwischen Containern ohne Port-Freigabe nach außen möglich.
+
+=== Konfiguration
+
+* Die Konfiguration erfolgt über eine YAML-File: `docker-compose.yml`.
+* Starten der Umgebung: `docker-compose up -d`
+** `-d`: Detached mode (läuft im Hintergrund).
+
+.Beispiel `docker-compose.yml` (Minecraft Server)
+[source,yaml]
+----
+version: '3.8'
+
+services:
+  mc:
+    image: itzg/minecraft-server
+    ports:
+      - 25565:25565
+    environment:
+      EULA: "TRUE"
+    volumes:
+      - ./minecraft-data:/data
+----
+
+== Pflichtenheft ("Was mache ich")
+
+Das Pflichtenheft beschreibt genau, *was* umgesetzt werden soll.
+
+=== Ausgangssituation
+Wer ist der Kunde? Was macht er? +
+_Beispiel: Die HTL Leonding ist eine HTL im oö. Zentralraum mit ca. 1000 Schülern und den Fachabteilungen Medientechnik, Informatik, …_
+
+=== Istzustand
+Wie läuft es aktuell ab (bevor es die neue Software gibt)? Beschreibung der speziellen Situation z.B. in der Abteilung.
+
+=== Problemstellung
+Was funktioniert aktuell schlecht? Was fehlt?
+
+=== Aufgabenstellung
+Wie soll die Lösung ("Sollzustand") aussehen?
+
+==== Funktionale Anforderungen
+Was muss die Software konkret machen können (Features)?
+
+==== Nichtfunktionale Anforderungen (NFA)
+z.B. Sicherheit.
+
+=== Ziele
+Was will man durch das Projekt erreichen? (z.B. Arbeitszeit sparen).
+
+=== Mengengerüst
+Was ist ein Mengengerüst? +
+Das Mengengerüst ist eine Abschätzung der Datenmengen und Benutzerzahlen. Man überlegt sich:
+* Wie viele Nutzer greifen gleichzeitig zu?
+* Wie viele Daten werden pro Tag/Jahr gespeichert?
+* Wie viel Speicherplatz wird benötigt?
+
+Das ist wichtig, um zu wissen, wie stark der Server sein muss.
+
+=== Rahmenbedingungen
+Vorgaben vom Auftraggeber, an die man sich halten muss (z.B. bestimmte Programmiersprache, Hardware, Deadlines).
+
+image::https://www.johner-institut.de/blog/wp-content/uploads/2011/12/120511_2246_NormenBashi1.png[]
