@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<meta name="author" content="firstname lastname">
+<meta name="author" content="Kerimcan Yagci">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>My Project</title>
+<title>Lecture Notes 27.01.2026 - Docker Compose</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,6 +436,120 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
+<style>
     pre.rouge .hll {
         background-color: #ffc;
         display: block;
@@ -447,138 +561,212 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>My Project</h1>
+<h1>Lecture Notes 27.01.2026 - Docker Compose</h1>
 <div class="details">
-<span id="author" class="author">firstname lastname</span><br>
+<span id="author" class="author">Kerimcan Yagci</span><br>
 <span id="revnumber">version 1.0.0,</span>
 <span id="revdate">2026-01-28</span>
-<br><span id="revremark">Some notes</span>
+<br><span id="revremark">Lecture Notes</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_pflichtenheft_was_mache_ich">1. Pflichtenheft "Was mache ich"</a>
+<li><a href="#_docker_compose">1. Docker Compose</a>
 <ul class="sectlevel2">
-<li><a href="#_ausgangssituation">1.1. Ausgangssituation</a></li>
-<li><a href="#_istzustand">1.2. Istzustand</a></li>
-<li><a href="#_problemstellung">1.3. Problemstellung</a></li>
-<li><a href="#_aufgabenstellung">1.4. Aufgabenstellung</a></li>
-<li><a href="#_ziele">1.5. Ziele</a></li>
-<li><a href="#_mengengerüst">1.6. Mengengerüst</a></li>
-<li><a href="#_rahmenbedingungen">1.7. Rahmenbedingungen</a></li>
+<li><a href="#_was_bisher_geschah_entwicklung">1.1. Was bisher geschah (Entwicklung)</a></li>
+<li><a href="#_überblick">1.2. Überblick</a></li>
+<li><a href="#_konfiguration">1.3. Konfiguration</a></li>
 </ul>
 </li>
-<li><a href="#_entwurf_wie_mache_ich_es">2. Entwurf "Wie mache ich es"</a>
+<li><a href="#_pflichtenheft_was_mache_ich">2. Pflichtenheft ("Was mache ich")</a>
 <ul class="sectlevel2">
-<li><a href="#_systemarchitektur">2.1. Systemarchitektur</a></li>
-<li><a href="#">2.2. &#8230;&#8203;</a></li>
-</ul>
-</li>
-<li><a href="#_projekthandbuch_organisatorische_rahmenbedingungen">3. Projekthandbuch "Organisatorische Rahmenbedingungen"</a>
-<ul class="sectlevel2">
-<li><a href="#_gantt_diagramm">3.1. GANTT-Diagramm</a></li>
+<li><a href="#_ausgangssituation">2.1. Ausgangssituation</a></li>
+<li><a href="#_istzustand">2.2. Istzustand</a></li>
+<li><a href="#_problemstellung">2.3. Problemstellung</a></li>
+<li><a href="#_aufgabenstellung">2.4. Aufgabenstellung</a></li>
+<li><a href="#_ziele">2.5. Ziele</a></li>
+<li><a href="#_mengengerüst">2.6. Mengengerüst</a></li>
+<li><a href="#_rahmenbedingungen">2.7. Rahmenbedingungen</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p><span class="icon"><a class="image" href="https://raw.githubusercontent.com/htl-leonding-college/asciidoctor-docker-template/master/asciidocs/sysspec.adoc"><i class="fa fa-file-text-o"></i></a></span> ‏ ‏ ‎
-<span class="icon"><a class="image" href="https://github.com/htl-leonding-college/asciidoctor-docker-template"><i class="fa fa-github-square"></i></a></span> ‏ ‏ ‎
-<span class="icon"><a class="image" href="https://htl-leonding.github.io/"><i class="fa fa-home"></i></a></span></p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2 id="_pflichtenheft_was_mache_ich"><a class="anchor" href="#_pflichtenheft_was_mache_ich"></a>1. Pflichtenheft "Was mache ich"</h2>
+<h2 id="_docker_compose"><a class="anchor" href="#_docker_compose"></a>1. Docker Compose</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_ausgangssituation"><a class="anchor" href="#_ausgangssituation"></a>1.1. Ausgangssituation</h3>
 <div class="paragraph">
-<p>Die HTL Leonding ist eine HTL im oö. Zentralraum mit ca. 1000 Schülern und den Fachabteilungen Medientechnik, Informatik, &#8230;&#8203;.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_istzustand"><a class="anchor" href="#_istzustand"></a>1.2. Istzustand</h3>
-<div class="listingblock">
-<div class="content">
-<pre>Beschreibung der speziellen Situation zB in der Abteilung</pre>
-</div>
-</div>
+<p>Zusammenfassung von <a href="https://htl-leonding-college.github.io/docker-lecture-notes/docker-compose.html">Docker Compose Lecture Notes</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>1.3. Problemstellung</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>1.4. Aufgabenstellung</h3>
-<div class="sect3">
-<h4 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>1.4.1. Funktionale Anforderungen</h4>
-<div class="imageblock">
-<div class="content">
-<img src="images/wireframe.png" alt="wireframe" width="376" height="84">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_nichtfunktionale_anforderungen_nfa"><a class="anchor" href="#_nichtfunktionale_anforderungen_nfa"></a>1.4.2. Nichtfunktionale Anforderungen (NFA)</h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ziele"><a class="anchor" href="#_ziele"></a>1.5. Ziele</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>1.6. Mengengerüst</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>1.7. Rahmenbedingungen</h3>
-<div class="paragraph">
-<p>zB Vorgaben vom Auftraggeber</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_entwurf_wie_mache_ich_es"><a class="anchor" href="#_entwurf_wie_mache_ich_es"></a>2. Entwurf "Wie mache ich es"</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_systemarchitektur"><a class="anchor" href="#_systemarchitektur"></a>2.1. Systemarchitektur</h3>
-
-</div>
-<div class="sect2">
-<h3 id=""><a class="anchor" href="#"></a>2.2. &#8230;&#8203;</h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_projekthandbuch_organisatorische_rahmenbedingungen"><a class="anchor" href="#_projekthandbuch_organisatorische_rahmenbedingungen"></a>3. Projekthandbuch "Organisatorische Rahmenbedingungen"</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_gantt_diagramm"><a class="anchor" href="#_gantt_diagramm"></a>3.1. GANTT-Diagramm</h3>
-<div class="paragraph">
-<p>mit User-Stories (definiert in YouTrack)</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/gantt-protoype.png" alt="gantt protoype" width="353" height="100">
-</div>
-</div>
+<h3 id="_was_bisher_geschah_entwicklung"><a class="anchor" href="#_was_bisher_geschah_entwicklung"></a>1.1. Was bisher geschah (Entwicklung)</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="minutes-of-meeting.html">Protokollvorlage</a></p>
+<p><strong>Architektur:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Früher: Mehrere Dienste pro Betriebssystem installiert.</p>
 </li>
 <li>
-<p><a href="demo.html">Demo</a></p>
+<p>&#8594; Neu: Ein Dienst (Service) pro Container.</p>
 </li>
 </ul>
+</div>
+</li>
+<li>
+<p><strong>Netzwerk:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Früher: Manuelles Erstellen von Netzwerken (<code>docker network create</code>) und Einbinden von Containern (<code>--network</code>).</p>
+</li>
+<li>
+<p>&#8594; Neu: Verwendung von <code>docker-compose</code> (oder Kubernetes) zur Orchestrierung von Multi-Container-Applikationen.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_überblick"><a class="anchor" href="#_überblick"></a>1.2. Überblick</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>docker-compose</code> dient der <strong>Orchestrierung</strong> mehrerer Container.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Orchestrierung</em> bezeichnet die automatisierte Konfiguration, Koordination und Verwaltung von Computersystemen und Software.</p>
+</li>
+<li>
+<p>Im Kontext von Docker bedeutet das: Verwaltung von Containern, deren Netzwerke, Volumes und Startreihenfolge.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Container laufen in einem gemeinsamen virtuellen Docker-Netzwerk.</p>
+</li>
+<li>
+<p>Direkter Zugriff zwischen Containern ohne Port-Freigabe nach außen möglich.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_konfiguration"><a class="anchor" href="#_konfiguration"></a>1.3. Konfiguration</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Die Konfiguration erfolgt über eine YAML-File: <code>docker-compose.yml</code>.</p>
+</li>
+<li>
+<p>Starten der Umgebung: <code>docker-compose up -d</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>-d</code>: Detached mode (läuft im Hintergrund).</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Beispiel <code>docker-compose.yml</code> (Minecraft Server)</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="yaml"><span class="na">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">3.8'</span>
+
+<span class="na">services</span><span class="pi">:</span>
+  <span class="na">mc</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">itzg/minecraft-server</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">25565:25565</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="na">EULA</span><span class="pi">:</span> <span class="s2">"</span><span class="s">TRUE"</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">./minecraft-data:/data</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pflichtenheft_was_mache_ich"><a class="anchor" href="#_pflichtenheft_was_mache_ich"></a>2. Pflichtenheft ("Was mache ich")</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Das Pflichtenheft beschreibt genau, <strong>was</strong> umgesetzt werden soll.</p>
+</div>
+<div class="sect2">
+<h3 id="_ausgangssituation"><a class="anchor" href="#_ausgangssituation"></a>2.1. Ausgangssituation</h3>
+<div class="paragraph">
+<p>Wer ist der Kunde? Was macht er?<br>
+<em>Beispiel: Die HTL Leonding ist eine HTL im oö. Zentralraum mit ca. 1000 Schülern und den Fachabteilungen Medientechnik, Informatik, …</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_istzustand"><a class="anchor" href="#_istzustand"></a>2.2. Istzustand</h3>
+<div class="paragraph">
+<p>Wie läuft es aktuell ab (bevor es die neue Software gibt)? Beschreibung der speziellen Situation z.B. in der Abteilung.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>2.3. Problemstellung</h3>
+<div class="paragraph">
+<p>Was funktioniert aktuell schlecht? Was fehlt?</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>2.4. Aufgabenstellung</h3>
+<div class="paragraph">
+<p>Wie soll die Lösung ("Sollzustand") aussehen?</p>
+</div>
+<div class="sect3">
+<h4 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>2.4.1. Funktionale Anforderungen</h4>
+<div class="paragraph">
+<p>Was muss die Software konkret machen können (Features)?</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_nichtfunktionale_anforderungen_nfa"><a class="anchor" href="#_nichtfunktionale_anforderungen_nfa"></a>2.4.2. Nichtfunktionale Anforderungen (NFA)</h4>
+<div class="paragraph">
+<p>z.B. Sicherheit.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ziele"><a class="anchor" href="#_ziele"></a>2.5. Ziele</h3>
+<div class="paragraph">
+<p>Was will man durch das Projekt erreichen? (z.B. Arbeitszeit sparen).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>2.6. Mengengerüst</h3>
+<div class="paragraph">
+<p>Was ist ein Mengengerüst?<br>
+Das Mengengerüst ist eine Abschätzung der Datenmengen und Benutzerzahlen. Man überlegt sich:
+* Wie viele Nutzer greifen gleichzeitig zu?
+* Wie viele Daten werden pro Tag/Jahr gespeichert?
+* Wie viel Speicherplatz wird benötigt?</p>
+</div>
+<div class="paragraph">
+<p>Das ist wichtig, um zu wissen, wie stark der Server sein muss.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>2.7. Rahmenbedingungen</h3>
+<div class="paragraph">
+<p>Vorgaben vom Auftraggeber, an die man sich halten muss (z.B. bestimmte Programmiersprache, Hardware, Deadlines).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://www.johner-institut.de/blog/wp-content/uploads/2011/12/120511_2246_NormenBashi1.png" alt="120511 2246 NormenBashi1">
+</div>
 </div>
 </div>
 </div>
