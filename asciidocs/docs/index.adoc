@@ -606,3 +606,100 @@ General things discussed
 * If you use GenAI to make your text better readable *YOU are the master of content!!*
   ** `Generate a system spec for a DnD character builder` *BAD PROMPT!!* You will only get Bla text which is immediately recognizable as being generated. *If we get aware of such bullshit you are in DEEP TROUBLE!!*
   ** `Please explain the game DnD in 8 lines. Especially emphasize the terms Dungeon Master, Problems, Classes, Peoples, Characters. The explanation shall be understandable by absolute beginners.` Good prompt *under the assumption* that you read the generated text and add more specific prompts to improve the text.
+
+== 2026-02-25
+=== Product Backlog
+User stories as we define them follow the form as given here:
+
+```
+# Story
+As a <role> I want to <requirement> in order to <reason>.
+
+# Acceptance Criteria
+- <Criterion 1>
+- <Criterion 2>
+- <Criterion 3>
+- <Criterion 4>
+- ...
+
+# Priority
+<Low | Medium | High>
+
+# Effort
+<Story points>
+```
+==== Remarks on the Section Story
+  1. *Role*: Each user of a system has a role. This is to be specified here. Examples: Player, Admin, CEO, ...
+  2. *Requirement*: The thing the user (in their role) wants to do with the system.
+  3. *Reason*: Why shall the role be able to do something?
+
+*Example for a Story:* As a dungeon master I want to add a player in order to setup the player team for one game.
+
+==== Remarks on the Section Acceptance Criteria
+Each story must hold a set of acceptance criteria which help to verify whether the story is successfully implemented. Example:
+
+  - The added players must be listed in the tab Players
+  - All players which are added must get a notification that they are added to the game
+  - All players added must see that they are in the waiting room
+  - All players added must see the other players added to the game
+  - The dungeon master must be marked as dungeon master
+  - All other players (not added) must not see any details of the game
+  - All other players must be able to request to be added to a specific game
+  - ...
+
+We will collect our user stories as GitHub issues.
+
+=== Exercise
+Transform your system specification in a complete set of user stories. The stories to be documented as Github issues (each user story one issue). You have to bring the "Story", the "Acceptance Criteria" and the "Priority". The part "Effort" may be left blank (only the title to be provided).
+
+== 2026-03-04
+=== How We Will Grade Your Project Progress
+|===
+| In this iteration the project team has ... | Score
+| ... not been able to demonstrate any new working software | 0 %
+| ... shown us something working but a bit less than expected or not what we agreed on | 30 %
+| ... one of the above but was able to explain their progress AND planning reflects their troubles clearly AND escalated the problem in time | 50 %
+| ... adequately delivered the features we agreed on | 70 %
+| ... made better progress than we expected | 80 %
+| ... made amazing progress with wonderful results | 100 %
+|===
+
+=== Effort Estimation
+We will do the effort estimation by means of the so-called planning poker. For this every team member gets a set of seven cards, with the following content:
+
+|===
+| Effort | Value
+| No Effort | 0 
+| Very Small Effort| 1
+| Small Effort | 2
+| Medium Effort | 3
+| Large Effort | 5
+| Very Large Effort | 8
+| Huge Effort | 13
+|===
+
+Please prepare cards as required or print the ones given in the following link:
+
+.Link to download a planning poker card deck (click on the image)
+pass:[<a href="images/PlanningPokerCardDeck.zip"><img src="images/planning-poker-card-deck.png" alt="Planning Poker Card Deck"></a>]
+
+Then play the game as follows (moderation is done by the scrum master):
+
+1. Every team member takes their set of cards
+2. The team selects a story to be estimated (the first story should be one where all members agree that it is a really small story)
+3. The product owner explains the story and the team asks to get a really good understanding of the story. Roughly sketch the tasks to be done.
+4. Only if every team member has understood the story continue
+5. Every team member selects the poker card which reflects the effort best (according to their personal opinion) and lays it on the table (back side up)
+6. Only if every team member has their card back side up on the table continue
+7. All team members flip their card
+8. If all team members have chosen the same card the effort is documented in the product backlog and restarts the game with the next story
+9. If team members have chosen different cards the estimation is not clear yet. Therefore the member with the highest and the one with the lowest estimation explain why they have chosen their estimation
+10. Continue at step 5
+
+*Hints:*
+
+  - There is no direct relation between Story Points and time. Concrete example: if two team members (A and B) estimate a story to be of medium effort then A might have something like 4 hours in their mind and B something like 4 days. This does not harm as long as both have their personal "feeling" connected to "medium effort".
+  - Related to the first hint: do not even try to connect story points to time. Not personally and, of course, not in the team. It is better to concentrate on the written labels ("low effort", "medium effort", ...) when trying to pick up the proper poker card for your estimation.
+  - The most important part during the planning poker is "discussion". Therefore, it is important to follow the planning poker procedure as close as possible. Although it may sound childish it is important that in case of non-distinct estimation results the highest and the lowest estimator give an explanation why they did so, followed up by a discussion how the others see that. This is all to get a common understanding in the team of what to be done to get the user story done.
+  - Every now and then (after every second or third story estimation) go back to already estimated stories and see whether the estimation of the current story is sound the estimations of the ones which are already estimated.
+  
