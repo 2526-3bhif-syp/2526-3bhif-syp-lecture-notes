@@ -436,6 +436,120 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
+<style>
     pre.rouge .hll {
         background-color: #ffc;
         display: block;
@@ -451,7 +565,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-01-30</span>
+<span id="revdate">2026-03-03</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -521,6 +635,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_2026_01_27">16. 2026-01-27</a></li>
 <li><a href="#_2026_01_28">17. 2026-01-28</a></li>
+<li><a href="#_2026_02_25">18. 2026-02-25</a>
+<ul class="sectlevel2">
+<li><a href="#_product_backlog">18.1. Product Backlog</a></li>
+<li><a href="#_exercise">18.2. Exercise</a></li>
+</ul>
+</li>
+<li><a href="#_2026_03_04">19. 2026-03-04</a>
+<ul class="sectlevel2">
+<li><a href="#_how_we_will_grade_your_project_progress">19.1. How We Will Grade Your Project Progress</a></li>
+<li><a href="#_effort_estimation">19.2. Effort Estimation</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1872,11 +1998,256 @@ Bei den klassischen Vorgehensmodellen legt man i.a. sehr früh die Anforderungen
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_02_25"><a class="anchor" href="#_2026_02_25"></a>18. 2026-02-25</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_product_backlog"><a class="anchor" href="#_product_backlog"></a>18.1. Product Backlog</h3>
+<div class="paragraph">
+<p>User stories as we define them follow the form as given here:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code># Story
+As a &lt;role&gt; I want to &lt;requirement&gt; in order to &lt;reason&gt;.
+
+# Acceptance Criteria
+- &lt;Criterion 1&gt;
+- &lt;Criterion 2&gt;
+- &lt;Criterion 3&gt;
+- &lt;Criterion 4&gt;
+- ...
+
+# Priority
+&lt;Low | Medium | High&gt;
+
+# Effort
+&lt;Story points&gt;</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_remarks_on_the_section_story"><a class="anchor" href="#_remarks_on_the_section_story"></a>18.1.1. Remarks on the Section Story</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Role</strong>: Each user of a system has a role. This is to be specified here. Examples: Player, Admin, CEO, &#8230;&#8203;</p>
+</li>
+<li>
+<p><strong>Requirement</strong>: The thing the user (in their role) wants to do with the system.</p>
+</li>
+<li>
+<p><strong>Reason</strong>: Why shall the role be able to do something?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Example for a Story:</strong> As a dungeon master I want to add a player in order to setup the player team for one game.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_remarks_on_the_section_acceptance_criteria"><a class="anchor" href="#_remarks_on_the_section_acceptance_criteria"></a>18.1.2. Remarks on the Section Acceptance Criteria</h4>
+<div class="paragraph">
+<p>Each story must hold a set of acceptance criteria which help to verify whether the story is successfully implemented. Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The added players must be listed in the tab Players</p>
+</li>
+<li>
+<p>All players which are added must get a notification that they are added to the game</p>
+</li>
+<li>
+<p>All players added must see that they are in the waiting room</p>
+</li>
+<li>
+<p>All players added must see the other players added to the game</p>
+</li>
+<li>
+<p>The dungeon master must be marked as dungeon master</p>
+</li>
+<li>
+<p>All other players (not added) must not see any details of the game</p>
+</li>
+<li>
+<p>All other players must be able to request to be added to a specific game</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We will collect our user stories as GitHub issues.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_exercise"><a class="anchor" href="#_exercise"></a>18.2. Exercise</h3>
+<div class="paragraph">
+<p>Transform your system specification in a complete set of user stories. The stories to be documented as Github issues (each user story one issue). You have to bring the "Story", the "Acceptance Criteria" and the "Priority". The part "Effort" may be left blank (only the title to be provided).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_03_04"><a class="anchor" href="#_2026_03_04"></a>19. 2026-03-04</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_how_we_will_grade_your_project_progress"><a class="anchor" href="#_how_we_will_grade_your_project_progress"></a>19.1. How We Will Grade Your Project Progress</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In this iteration the project team has &#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Score</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203; not been able to demonstrate any new working software</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0 %</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203; shown us something working but a bit less than expected or not what we agreed on</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30 %</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203; one of the above but was able to explain their progress AND planning reflects their troubles clearly AND escalated the problem in time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">50 %</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203; adequately delivered the features we agreed on</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">70 %</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203; made better progress than we expected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">80 %</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203; made amazing progress with wonderful results</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">100 %</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_effort_estimation"><a class="anchor" href="#_effort_estimation"></a>19.2. Effort Estimation</h3>
+<div class="paragraph">
+<p>We will do the effort estimation by means of the so-called planning poker. For this every team member gets a set of seven cards, with the following content:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Very Small Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Small Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Large Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Very Large Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Huge Effort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Please prepare cards as required or print the ones given in the following link:</p>
+</div>
+<div class="paragraph">
+<div class="title">Link to download a planning poker card deck (click on the image)</div>
+<p><a href="images/PlanningPokerCardDeck.zip"><img src="images/planning-poker-card-deck.png" alt="Planning Poker Card Deck"></a></p>
+</div>
+<div class="paragraph">
+<p>Then play the game as follows (moderation is done by the scrum master):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Every team member takes their set of cards</p>
+</li>
+<li>
+<p>The team selects a story to be estimated (the first story should be one where all members agree that it is a really small story)</p>
+</li>
+<li>
+<p>The product owner explains the story and the team asks to get a really good understanding of the story. Roughly sketch the tasks to be done.</p>
+</li>
+<li>
+<p>Only if every team member has understood the story continue</p>
+</li>
+<li>
+<p>Every team member selects the poker card which reflects the effort best (according to their personal opinion) and lays it on the table (back side up)</p>
+</li>
+<li>
+<p>Only if every team member has their card back side up on the table continue</p>
+</li>
+<li>
+<p>All team members flip their card</p>
+</li>
+<li>
+<p>If all team members have chosen the same card the effort is documented in the product backlog and restarts the game with the next story</p>
+</li>
+<li>
+<p>If team members have chosen different cards the estimation is not clear yet. Therefore the member with the highest and the one with the lowest estimation explain why they have chosen their estimation</p>
+</li>
+<li>
+<p>Continue at step 5</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Hints:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is no direct relation between Story Points and time. Concrete example: if two team members (A and B) estimate a story to be of medium effort then A might have something like 4 hours in their mind and B something like 4 days. This does not harm as long as both have their personal "feeling" connected to "medium effort".</p>
+</li>
+<li>
+<p>Related to the first hint: do not even try to connect story points to time. Not personally and, of course, not in the team. It is better to concentrate on the written labels ("low effort", "medium effort", &#8230;&#8203;) when trying to pick up the proper poker card for your estimation.</p>
+</li>
+<li>
+<p>The most important part during the planning poker is "discussion". Therefore, it is important to follow the planning poker procedure as close as possible. Although it may sound childish it is important that in case of non-distinct estimation results the highest and the lowest estimator give an explanation why they did so, followed up by a discussion how the others see that. This is all to get a common understanding in the team of what to be done to get the user story done.</p>
+</li>
+<li>
+<p>Every now and then (after every second or third story estimation) go back to already estimated stories and see whether the estimation of the current story is sound the estimations of the ones which are already estimated.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-01-30 11:14:34 UTC
+Last updated 2026-03-03 13:02:55 UTC
 </div>
 </div>
 </body>
