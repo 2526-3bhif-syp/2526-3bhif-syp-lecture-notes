@@ -667,6 +667,7 @@ Transform your system specification in a complete set of user stories. The stori
 === Effort Estimation
 We will do the effort estimation by means of the so-called planning poker. For this every team member gets a set of seven cards, with the following content:
 
+[options="header"]
 |===
 | Effort | Value
 | No Effort | 0 
@@ -702,4 +703,19 @@ Then play the game as follows (moderation is done by the scrum master):
   - Related to the first hint: do not even try to connect story points to time. Not personally and, of course, not in the team. It is better to concentrate on the written labels ("low effort", "medium effort", ...) when trying to pick up the proper poker card for your estimation.
   - The most important part during the planning poker is "discussion". Therefore, it is important to follow the planning poker procedure as close as possible. Although it may sound childish it is important that in case of non-distinct estimation results the highest and the lowest estimator give an explanation why they did so, followed up by a discussion how the others see that. This is all to get a common understanding in the team of what to be done to get the user story done.
   - Every now and then (after every second or third story estimation) go back to already estimated stories and see whether the estimation of the current story is sound the estimations of the ones which are already estimated.
-  
+
+
+
+== 2026-03-10
+
+== V-Modell
+
+image::v-modell.png[]
+
+
+== V-Modell als Bestandteil von Scrum
+
+image::v-modell-scrum.png[]
+
+
+
