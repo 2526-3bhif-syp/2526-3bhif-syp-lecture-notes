@@ -798,6 +798,14 @@ image::claude-gh-issues-access.png[]
 
 . erstelle die javafx-app für die erste user story
 
+. hatten wir nicht vereinbart, junit 6 zu verwenden -> https://docs.junit.org/6.0.3/api/
+
+. assertj-core gibt es bereits in 3.27.7 und assertj-db in 3.0.2
+
+
+. die Postgres db sollte 18 sein, der db-name: db und user: app mit password: app
+
+. document how to start in README.md and create some demo data for the db
 
 ====
 
@@ -1067,3 +1075,8 @@ image::claude-usage.png[]
 === Erstellen von Ascidoc-Files
 
 * Beachte: Ergänze die adoc-Files mit geeigneten Präamble-Eintragen zB :toc
+
+=== Ergebnis der 1. Iteration
+
+image::user-story-1.png[]
+
