@@ -718,4 +718,27 @@ image::v-modell.png[]
 image::v-modell-scrum.png[]
 
 
+== 2026-04-07
+
+=== Agentisches Programmieren in einer Sandbox
+
+TIP: Die ESP32-Workbench ist bei reinen Software-Projekten nicht sinnvoll.
+
+https://youtu.be/nmGEedloQ6E?si=b2Hh4qzYhApl8eEe[Youtube-video: Andreas Spiess - AI-Driven ESP32 Workflow (Spec → Code → Test) using Claude Code^]
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E?si=icm0FiD9LALajQvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
+
+video::nmGEedloQ6E[youtube]
+
+=== Zugriff auf die gh-User Stories über Claude
+
+image::claude-gh-issues-access.png[]
+
+* startet man claude im Projektverzeichnis, in dem der gh-Zugriff bereits konfiguriert ist, kann claude über die gh-cli auf die Issues des Projekts zugreifen?
+
+* Diese Issues können nun in die generierte Doku eingebunden werden, z.B. um die Akzeptanzkriterien der User Stories in die Doku - aks Grundlage für Tests - zu integrieren.
+
+
 
