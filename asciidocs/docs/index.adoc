@@ -730,7 +730,6 @@ https://youtu.be/nmGEedloQ6E?si=b2Hh4qzYhApl8eEe[Youtube-video: Andreas Spiess -
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E?si=icm0FiD9LALajQvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ++++
 
-video::nmGEedloQ6E[youtube]
 
 === Zugriff auf die gh-User Stories über Claude
 
@@ -740,5 +739,331 @@ image::claude-gh-issues-access.png[]
 
 * Diese Issues können nun in die generierte Doku eingebunden werden, z.B. um die Akzeptanzkriterien der User Stories in die Doku - aks Grundlage für Tests - zu integrieren.
 
+* Somit können die Issues in gh erstellt werden und automatisiert übernommen werden.
+
+=== Vorgaben für die JavaFX-Implementierung
+
+* Java 25 LTS
+* JavaFX 25
+* Build-Tool: maven
+* Hikari-CP als Connection Pool
+* JUnit 6 für Tests sowie assertj-core und assertj-db als matcher für die Tests (jeweils in der neuesten Version)
+* gedockerte postgres-db in der Version 18
+* *keine fxml-files* (die UI wird zur Gänze in Java-Code erstellt)
+
+== Dokumentation des Chat-Verlaufs
+
+* sämtliche prompts werden in einem file (zB chat.adoc) dokumentiert
+
+* zB
++
+.Chatverlauf
+[%collapsible]
+====
+= Chat-Verlauf
+
+== Prompts
+
+. can you create a claude.md
+
+. Please add the requirement, that we use javafx and the mvp pattern
+
+. use as database postgres in a docker container
+
+. kannst Du meine Prompts in chat.adoc eintragen?
+
+. kannst Du auf github zugreifen und mir die user stories aus den issues downloaden
+
+. include the first user story in the fsd-file and create the technical specs for implementing. We will discuss your proposal.
+
+. use maven; java 25 LTS; JavaFX 25; JUnit 6 with assetj-core and assertj-db in the newest versions; HikariCP for connection pooling; Package prefix: at.htl.tripplanner; it is only a JavaFX-App at the moment
+
+. don't use fxml. Code the UI in Java.
+
+. please separate the functional (domain specs, business specs) and technical specs (architecture, design, implementation details). create for the first user story a "fsd.adoc"-file and a "technical-spec.adoc"-file. in a folder specifications. Don't use the file "pflichtenheft.adoc" anymore.
+
+. Don't care about the asciidoc - folder. The asciidoc folder is solely for human-made docs.
+
+. create tests according to the acceptance criterias of the user story.
+
+. create the use-case diagram and the class diagram as plantuml in fsd.adoc
+
+. when you create a commit, please write a meaningful commit message and include the issue number in the commit message. For example: "feat: Login-Seite #5".
+
+. Halte dich bei den Commits an https://www.conventionalcommits.org/en/v1.0.0/
+
+. trägst Du das nicht in Claude.md ein?
+
+. kannst Du die Spec etwas allgemeiner gestalten? Anstelle von Lehrer -> Reiseleiter, Schüler -> Reisender, etc.?
+
+. erstelle die javafx-app für die erste user story
 
 
+====
+
+=== CLAUDE.md
+
+* Sehr wichtig ist die Konfiguration von CLAUD.md
+
+* Beispiel 1:
++
+[%collapsible]
+====
+[source,markdown]
+----
+# CLAUDE.md – Projektkontext
+
+## Projektübersicht
+
+- **Projektname:** [Projektname hier eintragen]
+- **Beschreibung:** [Kurzbeschreibung des Projekts – was ist das Ziel?]
+- **Tech-Stack:** [z.B. React, Node.js, PostgreSQL, Docker]
+- **Sprache:** Deutsch (Dokumentation), Englisch (Code)
+
+---
+
+## Anforderungen & User Stories
+
+- User Stories sind als **GitHub Issues** erfasst
+- Issues verwenden folgende **Labels zur Priorisierung:**
+  - `must-have` – Kernfunktionalität, zwingend erforderlich
+  - `should-have` – wichtig, aber nicht kritisch für MVP
+  - `could-have` – wünschenswert, wenn Zeit vorhanden
+- Issues können zusätzlich nach **Milestones** gruppiert sein (z.B. MVP, Phase 2)
+- Jedes Issue enthält eine User Story im Format:
+  *„Als [Rolle] möchte ich [Funktion], damit [Nutzen]."*
+
+### Zugriff auf Issues
+
+```bash
+# Alle offenen Issues auflisten
+gh issue list
+
+# Issues nach Label filtern
+gh issue list --label "must-have"
+
+# Einzelnes Issue lesen
+gh issue view <NUMMER>
+
+# Issue nach Abschluss schließen
+gh issue close <NUMMER> --comment "Umgesetzt in Commit <SHA>"
+```
+
+---
+
+## Dokumentationsstruktur
+
+```
+docs/
+├── user-stories.md              # Zusammenfassung aller User Stories (optional, Quelle: GitHub Issues)
+├── fachspezifikation.md         # WAS das System tun soll
+└── technische-spezifikation.md  # WIE das System gebaut wird
+```
+
+### Fachspezifikation (`docs/fachspezifikation.md`)
+
+Beschreibt die fachlichen Anforderungen ohne technische Details. Enthält:
+
+1. **Einleitung** – Projektziel, Scope, Zielgruppen
+2. **Glossar** – Fachbegriffe und Definitionen
+3. **Akteure & Rollen** – Wer nutzt das System?
+4. **Geschäftsprozesse** – Abläufe und Workflows
+5. **Fachliche Regeln** – Validierungen, Berechnungen, Bedingungen
+6. **Akzeptanzkriterien** – Pro User Story: wann gilt sie als erfüllt?
+7. **Nicht-funktionale Anforderungen** – Performance, Verfügbarkeit, Datenschutz
+
+### Technische Spezifikation (`docs/technische-spezifikation.md`)
+
+Beschreibt die technische Umsetzung. Enthält:
+
+1. **Architekturübersicht** – Systemkomponenten und deren Zusammenspiel
+2. **Tech-Stack** – Frameworks, Libraries, Tools mit Versionen
+3. **Datenmodell** – Entitäten, Relationen, Datenbankschema
+4. **API-Design** – Endpunkte, Request/Response-Formate
+5. **Authentifizierung & Autorisierung** – Sicherheitskonzept
+6. **Fehlerbehandlung** – Strategien und Error-Codes
+7. **Deployment** – Infrastruktur, CI/CD, Environments
+8. **Testing-Strategie** – Unit, Integration, E2E
+
+---
+
+## Arbeitsablauf (Workflow)
+
+### Bei jeder neuen Aufgabe diese Reihenfolge einhalten:
+
+```
+1. ISSUE LESEN
+   → GitHub Issue lesen und verstehen
+   → Akzeptanzkriterien identifizieren
+
+2. FACHSPEZIFIKATION PRÜFEN/ERGÄNZEN
+   → Gibt es bereits einen Abschnitt dazu?
+   → Falls nein: Abschnitt erstellen
+   → Falls ja: Auf Vollständigkeit prüfen, ggf. ergänzen
+
+3. TECHNISCHE SPEZIFIKATION PRÜFEN/ERGÄNZEN
+   → Architektur-Auswirkungen dokumentieren
+   → Datenmodell erweitern falls nötig
+   → API-Endpunkte definieren falls nötig
+
+4. IMPLEMENTIEREN
+   → Code schreiben gemäß Spezifikationen
+   → Tests schreiben
+
+5. ABSCHLIESSEN
+   → Tests ausführen und sicherstellen, dass alles grün ist
+   → Issue auf GitHub schließen mit Kommentar
+   → Commit-Message referenziert Issue-Nummer (z.B. "feat: Login-Seite #5")
+```
+
+### Wichtig:
+
+- **Niemals Code schreiben, bevor die Spezifikationen aktuell sind**
+- **Änderungen an der Architektur immer zuerst in der technischen Spezifikation dokumentieren**
+- **Bei Unklarheiten: nachfragen, nicht raten**
+
+---
+
+## Code-Konventionen
+
+### Allgemein
+
+- Code und Kommentare auf **Englisch**
+- Dokumentation auf **Deutsch**
+- Keine auskommentierten Code-Blöcke committen
+- Jede Datei hat einen klaren, einzelnen Zweck (Single Responsibility)
+
+### Commit-Messages
+
+Format: `<typ>: <beschreibung> #<issue-nummer>`
+
+Typen:
+- `feat` – neues Feature
+- `fix` – Bugfix
+- `docs` – Dokumentation
+- `refactor` – Code-Umbau ohne Funktionsänderung
+- `test` – Tests hinzufügen/ändern
+- `chore` – Build, Dependencies, Konfiguration
+
+Beispiel: `feat: implement user authentication #12`
+
+### Branching
+
+- `main` – stabiler, deploybarer Stand
+- `dev` – Entwicklungsbranch
+- Feature-Branches: `feature/<issue-nummer>-<kurzbeschreibung>`
+- Beispiel: `feature/12-user-authentication`
+
+---
+
+## Testing
+
+- Jedes Feature braucht Tests
+- Tests vor dem Committen ausführen
+- Testbefehle: [hier eintragen, z.B. `npm test`, `pytest`]
+
+---
+
+## Projektspezifische Regeln
+
+<!-- Hier eigene Regeln ergänzen, z.B.: -->
+<!-- - Alle API-Responses folgen dem Format { data, error, meta } -->
+<!-- - Datenbankmigrationen werden mit [Tool] verwaltet -->
+<!-- - Environment-Variablen werden in .env.example dokumentiert -->
+
+---
+
+## Schnellreferenz – Häufige Befehle
+
+```bash
+# Projekt starten
+[hier eintragen, z.B. npm run dev]
+
+# Tests ausführen
+[hier eintragen, z.B. npm test]
+
+# Linting
+[hier eintragen, z.B. npm run lint]
+
+# Build
+[hier eintragen, z.B. npm run build]
+```
+----
+====
+
+* Beispiel 2
++
+[%collapsible]
+====
+[source,markdown]
+----
+# Trip-Planner
+
+## Project Overview
+
+School trip planning JavaFX desktop application for HTL Leonding. Teachers create trips with multiple meeting points (time + location); students see only the currently active meeting point.
+
+## Repository Structure
+
+- `asciidocs/` — AsciiDoc documentation (source)
+  - `docs/` — main docs (pflichtenheft.adoc, docinfo.html)
+  - `slides/` — presentation slides
+  - `scripts/` — Docker-based conversion scripts (do not modify)
+- `config.sh` — build config (input path, output path, slides toggle)
+- `publish.sh` / `local-convert.sh` — local doc build scripts
+- `.github/workflows/docs.yaml` — CI: builds AsciiDoc and deploys to `gh-pages` branch
+
+## Documentation
+
+- Written in AsciiDoc (`.adoc` files)
+- Converted to HTML via Docker (`asciidocs/scripts/docker-convert.sh`)
+- Published to GitHub Pages on push to `main` (only when `asciidocs/**` changes)
+- Output goes to `dist/` (gitignored)
+
+## Commands
+
+- Build docs locally: `./local-convert.sh`
+- Publish docs: `./publish.sh`
+
+## Tech Stack
+
+- **Java**: 25 LTS
+- **UI Framework**: JavaFX 25
+- **Build Tool**: Maven
+- **Architecture Pattern**: MVP (Model-View-Presenter)
+- **Database**: PostgreSQL 17 (Docker container)
+- **Connection Pool**: HikariCP
+- **Testing**: JUnit 6, AssertJ Core, AssertJ-DB
+- **Package Prefix**: `at.htl.tripplanner`
+
+## Conventions
+
+- Documentation language: German
+- Branch: `main` is the primary branch, `gh-pages` for published docs
+- Commits: follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) with GitHub issue reference, e.g. `feat: Reise erstellen #1`
+- UI: JavaFX views coded in Java (no FXML)
+- `asciidocs/` is for human-made docs only — generated specs go in `specifications/`
+
+----
+====
+
+* Auswahl des Models
+
+----
+/model
+----
+
+* eher ein leistungsstarkes Model erstellen
+
+* Nutzung beobachten
+
+----
+/usage
+----
+
+image::claude-usage.png[]
+
+
+== Erstellen von Ascidoc-Files
+
+* Beachte: Ergänze die adoc-Files mit geeigneten Präamble-Eintragen zB :toc
