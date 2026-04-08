@@ -760,6 +760,8 @@ image::claude-gh-issues-access.png[]
 .Chatverlauf
 [%collapsible]
 ====
+[source,asciidoc]
+----
 = Chat-Verlauf
 
 == Prompts
@@ -807,6 +809,8 @@ image::claude-gh-issues-access.png[]
 
 . document how to start in README.md and create some demo data for the db
 
+. trage die Änderungen in den docs ein
+----
 ====
 
 === CLAUDE.md
@@ -1039,7 +1043,7 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 - **UI Framework**: JavaFX 25
 - **Build Tool**: Maven
 - **Architecture Pattern**: MVP (Model-View-Presenter)
-- **Database**: PostgreSQL 17 (Docker container)
+- **Database**: PostgreSQL 18 (Docker container, DB-Name: `db`, User: `app`, Passwort: `app`)
 - **Connection Pool**: HikariCP
 - **Testing**: JUnit 6, AssertJ Core, AssertJ-DB
 - **Package Prefix**: `at.htl.tripplanner`
