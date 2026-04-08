@@ -654,8 +654,15 @@ pre.rouge .gs {
 <ul class="sectlevel2">
 <li><a href="#_agentisches_programmieren_in_einer_sandbox">23.1. Agentisches Programmieren in einer Sandbox</a></li>
 <li><a href="#_zugriff_auf_die_gh_user_stories_über_claude">23.2. Zugriff auf die gh-User Stories über Claude</a></li>
+<li><a href="#_vorgaben_für_die_javafx_implementierung">23.3. Vorgaben für die JavaFX-Implementierung</a></li>
 </ul>
 </li>
+<li><a href="#_dokumentation_des_chat_verlaufs">24. Dokumentation des Chat-Verlaufs</a>
+<ul class="sectlevel2">
+<li><a href="#_claude_md">24.1. CLAUDE.md</a></li>
+</ul>
+</li>
+<li><a href="#_erstellen_von_ascidoc_files">25. Erstellen von Ascidoc-Files</a></li>
 </ul>
 </div>
 </div>
@@ -2301,11 +2308,6 @@ Die ESP32-Workbench ist bei reinen Software-Projekten nicht sinnvoll.
 <p><a href="https://youtu.be/nmGEedloQ6E?si=b2Hh4qzYhApl8eEe" target="_blank" rel="noopener">Youtube-video: Andreas Spiess - AI-Driven ESP32 Workflow (Spec → Code → Test) using Claude Code</a></p>
 </div>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E?si=icm0FiD9LALajQvI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<div class="videoblock">
-<div class="content">
-<iframe src="https://www.youtube.com/embed/nmGEedloQ6E?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_zugriff_auf_die_gh_user_stories_über_claude"><a class="anchor" href="#_zugriff_auf_die_gh_user_stories_über_claude"></a>23.2. Zugriff auf die gh-User Stories über Claude</h3>
@@ -2322,8 +2324,417 @@ Die ESP32-Workbench ist bei reinen Software-Projekten nicht sinnvoll.
 <li>
 <p>Diese Issues können nun in die generierte Doku eingebunden werden, z.B. um die Akzeptanzkriterien der User Stories in die Doku - aks Grundlage für Tests - zu integrieren.</p>
 </li>
+<li>
+<p>Somit können die Issues in gh erstellt werden und automatisiert übernommen werden.</p>
+</li>
 </ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_vorgaben_für_die_javafx_implementierung"><a class="anchor" href="#_vorgaben_für_die_javafx_implementierung"></a>23.3. Vorgaben für die JavaFX-Implementierung</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Java 25 LTS</p>
+</li>
+<li>
+<p>JavaFX 25</p>
+</li>
+<li>
+<p>Build-Tool: maven</p>
+</li>
+<li>
+<p>Hikari-CP als Connection Pool</p>
+</li>
+<li>
+<p>JUnit 6 für Tests sowie assertj-core und assertj-db als matcher für die Tests (jeweils in der neuesten Version)</p>
+</li>
+<li>
+<p>gedockerte postgres-db in der Version 18</p>
+</li>
+<li>
+<p><strong>keine fxml-files</strong> (die UI wird zur Gänze in Java-Code erstellt)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dokumentation_des_chat_verlaufs"><a class="anchor" href="#_dokumentation_des_chat_verlaufs"></a>24. Dokumentation des Chat-Verlaufs</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>sämtliche prompts werden in einem file (zB chat.adoc) dokumentiert</p>
+</li>
+<li>
+<p>zB</p>
+<details>
+<summary class="title">Chatverlauf</summary>
+<div class="content">
+<div class="paragraph">
+<p>= Chat-Verlauf</p>
+</div>
+<div class="paragraph">
+<p>== Prompts</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>can you create a claude.md</p>
+</li>
+<li>
+<p>Please add the requirement, that we use javafx and the mvp pattern</p>
+</li>
+<li>
+<p>use as database postgres in a docker container</p>
+</li>
+<li>
+<p>kannst Du meine Prompts in chat.adoc eintragen?</p>
+</li>
+<li>
+<p>kannst Du auf github zugreifen und mir die user stories aus den issues downloaden</p>
+</li>
+<li>
+<p>include the first user story in the fsd-file and create the technical specs for implementing. We will discuss your proposal.</p>
+</li>
+<li>
+<p>use maven; java 25 LTS; JavaFX 25; JUnit 6 with assetj-core and assertj-db in the newest versions; HikariCP for connection pooling; Package prefix: at.htl.tripplanner; it is only a JavaFX-App at the moment</p>
+</li>
+<li>
+<p>don&#8217;t use fxml. Code the UI in Java.</p>
+</li>
+<li>
+<p>please separate the functional (domain specs, business specs) and technical specs (architecture, design, implementation details). create for the first user story a "fsd.adoc"-file and a "technical-spec.adoc"-file. in a folder specifications. Don&#8217;t use the file "pflichtenheft.adoc" anymore.</p>
+</li>
+<li>
+<p>Don&#8217;t care about the asciidoc - folder. The asciidoc folder is solely for human-made docs.</p>
+</li>
+<li>
+<p>create tests according to the acceptance criterias of the user story.</p>
+</li>
+<li>
+<p>create the use-case diagram and the class diagram as plantuml in fsd.adoc</p>
+</li>
+<li>
+<p>when you create a commit, please write a meaningful commit message and include the issue number in the commit message. For example: "feat: Login-Seite #5".</p>
+</li>
+<li>
+<p>Halte dich bei den Commits an <a href="https://www.conventionalcommits.org/en/v1.0.0/" class="bare">https://www.conventionalcommits.org/en/v1.0.0/</a></p>
+</li>
+<li>
+<p>trägst Du das nicht in Claude.md ein?</p>
+</li>
+<li>
+<p>kannst Du die Spec etwas allgemeiner gestalten? Anstelle von Lehrer &#8594; Reiseleiter, Schüler &#8594; Reisender, etc.?</p>
+</li>
+<li>
+<p>erstelle die javafx-app für die erste user story</p>
+</li>
+</ol>
+</div>
+</div>
+</details>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_claude_md"><a class="anchor" href="#_claude_md"></a>24.1. CLAUDE.md</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Sehr wichtig ist die Konfiguration von CLAUD.md</p>
+</li>
+<li>
+<p>Beispiel 1:</p>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="gh"># CLAUDE.md – Projektkontext</span>
+
+<span class="gu">## Projektübersicht</span>
+<span class="p">
+-</span> <span class="gs">**Projektname:**</span> [Projektname hier eintragen]
+<span class="p">-</span> <span class="gs">**Beschreibung:**</span> [Kurzbeschreibung des Projekts – was ist das Ziel?]
+<span class="p">-</span> <span class="gs">**Tech-Stack:**</span> [z.B. React, Node.js, PostgreSQL, Docker]
+<span class="p">-</span> <span class="gs">**Sprache:**</span> Deutsch (Dokumentation), Englisch (Code)
+<span class="p">
+---
+</span>
+<span class="gu">## Anforderungen &amp; User Stories</span>
+<span class="p">
+-</span> User Stories sind als <span class="gs">**GitHub Issues**</span> erfasst
+<span class="p">-</span> Issues verwenden folgende <span class="gs">**Labels zur Priorisierung:**</span>
+<span class="p">  -</span> <span class="sb">`must-have`</span> – Kernfunktionalität, zwingend erforderlich
+<span class="p">  -</span> <span class="sb">`should-have`</span> – wichtig, aber nicht kritisch für MVP
+<span class="p">  -</span> <span class="sb">`could-have`</span> – wünschenswert, wenn Zeit vorhanden
+<span class="p">-</span> Issues können zusätzlich nach <span class="gs">**Milestones**</span> gruppiert sein (z.B. MVP, Phase 2)
+<span class="p">-</span> Jedes Issue enthält eine User Story im Format:
+  <span class="ge">*„Als [Rolle] möchte ich [Funktion], damit [Nutzen]."*</span>
+
+<span class="gu">### Zugriff auf Issues</span>
+
+<span class="p">```</span><span class="nl">bash
+</span><span class="c"># Alle offenen Issues auflisten</span>
+gh issue list
+
+<span class="c"># Issues nach Label filtern</span>
+gh issue list <span class="nt">--label</span> <span class="s2">"must-have"</span>
+
+<span class="c"># Einzelnes Issue lesen</span>
+gh issue view &lt;NUMMER&gt;
+
+<span class="c"># Issue nach Abschluss schließen</span>
+gh issue close &lt;NUMMER&gt; <span class="nt">--comment</span> <span class="s2">"Umgesetzt in Commit &lt;SHA&gt;"</span>
+<span class="p">```</span>
+<span class="p">
+---
+</span>
+<span class="gu">## Dokumentationsstruktur</span>
+
+<span class="p">```</span><span class="nl">
+</span>docs/
+├── user-stories.md              # Zusammenfassung aller User Stories (optional, Quelle: GitHub Issues)
+├── fachspezifikation.md         # WAS das System tun soll
+└── technische-spezifikation.md  # WIE das System gebaut wird
+<span class="p">```</span>
+
+<span class="gu">### Fachspezifikation (`docs/fachspezifikation.md`)</span>
+
+Beschreibt die fachlichen Anforderungen ohne technische Details. Enthält:
+<span class="p">
+1.</span> <span class="gs">**Einleitung**</span> – Projektziel, Scope, Zielgruppen
+<span class="p">2.</span> <span class="gs">**Glossar**</span> – Fachbegriffe und Definitionen
+<span class="p">3.</span> <span class="gs">**Akteure &amp; Rollen**</span> – Wer nutzt das System?
+<span class="p">4.</span> <span class="gs">**Geschäftsprozesse**</span> – Abläufe und Workflows
+<span class="p">5.</span> <span class="gs">**Fachliche Regeln**</span> – Validierungen, Berechnungen, Bedingungen
+<span class="p">6.</span> <span class="gs">**Akzeptanzkriterien**</span> – Pro User Story: wann gilt sie als erfüllt?
+<span class="p">7.</span> <span class="gs">**Nicht-funktionale Anforderungen**</span> – Performance, Verfügbarkeit, Datenschutz
+
+<span class="gu">### Technische Spezifikation (`docs/technische-spezifikation.md`)</span>
+
+Beschreibt die technische Umsetzung. Enthält:
+<span class="p">
+1.</span> <span class="gs">**Architekturübersicht**</span> – Systemkomponenten und deren Zusammenspiel
+<span class="p">2.</span> <span class="gs">**Tech-Stack**</span> – Frameworks, Libraries, Tools mit Versionen
+<span class="p">3.</span> <span class="gs">**Datenmodell**</span> – Entitäten, Relationen, Datenbankschema
+<span class="p">4.</span> <span class="gs">**API-Design**</span> – Endpunkte, Request/Response-Formate
+<span class="p">5.</span> <span class="gs">**Authentifizierung &amp; Autorisierung**</span> – Sicherheitskonzept
+<span class="p">6.</span> <span class="gs">**Fehlerbehandlung**</span> – Strategien und Error-Codes
+<span class="p">7.</span> <span class="gs">**Deployment**</span> – Infrastruktur, CI/CD, Environments
+<span class="p">8.</span> <span class="gs">**Testing-Strategie**</span> – Unit, Integration, E2E
+<span class="p">
+---
+</span>
+<span class="gu">## Arbeitsablauf (Workflow)</span>
+
+<span class="gu">### Bei jeder neuen Aufgabe diese Reihenfolge einhalten:</span>
+
+<span class="p">```</span><span class="nl">
+</span>1. ISSUE LESEN
+   → GitHub Issue lesen und verstehen
+   → Akzeptanzkriterien identifizieren
+
+2. FACHSPEZIFIKATION PRÜFEN/ERGÄNZEN
+   → Gibt es bereits einen Abschnitt dazu?
+   → Falls nein: Abschnitt erstellen
+   → Falls ja: Auf Vollständigkeit prüfen, ggf. ergänzen
+
+3. TECHNISCHE SPEZIFIKATION PRÜFEN/ERGÄNZEN
+   → Architektur-Auswirkungen dokumentieren
+   → Datenmodell erweitern falls nötig
+   → API-Endpunkte definieren falls nötig
+
+4. IMPLEMENTIEREN
+   → Code schreiben gemäß Spezifikationen
+   → Tests schreiben
+
+5. ABSCHLIESSEN
+   → Tests ausführen und sicherstellen, dass alles grün ist
+   → Issue auf GitHub schließen mit Kommentar
+   → Commit-Message referenziert Issue-Nummer (z.B. "feat: Login-Seite #5")
+<span class="p">```</span>
+
+<span class="gu">### Wichtig:</span>
+<span class="p">
+-</span> <span class="gs">**Niemals Code schreiben, bevor die Spezifikationen aktuell sind**</span>
+<span class="p">-</span> <span class="gs">**Änderungen an der Architektur immer zuerst in der technischen Spezifikation dokumentieren**</span>
+<span class="p">-</span> <span class="gs">**Bei Unklarheiten: nachfragen, nicht raten**</span>
+<span class="p">
+---
+</span>
+<span class="gu">## Code-Konventionen</span>
+
+<span class="gu">### Allgemein</span>
+<span class="p">
+-</span> Code und Kommentare auf <span class="gs">**Englisch**</span>
+<span class="p">-</span> Dokumentation auf <span class="gs">**Deutsch**</span>
+<span class="p">-</span> Keine auskommentierten Code-Blöcke committen
+<span class="p">-</span> Jede Datei hat einen klaren, einzelnen Zweck (Single Responsibility)
+
+<span class="gu">### Commit-Messages</span>
+
+Format: <span class="sb">`&lt;typ&gt;: &lt;beschreibung&gt; #&lt;issue-nummer&gt;`</span>
+
+Typen:
+<span class="p">-</span> <span class="sb">`feat`</span> – neues Feature
+<span class="p">-</span> <span class="sb">`fix`</span> – Bugfix
+<span class="p">-</span> <span class="sb">`docs`</span> – Dokumentation
+<span class="p">-</span> <span class="sb">`refactor`</span> – Code-Umbau ohne Funktionsänderung
+<span class="p">-</span> <span class="sb">`test`</span> – Tests hinzufügen/ändern
+<span class="p">-</span> <span class="sb">`chore`</span> – Build, Dependencies, Konfiguration
+
+Beispiel: <span class="sb">`feat: implement user authentication #12`</span>
+
+<span class="gu">### Branching</span>
+<span class="p">
+-</span> <span class="sb">`main`</span> – stabiler, deploybarer Stand
+<span class="p">-</span> <span class="sb">`dev`</span> – Entwicklungsbranch
+<span class="p">-</span> Feature-Branches: <span class="sb">`feature/&lt;issue-nummer&gt;-&lt;kurzbeschreibung&gt;`</span>
+<span class="p">-</span> Beispiel: <span class="sb">`feature/12-user-authentication`</span>
+<span class="p">
+---
+</span>
+<span class="gu">## Testing</span>
+<span class="p">
+-</span> Jedes Feature braucht Tests
+<span class="p">-</span> Tests vor dem Committen ausführen
+<span class="p">-</span> Testbefehle: [hier eintragen, z.B. <span class="sb">`npm test`</span>, <span class="sb">`pytest`</span>]
+<span class="p">
+---
+</span>
+<span class="gu">## Projektspezifische Regeln</span>
+
+<span class="c">&lt;!-- Hier eigene Regeln ergänzen, z.B.: --&gt;</span>
+<span class="c">&lt;!-- - Alle API-Responses folgen dem Format { data, error, meta } --&gt;</span>
+<span class="c">&lt;!-- - Datenbankmigrationen werden mit [Tool] verwaltet --&gt;</span>
+<span class="c">&lt;!-- - Environment-Variablen werden in .env.example dokumentiert --&gt;</span>
+<span class="p">
+---
+</span>
+<span class="gu">## Schnellreferenz – Häufige Befehle</span>
+
+<span class="p">```</span><span class="nl">bash
+</span><span class="c"># Projekt starten</span>
+<span class="o">[</span>hier eintragen, z.B. npm run dev]
+
+<span class="c"># Tests ausführen</span>
+<span class="o">[</span>hier eintragen, z.B. npm <span class="nb">test</span><span class="o">]</span>
+
+<span class="c"># Linting</span>
+<span class="o">[</span>hier eintragen, z.B. npm run lint]
+
+<span class="c"># Build</span>
+<span class="o">[</span>hier eintragen, z.B. npm run build]
+<span class="p">```</span></code></pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Beispiel 2</p>
+<details>
+<summary class="title">Details</summary>
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="gh"># Trip-Planner</span>
+
+<span class="gu">## Project Overview</span>
+
+School trip planning JavaFX desktop application for HTL Leonding. Teachers create trips with multiple meeting points (time + location); students see only the currently active meeting point.
+
+<span class="gu">## Repository Structure</span>
+<span class="p">
+-</span> <span class="sb">`asciidocs/`</span> — AsciiDoc documentation (source)
+<span class="p">  -</span> <span class="sb">`docs/`</span> — main docs (pflichtenheft.adoc, docinfo.html)
+<span class="p">  -</span> <span class="sb">`slides/`</span> — presentation slides
+<span class="p">  -</span> <span class="sb">`scripts/`</span> — Docker-based conversion scripts (do not modify)
+<span class="p">-</span> <span class="sb">`config.sh`</span> — build config (input path, output path, slides toggle)
+<span class="p">-</span> <span class="sb">`publish.sh`</span> / <span class="sb">`local-convert.sh`</span> — local doc build scripts
+<span class="p">-</span> <span class="sb">`.github/workflows/docs.yaml`</span> — CI: builds AsciiDoc and deploys to <span class="sb">`gh-pages`</span> branch
+
+<span class="gu">## Documentation</span>
+<span class="p">
+-</span> Written in AsciiDoc (<span class="sb">`.adoc`</span> files)
+<span class="p">-</span> Converted to HTML via Docker (<span class="sb">`asciidocs/scripts/docker-convert.sh`</span>)
+<span class="p">-</span> Published to GitHub Pages on push to <span class="sb">`main`</span> (only when <span class="sb">`asciidocs/**`</span> changes)
+<span class="p">-</span> Output goes to <span class="sb">`dist/`</span> (gitignored)
+
+<span class="gu">## Commands</span>
+<span class="p">
+-</span> Build docs locally: <span class="sb">`./local-convert.sh`</span>
+<span class="p">-</span> Publish docs: <span class="sb">`./publish.sh`</span>
+
+<span class="gu">## Tech Stack</span>
+<span class="p">
+-</span> <span class="gs">**Java**</span>: 25 LTS
+<span class="p">-</span> <span class="gs">**UI Framework**</span>: JavaFX 25
+<span class="p">-</span> <span class="gs">**Build Tool**</span>: Maven
+<span class="p">-</span> <span class="gs">**Architecture Pattern**</span>: MVP (Model-View-Presenter)
+<span class="p">-</span> <span class="gs">**Database**</span>: PostgreSQL 17 (Docker container)
+<span class="p">-</span> <span class="gs">**Connection Pool**</span>: HikariCP
+<span class="p">-</span> <span class="gs">**Testing**</span>: JUnit 6, AssertJ Core, AssertJ-DB
+<span class="p">-</span> <span class="gs">**Package Prefix**</span>: <span class="sb">`at.htl.tripplanner`</span>
+
+<span class="gu">## Conventions</span>
+<span class="p">
+-</span> Documentation language: German
+<span class="p">-</span> Branch: <span class="sb">`main`</span> is the primary branch, <span class="sb">`gh-pages`</span> for published docs
+<span class="p">-</span> Commits: follow <span class="p">[</span><span class="nv">Conventional Commits</span><span class="p">](</span><span class="sx">https://www.conventionalcommits.org/en/v1.0.0/</span><span class="p">)</span> with GitHub issue reference, e.g. <span class="sb">`feat: Reise erstellen #1`</span>
+<span class="p">-</span> UI: JavaFX views coded in Java (no FXML)
+<span class="p">-</span> <span class="sb">`asciidocs/`</span> is for human-made docs only — generated specs go in <span class="sb">`specifications/`</span></code></pre>
+</div>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Auswahl des Models</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/model</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>eher ein leistungsstarkes Model erstellen</p>
+</li>
+<li>
+<p>Nutzung beobachten</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/usage</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/claude-usage.png" alt="claude usage">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_erstellen_von_ascidoc_files"><a class="anchor" href="#_erstellen_von_ascidoc_files"></a>25. Erstellen von Ascidoc-Files</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Beachte: Ergänze die adoc-Files mit geeigneten Präamble-Eintragen zB :toc</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2331,7 +2742,7 @@ Die ESP32-Workbench ist bei reinen Software-Projekten nicht sinnvoll.
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-04-08 07:12:18 UTC
+Last updated 2026-04-08 08:01:19 UTC
 </div>
 </div>
 </body>
