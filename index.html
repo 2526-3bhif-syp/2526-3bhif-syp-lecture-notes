@@ -2370,78 +2370,57 @@ Die ESP32-Workbench ist bei reinen Software-Projekten nicht sinnvoll.
 <details>
 <summary class="title">Chatverlauf</summary>
 <div class="content">
-<div class="paragraph">
-<p>= Chat-Verlauf</p>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">= Chat-Verlauf
+
+== Prompts
+
+. can you create a claude.md
+
+. Please add the requirement, that we use javafx and the mvp pattern
+
+. use as database postgres in a docker container
+
+. kannst Du meine Prompts in chat.adoc eintragen?
+
+. kannst Du auf github zugreifen und mir die user stories aus den issues downloaden
+
+. include the first user story in the fsd-file and create the technical specs for implementing. We will discuss your proposal.
+
+. use maven; java 25 LTS; JavaFX 25; JUnit 6 with assetj-core and assertj-db in the newest versions; HikariCP for connection pooling; Package prefix: at.htl.tripplanner; it is only a JavaFX-App at the moment
+
+. don't use fxml. Code the UI in Java.
+
+. please separate the functional (domain specs, business specs) and technical specs (architecture, design, implementation details). create for the first user story a "fsd.adoc"-file and a "technical-spec.adoc"-file. in a folder specifications. Don't use the file "pflichtenheft.adoc" anymore.
+
+. Don't care about the asciidoc - folder. The asciidoc folder is solely for human-made docs.
+
+. create tests according to the acceptance criterias of the user story.
+
+. create the use-case diagram and the class diagram as plantuml in fsd.adoc
+
+. when you create a commit, please write a meaningful commit message and include the issue number in the commit message. For example: "feat: Login-Seite #5".
+
+. Halte dich bei den Commits an https://www.conventionalcommits.org/en/v1.0.0/
+
+. trägst Du das nicht in Claude.md ein?
+
+. kannst Du die Spec etwas allgemeiner gestalten? Anstelle von Lehrer -&gt; Reiseleiter, Schüler -&gt; Reisender, etc.?
+
+. erstelle die javafx-app für die erste user story
+
+. hatten wir nicht vereinbart, junit 6 zu verwenden -&gt; https://docs.junit.org/6.0.3/api/
+
+. assertj-core gibt es bereits in 3.27.7 und assertj-db in 3.0.2
+
+
+. die Postgres db sollte 18 sein, der db-name: db und user: app mit password: app
+
+. document how to start in README.md and create some demo data for the db
+
+. trage die Änderungen in den docs ein</code></pre>
 </div>
-<div class="paragraph">
-<p>== Prompts</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>can you create a claude.md</p>
-</li>
-<li>
-<p>Please add the requirement, that we use javafx and the mvp pattern</p>
-</li>
-<li>
-<p>use as database postgres in a docker container</p>
-</li>
-<li>
-<p>kannst Du meine Prompts in chat.adoc eintragen?</p>
-</li>
-<li>
-<p>kannst Du auf github zugreifen und mir die user stories aus den issues downloaden</p>
-</li>
-<li>
-<p>include the first user story in the fsd-file and create the technical specs for implementing. We will discuss your proposal.</p>
-</li>
-<li>
-<p>use maven; java 25 LTS; JavaFX 25; JUnit 6 with assetj-core and assertj-db in the newest versions; HikariCP for connection pooling; Package prefix: at.htl.tripplanner; it is only a JavaFX-App at the moment</p>
-</li>
-<li>
-<p>don&#8217;t use fxml. Code the UI in Java.</p>
-</li>
-<li>
-<p>please separate the functional (domain specs, business specs) and technical specs (architecture, design, implementation details). create for the first user story a "fsd.adoc"-file and a "technical-spec.adoc"-file. in a folder specifications. Don&#8217;t use the file "pflichtenheft.adoc" anymore.</p>
-</li>
-<li>
-<p>Don&#8217;t care about the asciidoc - folder. The asciidoc folder is solely for human-made docs.</p>
-</li>
-<li>
-<p>create tests according to the acceptance criterias of the user story.</p>
-</li>
-<li>
-<p>create the use-case diagram and the class diagram as plantuml in fsd.adoc</p>
-</li>
-<li>
-<p>when you create a commit, please write a meaningful commit message and include the issue number in the commit message. For example: "feat: Login-Seite #5".</p>
-</li>
-<li>
-<p>Halte dich bei den Commits an <a href="https://www.conventionalcommits.org/en/v1.0.0/" class="bare">https://www.conventionalcommits.org/en/v1.0.0/</a></p>
-</li>
-<li>
-<p>trägst Du das nicht in Claude.md ein?</p>
-</li>
-<li>
-<p>kannst Du die Spec etwas allgemeiner gestalten? Anstelle von Lehrer &#8594; Reiseleiter, Schüler &#8594; Reisender, etc.?</p>
-</li>
-<li>
-<p>erstelle die javafx-app für die erste user story</p>
-</li>
-<li>
-<p>hatten wir nicht vereinbart, junit 6 zu verwenden &#8594; <a href="https://docs.junit.org/6.0.3/api/" class="bare">https://docs.junit.org/6.0.3/api/</a></p>
-</li>
-<li>
-<p>assertj-core gibt es bereits in 3.27.7 und assertj-db in 3.0.2</p>
-</li>
-<li>
-<p>die Postgres db sollte 18 sein, der db-name: db und user: app mit password: app</p>
-</li>
-<li>
-<p>document how to start in README.md and create some demo data for the db</p>
-</li>
-</ol>
 </div>
 </div>
 </details>
@@ -2686,7 +2665,7 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 <span class="p">-</span> <span class="gs">**UI Framework**</span>: JavaFX 25
 <span class="p">-</span> <span class="gs">**Build Tool**</span>: Maven
 <span class="p">-</span> <span class="gs">**Architecture Pattern**</span>: MVP (Model-View-Presenter)
-<span class="p">-</span> <span class="gs">**Database**</span>: PostgreSQL 17 (Docker container)
+<span class="p">-</span> <span class="gs">**Database**</span>: PostgreSQL 18 (Docker container, DB-Name: <span class="sb">`db`</span>, User: <span class="sb">`app`</span>, Passwort: <span class="sb">`app`</span>)
 <span class="p">-</span> <span class="gs">**Connection Pool**</span>: HikariCP
 <span class="p">-</span> <span class="gs">**Testing**</span>: JUnit 6, AssertJ Core, AssertJ-DB
 <span class="p">-</span> <span class="gs">**Package Prefix**</span>: <span class="sb">`at.htl.tripplanner`</span>
@@ -2758,7 +2737,7 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-04-08 08:17:39 UTC
+Last updated 2026-04-08 08:23:06 UTC
 </div>
 </div>
 </body>
