@@ -751,7 +751,7 @@ image::claude-gh-issues-access.png[]
 * gedockerte postgres-db in der Version 18
 * *keine fxml-files* (die UI wird zur Gänze in Java-Code erstellt)
 
-== Dokumentation des Chat-Verlaufs
+=== Dokumentation des Chat-Verlaufs
 
 * sämtliche prompts werden in einem file (zB chat.adoc) dokumentiert
 
@@ -1047,7 +1047,7 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 ----
 ====
 
-* Auswahl des Models
+=== Auswahl des Models
 
 ----
 /model
@@ -1055,7 +1055,7 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 
 * eher ein leistungsstarkes Model erstellen
 
-* Nutzung beobachten
+=== Nutzung beobachten
 
 ----
 /usage
@@ -1064,6 +1064,6 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 image::claude-usage.png[]
 
 
-== Erstellen von Ascidoc-Files
+=== Erstellen von Ascidoc-Files
 
 * Beachte: Ergänze die adoc-Files mit geeigneten Präamble-Eintragen zB :toc
