@@ -1084,3 +1084,147 @@ image::claude-usage.png[]
 
 image::user-story-1.png[]
 
+=== Issue Templates konfigurieren
+
+. Gehe in deinem Repository auf den Reiter Settings.
+
+. Scrolle im Bereich General nach unten zum Abschnitt Features.
+
+. Klicke neben "Issues" auf den Button Set up templates.
+
+. Wähle Add template und suche dir einen Typ aus (z. B. Bug Report oder Feature Request).
+
+. Klicke auf Preview and edit, um den Text und die Standard-Labels anzupassen.
+
+. Klicke oben rechts auf Propose changes, um die Dateien zu speichern.
+
+==== User Story Template
+
+image::gh-templates-1.png[]
+
+[source,markdown]
+----
+## User Story
+
+**As a** [type of user]
+**I want** [to perform some action]
+**So that** [I can achieve some goal/benefit]
+
+## Acceptance Criteria
+
+- [ ] Given [context], when [action], then [outcome]
+- [ ] Given [context], when [action], then [outcome]
+
+
+----
+
+
+==== Feature Request Template
+
+image::gh-templates-2-feature-request.png[]
+
+[source,markdown]
+----
+- [ ] I have checked that this feature has not already been requested.
+- [ ] I have clearly described the feature and its benefits.
+
+## Problem Statement
+
+<!-- What problem does this feature solve? Why is it needed? -->
+
+## Additional Context
+
+<!-- Add any other context, mockups, or references to similar features in other tools. -->
+
+----
+
+==== Enhancement Task Template
+
+image::gh-templates-3-enhancement-task.png[]
+
+[source,markdown]
+----
+- [ ] I have checked that this task does not duplicate an existing issue.
+
+## Task Description
+
+<!-- What needs to be done? What is the goal of this improvement? -->
+
+## Acceptance Criteria
+
+- [ ] Criterion 1: ...
+- [ ] Criterion 2: ...
+
+## Related Issues
+
+<!-- Link any related issues or PRs. -->
+
+----
+
+
+==== Bug Report Template
+
+image::gh-templates-4-bug-report.png[]
+
+[source,markdown]
+----
+- [ ] I have searched existing issues to ensure this is not a duplicate.
+
+## Bug Description
+
+<!-- A clear and concise description of what the bug is. -->
+
+## Steps to Reproduce
+
+1. Go to '...'
+2. Click on '...'
+3. See error
+
+- [ ] Is this reproducible every time?
+
+## Expected Behavior
+
+<!-- What did you expect to happen? -->
+
+## Actual Behavior
+
+<!-- What actually happened? Include error messages if any. -->
+
+## Environment
+
+- **Component:** [e.g. Mahnwesen, Rechnungen]
+- **OS:** [e.g. Windows 11, macOS]
+- **Browser:** [e.g. Chrome, Firefox]
+
+## Screenshots / Logs
+
+<!-- If applicable, add screenshots or log output to help explain the problem. -->
+
+----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
