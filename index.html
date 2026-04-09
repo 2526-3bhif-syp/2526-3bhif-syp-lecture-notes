@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-04-08</span>
+<span id="revdate">2026-04-09</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -661,6 +661,7 @@ pre.rouge .gs {
 <li><a href="#_nutzung_beobachten">23.7. Nutzung beobachten</a></li>
 <li><a href="#_erstellen_von_ascidoc_files">23.8. Erstellen von Ascidoc-Files</a></li>
 <li><a href="#_ergebnis_der_1_iteration">23.9. Ergebnis der 1. Iteration</a></li>
+<li><a href="#_issue_templates_konfigurieren">23.10. Issue Templates konfigurieren</a></li>
 </ul>
 </li>
 </ul>
@@ -2731,13 +2732,151 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_issue_templates_konfigurieren"><a class="anchor" href="#_issue_templates_konfigurieren"></a>23.10. Issue Templates konfigurieren</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Gehe in deinem Repository auf den Reiter Settings.</p>
+</li>
+<li>
+<p>Scrolle im Bereich General nach unten zum Abschnitt Features.</p>
+</li>
+<li>
+<p>Klicke neben "Issues" auf den Button Set up templates.</p>
+</li>
+<li>
+<p>Wähle Add template und suche dir einen Typ aus (z. B. Bug Report oder Feature Request).</p>
+</li>
+<li>
+<p>Klicke auf Preview and edit, um den Text und die Standard-Labels anzupassen.</p>
+</li>
+<li>
+<p>Klicke oben rechts auf Propose changes, um die Dateien zu speichern.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_user_story_template"><a class="anchor" href="#_user_story_template"></a>23.10.1. User Story Template</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/gh-templates-1.png" alt="gh templates 1">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="gu">## User Story</span>
+
+<span class="gs">**As a**</span> [type of user]
+<span class="gs">**I want**</span> [to perform some action]
+<span class="gs">**So that**</span> [I can achieve some goal/benefit]
+
+<span class="gu">## Acceptance Criteria</span>
+<span class="p">
+-</span> [ ] Given [context], when [action], then [outcome]
+<span class="p">-</span> [ ] Given [context], when [action], then [outcome]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_feature_request_template"><a class="anchor" href="#_feature_request_template"></a>23.10.2. Feature Request Template</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/gh-templates-2-feature-request.png" alt="gh templates 2 feature request">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">-</span> [ ] I have checked that this feature has not already been requested.
+<span class="p">-</span> [ ] I have clearly described the feature and its benefits.
+
+<span class="gu">## Problem Statement</span>
+
+<span class="c">&lt;!-- What problem does this feature solve? Why is it needed? --&gt;</span>
+
+<span class="gu">## Additional Context</span>
+
+<span class="c">&lt;!-- Add any other context, mockups, or references to similar features in other tools. --&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_enhancement_task_template"><a class="anchor" href="#_enhancement_task_template"></a>23.10.3. Enhancement Task Template</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/gh-templates-3-enhancement-task.png" alt="gh templates 3 enhancement task">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">-</span> [ ] I have checked that this task does not duplicate an existing issue.
+
+<span class="gu">## Task Description</span>
+
+<span class="c">&lt;!-- What needs to be done? What is the goal of this improvement? --&gt;</span>
+
+<span class="gu">## Acceptance Criteria</span>
+<span class="p">
+-</span> [ ] Criterion 1: ...
+<span class="p">-</span> [ ] Criterion 2: ...
+
+<span class="gu">## Related Issues</span>
+
+<span class="c">&lt;!-- Link any related issues or PRs. --&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_bug_report_template"><a class="anchor" href="#_bug_report_template"></a>23.10.4. Bug Report Template</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/gh-templates-4-bug-report.png" alt="gh templates 4 bug report">
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="p">-</span> [ ] I have searched existing issues to ensure this is not a duplicate.
+
+<span class="gu">## Bug Description</span>
+
+<span class="c">&lt;!-- A clear and concise description of what the bug is. --&gt;</span>
+
+<span class="gu">## Steps to Reproduce</span>
+<span class="p">
+1.</span> Go to '...'
+<span class="p">2.</span> Click on '...'
+<span class="p">3.</span> See error
+<span class="p">
+-</span> [ ] Is this reproducible every time?
+
+<span class="gu">## Expected Behavior</span>
+
+<span class="c">&lt;!-- What did you expect to happen? --&gt;</span>
+
+<span class="gu">## Actual Behavior</span>
+
+<span class="c">&lt;!-- What actually happened? Include error messages if any. --&gt;</span>
+
+<span class="gu">## Environment</span>
+<span class="p">
+-</span> <span class="gs">**Component:**</span> [e.g. Mahnwesen, Rechnungen]
+<span class="p">-</span> <span class="gs">**OS:**</span> [e.g. Windows 11, macOS]
+<span class="p">-</span> <span class="gs">**Browser:**</span> [e.g. Chrome, Firefox]
+
+<span class="gu">## Screenshots / Logs</span>
+
+<span class="c">&lt;!-- If applicable, add screenshots or log output to help explain the problem. --&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-04-08 08:23:06 UTC
+Last updated 2026-04-09 07:17:35 UTC
 </div>
 </div>
 </body>
