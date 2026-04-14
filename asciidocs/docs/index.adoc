@@ -1202,11 +1202,37 @@ image::gh-templates-4-bug-report.png[]
 
 ----
 
+== 2026-04-14
+
+* Teststoff
+
+** Docker
+** Scrum
+** UML (Datenmodellierung nur CLD und OD)
+** V-Modell (klassische Vorgehensmodelle)
+** git
+** Fragenkatalog und Lecture Notes
+
+=== openSpec
+
+* https://openspec.dev/[^]
+
+=== Agentisches Programmieren
+
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E?si=1cis7jQrX06ShWh2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
 
 
+++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IAuvtAWTnzY?si=LbtvawwO6UiVvjsT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+++++
 
+=== Kubernetes (K8S)
 
-
++++
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s_o8dwzRlu4?si=jZrBze10XxLOMyiD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
++++
 
 
 
