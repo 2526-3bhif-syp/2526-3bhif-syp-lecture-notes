@@ -1217,6 +1217,60 @@ image::gh-templates-4-bug-report.png[]
 
 * https://openspec.dev/[^]
 
+==== Projektkontexte
+
+===== Brownfield
+
+* Bestehendes Projekt
+* Erweiterung / Anpassung
+
+===== Greenfield
+
+* Neues Projekt
+* Keine Altlasten
+
+.source: https://www.cabotsolutions.com/blog/migrating-to-the-cloud-choosing-between-greenfield-and-brownfield[^]
+image::../images/greenfield-brownfield.png[]
+
+Wichtig für LLM:
+Kontext unterscheidet sich stark
+
+
+
+****
+
+*Fragen*:
+
+* Welche Hauptprobleme im agentischen Programmieren versucht openSpec zu lösen?
++
+.Antwort
+[%collapsible]
+====
+KI-Agenten verlieren nach jeder Session ihren Kontext. Sie wissen nicht, was das System leisten soll, welche Entscheidungen getroffen wurden und warum der Code so aussieht, wie er aussieht. Ohne dieses Wissen interpretieren sie den Code nach eigenem Gutdünken, treffen widersprüchliche Entscheidungen und bauen an Anforderungen vorbei. Je größer die Codebase, desto schlimmer wird das Problem. OpenSpec löst das, indem funktionale Anforderungen als Dateien im Repo liegen – persistenter Kontext, den der Agent bei jeder neuen Session sofort lesen kann.
+====
+
+* Wie geht man nach openspec.dev grob vor?
++
+.Antwort
+[%collapsible]
+====
+* Du beschreibst jedes Feature als Spec (specs/<feature>/spec.md) mit
+
+** *Zweck*,
+** *Anforderungen* und
+** *Szenarien* im Given-When-Then-Format.
+
+* *Vor einer Änderung legst du unter changes/ ein Proposal* an – was, warum, welche Specs betroffen sind – und schreibst die Zielversion der betroffenen Specs dazu.
+* Du *reviewst Plan und Spec-Delta*, bevor eine Zeile Code geschrieben wird.
+* Nach der Umsetzung übernimmst du die neuen Specs, räumst den Change-Ordner auf und commitest alles zusammen. *Der Agent* liest die Specs als Kontext und *arbeitet gegen die definierten Anforderungen statt gegen seine eigene Interpretation*.
+====
+****
+
+IMPORTANT: Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download]
+icon:file-archive-o[] link:student_fsd_package.zip[student_fsd_package.zip herunterladen (.zip)]. Sie können aber auch gerne eine einfachere Vorgehensweise wählen: icon:external-link[] xref:openspec.adoc[Vorgehen nach openspec.dev]
+
+
+
 === Continuation Prompt im agentischen Programmieren
 
 zB nach Erstellen einer GUI in stitch kann man "Give me a continuation prompt" eingeben.

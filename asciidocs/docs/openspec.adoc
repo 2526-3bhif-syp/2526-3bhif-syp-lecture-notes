@@ -1,0 +1,276 @@
+= Spec-Driven Development: OpenSpec-Prinzipien ohne Tooling
+:author: Projektteam
+:revdate: 2026-04-15
+:toc: left
+:toclevels: 3
+:sectnums:
+:icons: font
+
+== Motivation
+
+Beim agentischen Programmieren (Claude Code, Cursor, Copilot etc.) verliert der Agent nach jeder Session seinen gesamten Kontext.
+Er weiß nicht mehr, was das System leisten soll, welche Designentscheidungen getroffen wurden oder warum etwas so gebaut ist, wie es ist.
+Je größer die Codebase, desto gravierender wird dieses Problem: Der Agent muss sich jedes Mal neu orientieren, interpretiert Code ohne Hintergrundwissen und trifft Entscheidungen, die früheren Designentscheidungen widersprechen können.
+
+Das Framework https://openspec.dev[OpenSpec] adressiert genau dieses Problem.
+Die hier beschriebene Anleitung setzt die Kernprinzipien von OpenSpec **ohne zusätzliches Tooling** um – ausschließlich mit Markdown-Dateien und einer Verzeichniskonvention.
+
+== Kernprinzipien
+
+=== Persistenter, maschinenlesbarer Kontext
+
+Specs sind funktionale Anforderungen, die als Dateien im Repository leben.
+Sie geben dem Agenten bei jeder neuen Session sofort Orientierung: Was soll das System leisten?
+Welche Szenarien sind abgedeckt?
+Welche Constraints gelten?
+
+Der Agent liest die relevante Spec, _bevor_ er Code anfasst, und arbeitet gegen eine klare Anforderung – nicht gegen seine eigene Interpretation des bestehenden Codes.
+Alle weiteren Vorteile ergeben sich aus diesem Grundprinzip.
+
+=== Änderungen auf Anforderungsebene nachvollziehen
+
+Bei jeder Änderung wird ein „Spec-Delta" erzeugt, das zeigt, _was sich an den Anforderungen ändert_ – nicht nur am Code.
+Reviewer können die Absicht einer Änderung in Sekunden verstehen, ohne sich durch den Code graben zu müssen.
+
+=== Planung vor dem Coden
+
+Über einen Proposal-Workflow wird ein strukturierter Plan mit Aufgaben, Designentscheidungen und Spec-Deltas erstellt, _bevor_ Code geschrieben wird.
+Fehlausrichtungen werden frühzeitig erkannt und korrigiert.
+
+=== Lebende Dokumentation
+
+Specs verschwinden nicht mit dem Ende einer Chat-Session und gehen nicht verloren, wenn jemand das Team verlässt.
+Neue Teammitglieder können sich über die Spec-Bibliothek in das System einlesen.
+
+== Verzeichnisstruktur (Quarkus-Projekt)
+
+Die Benennung der Spec-Ordner folgt dem Schema `domäne-fähigkeit` (z.B. `auth-login`, `order-checkout`) und spiegelt idealerweise die Java-Paketstruktur wider.
+
+[source,text]
+----
+my-quarkus-app/
+├── specs/                              <1>
+│   ├── auth-login/
+│   │   └── spec.md
+│   ├── auth-session/
+│   │   └── spec.md
+│   ├── user-registration/
+│   │   └── spec.md
+│   ├── order-checkout/
+│   │   └── spec.md
+│   └── notification-email/
+│       └── spec.md
+│
+├── changes/                            <2>
+│   └── add-remember-me/
+│       ├── proposal.md
+│       ├── design.md
+│       ├── tasks.md
+│       └── specs/
+│           └── auth-session/
+│               └── spec.md
+│
+├── src/                                <3>
+│   ├── main/
+│   │   ├── java/com/example/
+│   │   │   ├── auth/
+│   │   │   │   ├── LoginResource.java
+│   │   │   │   ├── SessionService.java
+│   │   │   │   └── ...
+│   │   │   ├── user/
+│   │   │   ├── order/
+│   │   │   └── notification/
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── ...
+│   └── test/
+│       └── java/com/example/
+├── pom.xml
+└── README.md
+----
+<1> Lebende Spezifikationen – eine pro Fähigkeit/Feature
+<2> Geplante Änderungen (temporär, bis umgesetzt und gemergt)
+<3> Quarkus-Quellcode, Paketstruktur spiegelt die Spec-Ordner
+
+== Format einer Spec
+
+Jede `spec.md` folgt einem einheitlichen Aufbau:
+
+[source,markdown]
+----
+# auth-session
+
+## Purpose
+Verwaltung des Session-Lebenszyklus: Erstellung, Validierung, Ablauf.
+
+## Requirements
+
+### Session-Erstellung
+Das System MUSS bei erfolgreicher Authentifizierung ein JWT erzeugen.
+
+#### Szenario: Erfolgreicher Login
+- GEGEBEN ein Benutzer mit gültigen Credentials
+- WENN er sich über POST /api/auth/login authentifiziert
+- DANN erhält er ein JWT mit 24h Gültigkeit
+- UND das Token enthält die Benutzer-Rolle
+
+### Session-Ablauf
+Das System MUSS Sessions nach konfigurierter Dauer invalidieren.
+
+#### Szenario: Token abgelaufen
+- GEGEBEN ein authentifizierter Benutzer
+- WENN das Token abgelaufen ist
+- DANN antwortet das System mit 401
+- UND der Client muss sich erneut authentifizieren
+
+## Constraints
+- Tokens werden nicht serverseitig gespeichert (stateless)
+- Refresh-Tokens werden in HttpOnly-Cookies transportiert
+----
+
+=== Sprachkonventionen
+
+[cols="1,3",options="header"]
+|===
+| Schlüsselwort | Bedeutung
+
+| MUSS / SHALL
+| Zwingende Anforderung
+
+| SOLL / SHOULD
+| Empfohlene Anforderung, Abweichung begründen
+
+| KANN / MAY
+| Optionale Anforderung
+
+| GEGEBEN / GIVEN
+| Vorbedingung eines Szenarios
+
+| WENN / WHEN
+| Auslösende Aktion
+
+| DANN / THEN
+| Erwartetes Ergebnis
+|===
+
+== Workflow im Alltag
+
+=== Schritt 1: Änderung planen (Proposal)
+
+Lege unter `changes/feature-name/` eine `proposal.md` an:
+
+[source,markdown]
+----
+# Proposal: Remember-Me-Funktion
+
+## Motivation
+Benutzer müssen sich täglich neu einloggen, was die UX verschlechtert.
+
+## Änderung
+- Checkbox "Angemeldet bleiben" im Login-Formular
+- Verlängerte Session-Dauer (30 Tage) via Refresh-Token
+
+## Betroffene Specs
+- auth-session (Session-Dauer wird konfigurierbar)
+- auth-login (neuer Parameter)
+----
+
+=== Schritt 2: Tasks und Design festhalten
+
+In `tasks.md` die konkreten Implementierungsschritte auflisten.
+In `design.md` technische Entscheidungen dokumentieren (z.B. „Refresh-Token in DB vs. Cookie-only").
+
+[source,markdown]
+----
+# Design: Remember-Me
+
+## Entscheidung: Token-Speicherung
+**Gewählt:** HttpOnly-Cookie mit Refresh-Token
+**Alternativen:** Serverseitige Session-DB
+**Begründung:** Stateless-Architektur beibehalten, kein zusätzlicher Infrastrukturaufwand
+----
+
+=== Schritt 3: Spec-Delta vorbereiten
+
+Kopiere die betroffene `spec.md` nach `changes/feature-name/specs/` und schreibe die Zielversion.
+Im PR wird der Diff zwischen alter und neuer Spec sichtbar.
+
+[source,diff]
+----
+### Session-Ablauf
+- Das System MUSS Sessions nach 24 Stunden invalidieren.
++ Das System MUSS Sessions nach konfigurierter Dauer invalidieren.
+
++ ### Erweiterte Session (Remember Me)
++ Das System MUSS bei aktivierter "Angemeldet bleiben"-Option
++ eine Session-Dauer von 30 Tagen gewähren.
++
++ #### Szenario: Remember-Me aktiv
++ - GEGEBEN ein Benutzer aktiviert "Angemeldet bleiben"
++ - WENN er sich erfolgreich authentifiziert
++ - DANN erhält er ein Refresh-Token mit 30 Tagen Gültigkeit
++ - UND das Token wird als HttpOnly-Cookie gesetzt
+----
+
+=== Schritt 4: Review
+
+Vor dem Coden wird das Proposal samt Spec-Delta reviewt – von einem Kollegen oder auch nur von dir selbst.
+Dieser Review dauert Minuten, erspart aber Stunden an Nacharbeit.
+
+=== Schritt 5: Umsetzen und Spec aktualisieren
+
+Nach der Implementierung:
+
+. Spec-Deltas in die echten `specs/`-Dateien übernehmen
+. Den `changes/`-Eintrag löschen oder archivieren
+. Alles zusammen committen – Code und Spec ändern sich im gleichen PR
+
+== Arbeiten mit KI-Agenten
+
+=== Kontext bereitstellen
+
+Weise den Agenten zu Beginn einer Session auf die relevanten Specs hin:
+
+[source,text]
+----
+Lies bitte specs/auth-session/spec.md und specs/auth-login/spec.md.
+Ich möchte die Remember-Me-Funktion gemäß
+changes/add-remember-me/proposal.md umsetzen.
+----
+
+Der Agent hat damit sofort den nötigen Kontext und arbeitet gegen die definierten Anforderungen.
+
+=== Spec-Pflege durch den Agenten
+
+Der Agent kann auch beim Erstellen und Aktualisieren von Specs helfen:
+
+[source,text]
+----
+Erstelle eine neue Spec unter specs/notification-email/spec.md
+für den E-Mail-Versand bei Bestellbestätigung.
+Orientiere dich am Format der bestehenden Specs.
+----
+
+== Zusammenfassung
+
+[cols="1,2",options="header"]
+|===
+| Artefakt | Zweck
+
+| `specs/<name>/spec.md`
+| Lebende Anforderungsdokumentation pro Feature
+
+| `changes/<name>/proposal.md`
+| Was und warum einer geplanten Änderung
+
+| `changes/<name>/design.md`
+| Technische Entscheidungen und Alternativen
+
+| `changes/<name>/tasks.md`
+| Aufgaben-Breakdown für die Implementierung
+
+| `changes/<name>/specs/`
+| Spec-Deltas – zeigen die Anforderungsänderung
+|===
+
+Die Specs werden eingecheckt, durchlaufen den gleichen PR-Prozess wie Code und bilden so eine **versionierte, maschinenlesbare Wissensbasis**, die sowohl Menschen als auch KI-Agenten als verlässlichen Kontext nutzen können.
