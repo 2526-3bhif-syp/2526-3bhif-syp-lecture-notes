@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-04-14</span>
+<span id="revdate">2026-04-15</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -667,8 +667,9 @@ pre.rouge .gs {
 <li><a href="#_2026_04_14">24. 2026-04-14</a>
 <ul class="sectlevel2">
 <li><a href="#_openspec">24.1. openSpec</a></li>
-<li><a href="#_agentisches_programmieren">24.2. Agentisches Programmieren</a></li>
-<li><a href="#_kubernetes_k8s">24.3. Kubernetes (K8S)</a></li>
+<li><a href="#_continuation_prompt_im_agentischen_programmieren">24.2. Continuation Prompt im agentischen Programmieren</a></li>
+<li><a href="#_verwendung_einer_vm_als_sandbox_im_agent_programmieren">24.3. Verwendung einer VM als Sandbox im agent. Programmieren</a></li>
+<li><a href="#_kubernetes_k8s">24.4. Kubernetes (K8S)</a></li>
 </ul>
 </li>
 </ul>
@@ -2922,15 +2923,30 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 </div>
 </div>
 <div class="sect2">
-<h3 id="_agentisches_programmieren"><a class="anchor" href="#_agentisches_programmieren"></a>24.2. Agentisches Programmieren</h3>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E?si=1cis7jQrX06ShWh2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IAuvtAWTnzY?si=LbtvawwO6UiVvjsT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h3 id="_continuation_prompt_im_agentischen_programmieren"><a class="anchor" href="#_continuation_prompt_im_agentischen_programmieren"></a>24.2. Continuation Prompt im agentischen Programmieren</h3>
+<div class="paragraph">
+<p>zB nach Erstellen einer GUI in stitch kann man "Give me a continuation prompt" eingeben.</p>
+</div>
+<div class="paragraph">
+<p>Dieser Prompt wird im Verzeichnis <code>continuation</code> gespeichert und kann später wiederverwendet werden, um die GUI weiterzuentwickeln.</p>
+</div>
+<div class="paragraph">
+<p>Mit <code>/clear</code> den Context löschen und ggf <code>@continuation/gui.md</code> wieder einlesen.</p>
+</div>
+<div class="paragraph">
+<p>Man muss bei Änderungen zunächst einen <code>change request</code> nach openspec erstellen, damit die Änderungen in der Spezifikation dokumentiert sind. Danach kann man die Änderungen vornehmen und den Continuation Prompt ausführen, um die Änderungen umzusetzen.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_kubernetes_k8s"><a class="anchor" href="#_kubernetes_k8s"></a>24.3. Kubernetes (K8S)</h3>
+<h3 id="_verwendung_einer_vm_als_sandbox_im_agent_programmieren"><a class="anchor" href="#_verwendung_einer_vm_als_sandbox_im_agent_programmieren"></a>24.3. Verwendung einer VM als Sandbox im agent. Programmieren</h3>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IAuvtAWTnzY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<div class="sect2">
+<h3 id="_kubernetes_k8s"><a class="anchor" href="#_kubernetes_k8s"></a>24.4. Kubernetes (K8S)</h3>
 <div class="paragraph">
 <p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/s_o8dwzRlu4?si=jZrBze10XxLOMyiD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s_o8dwzRlu4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </p>
 </div>
 </div>
@@ -2940,7 +2956,7 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-04-14 09:38:56 UTC
+Last updated 2026-04-15 06:56:08 UTC
 </div>
 </div>
 </body>
