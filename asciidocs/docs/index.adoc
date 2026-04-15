@@ -1217,24 +1217,37 @@ image::gh-templates-4-bug-report.png[]
 
 * https://openspec.dev/[^]
 
-=== Agentisches Programmieren
+=== Continuation Prompt im agentischen Programmieren
+
+zB nach Erstellen einer GUI in stitch kann man "Give me a continuation prompt" eingeben.
+
+Dieser Prompt wird im Verzeichnis `continuation` gespeichert und kann später wiederverwendet werden, um die GUI weiterzuentwickeln.
+
+Mit `/clear` den Context löschen und ggf `@continuation/gui.md` wieder einlesen.
+
+Man muss bei Änderungen zunächst einen `change request` nach openspec erstellen, damit die Änderungen in der Spezifikation dokumentiert sind. Danach kann man die Änderungen vornehmen und den Continuation Prompt ausführen, um die Änderungen umzusetzen.
+
+=== Verwendung einer VM als Sandbox im agent. Programmieren
 
 ++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E?si=1cis7jQrX06ShWh2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nmGEedloQ6E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ++++
+// ?si=1cis7jQrX06ShWh2
 
 
 ++++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/IAuvtAWTnzY?si=LbtvawwO6UiVvjsT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IAuvtAWTnzY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 ++++
+
+// ?si=LbtvawwO6UiVvjsT
 
 === Kubernetes (K8S)
 
 +++
-<iframe width="560" height="315" src="https://www.youtube.com/embed/s_o8dwzRlu4?si=jZrBze10XxLOMyiD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/s_o8dwzRlu4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 +++
 
-
+// ?si=jZrBze10XxLOMyiD
 
 
 
