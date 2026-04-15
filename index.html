@@ -2921,6 +2921,117 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="_projektkontexte"><a class="anchor" href="#_projektkontexte"></a>24.1.1. Projektkontexte</h4>
+<div class="sect4">
+<h5 id="_brownfield"><a class="anchor" href="#_brownfield"></a>Brownfield</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Bestehendes Projekt</p>
+</li>
+<li>
+<p>Erweiterung / Anpassung</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_greenfield"><a class="anchor" href="#_greenfield"></a>Greenfield</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>Neues Projekt</p>
+</li>
+<li>
+<p>Keine Altlasten</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/greenfield-brownfield.png" alt="greenfield brownfield">
+</div>
+<div class="title">Figure 7. source: <a href="https://www.cabotsolutions.com/blog/migrating-to-the-cloud-choosing-between-greenfield-and-brownfield" class="bare" target="_blank" rel="noopener">https://www.cabotsolutions.com/blog/migrating-to-the-cloud-choosing-between-greenfield-and-brownfield</a></div>
+</div>
+<div class="paragraph">
+<p>Wichtig für LLM:
+Kontext unterscheidet sich stark</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Fragen</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Welche Hauptprobleme im agentischen Programmieren versucht openSpec zu lösen?</p>
+<details>
+<summary class="title">Antwort</summary>
+<div class="content">
+<div class="paragraph">
+<p>KI-Agenten verlieren nach jeder Session ihren Kontext. Sie wissen nicht, was das System leisten soll, welche Entscheidungen getroffen wurden und warum der Code so aussieht, wie er aussieht. Ohne dieses Wissen interpretieren sie den Code nach eigenem Gutdünken, treffen widersprüchliche Entscheidungen und bauen an Anforderungen vorbei. Je größer die Codebase, desto schlimmer wird das Problem. OpenSpec löst das, indem funktionale Anforderungen als Dateien im Repo liegen – persistenter Kontext, den der Agent bei jeder neuen Session sofort lesen kann.</p>
+</div>
+</div>
+</details>
+</li>
+<li>
+<p>Wie geht man nach openspec.dev grob vor?</p>
+<details>
+<summary class="title">Antwort</summary>
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Du beschreibst jedes Feature als Spec (specs/&lt;feature&gt;/spec.md) mit</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Zweck</strong>,</p>
+</li>
+<li>
+<p><strong>Anforderungen</strong> und</p>
+</li>
+<li>
+<p><strong>Szenarien</strong> im Given-When-Then-Format.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Vor einer Änderung legst du unter changes/ ein Proposal</strong> an – was, warum, welche Specs betroffen sind – und schreibst die Zielversion der betroffenen Specs dazu.</p>
+</li>
+<li>
+<p>Du <strong>reviewst Plan und Spec-Delta</strong>, bevor eine Zeile Code geschrieben wird.</p>
+</li>
+<li>
+<p>Nach der Umsetzung übernimmst du die neuen Specs, räumst den Change-Ordner auf und commitest alles zusammen. <strong>Der Agent</strong> liest die Specs als Kontext und <strong>arbeitet gegen die definierten Anforderungen statt gegen seine eigene Interpretation</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</details>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download]
+<span class="icon"><i class="fa fa-file-archive-o"></i></span> <a href="student_fsd_package.zip">student_fsd_package.zip herunterladen (.zip)</a>. Sie können aber auch gerne eine einfachere Vorgehensweise wählen: <span class="icon"><i class="fa fa-external-link"></i></span> <a href="openspec.html">Vorgehen nach openspec.dev</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_continuation_prompt_im_agentischen_programmieren"><a class="anchor" href="#_continuation_prompt_im_agentischen_programmieren"></a>24.2. Continuation Prompt im agentischen Programmieren</h3>
@@ -2956,7 +3067,7 @@ School trip planning JavaFX desktop application for HTL Leonding. Teachers creat
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-04-15 06:56:08 UTC
+Last updated 2026-04-15 08:06:17 UTC
 </div>
 </div>
 </body>

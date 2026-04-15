@@ -5,9 +5,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.20">
-<meta name="author" content="firstname lastname">
+<meta name="author" content="Projektteam">
 <link rel="icon" type="image/png" href="themes/favicon.png">
-<title>My Project</title>
+<title>Spec-Driven Development: OpenSpec-Prinzipien ohne Tooling</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,6 +436,120 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge, pre.rouge .w {
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+pre.rouge .k, pre.rouge .kd, pre.rouge .kn, pre.rouge .kp, pre.rouge .kr, pre.rouge .kt, pre.rouge .kv {
+  color: #cf222e;
+}
+pre.rouge .gr {
+  color: #f6f8fa;
+}
+pre.rouge .gd {
+  color: #82071e;
+  background-color: #ffebe9;
+}
+pre.rouge .nb {
+  color: #953800;
+}
+pre.rouge .nc {
+  color: #953800;
+}
+pre.rouge .no {
+  color: #953800;
+}
+pre.rouge .nn {
+  color: #953800;
+}
+pre.rouge .sr {
+  color: #116329;
+}
+pre.rouge .na {
+  color: #116329;
+}
+pre.rouge .nt {
+  color: #116329;
+}
+pre.rouge .gi {
+  color: #116329;
+  background-color: #dafbe1;
+}
+pre.rouge .kc {
+  color: #0550ae;
+}
+pre.rouge .l, pre.rouge .ld, pre.rouge .m, pre.rouge .mb, pre.rouge .mf, pre.rouge .mh, pre.rouge .mi, pre.rouge .il, pre.rouge .mo, pre.rouge .mx {
+  color: #0550ae;
+}
+pre.rouge .sb {
+  color: #0550ae;
+}
+pre.rouge .bp {
+  color: #0550ae;
+}
+pre.rouge .ne {
+  color: #0550ae;
+}
+pre.rouge .nl {
+  color: #0550ae;
+}
+pre.rouge .py {
+  color: #0550ae;
+}
+pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
+  color: #0550ae;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #0550ae;
+}
+pre.rouge .gh {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #0550ae;
+  font-weight: bold;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .sc, pre.rouge .dl, pre.rouge .sd, pre.rouge .s2, pre.rouge .se, pre.rouge .sh, pre.rouge .sx, pre.rouge .s1, pre.rouge .ss {
+  color: #0a3069;
+}
+pre.rouge .nd {
+  color: #8250df;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #8250df;
+}
+pre.rouge .err {
+  color: #f6f8fa;
+  background-color: #82071e;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cm, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
+  color: #6e7781;
+}
+pre.rouge .gl {
+  color: #6e7781;
+}
+pre.rouge .gt {
+  color: #6e7781;
+}
+pre.rouge .ni {
+  color: #24292f;
+}
+pre.rouge .si {
+  color: #24292f;
+}
+pre.rouge .ge {
+  color: #24292f;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #24292f;
+  font-weight: bold;
+}
+</style>
+<style>
     pre.rouge .hll {
         background-color: #ffc;
         display: block;
@@ -447,146 +561,423 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>My Project</h1>
+<h1>Spec-Driven Development: OpenSpec-Prinzipien ohne Tooling</h1>
 <div class="details">
-<span id="author" class="author">firstname lastname</span><br>
-<span id="revnumber">version 1.0.0,</span>
+<span id="author" class="author">Projektteam</span><br>
 <span id="revdate">2026-04-15</span>
-<br><span id="revremark">Some notes</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_pflichtenheft_was_mache_ich">1. Pflichtenheft "Was mache ich"</a>
+<li><a href="#_motivation">1. Motivation</a></li>
+<li><a href="#_kernprinzipien">2. Kernprinzipien</a>
 <ul class="sectlevel2">
-<li><a href="#_ausgangssituation">1.1. Ausgangssituation</a></li>
-<li><a href="#_istzustand">1.2. Istzustand</a></li>
-<li><a href="#_problemstellung">1.3. Problemstellung</a></li>
-<li><a href="#_aufgabenstellung">1.4. Aufgabenstellung</a></li>
-<li><a href="#_ziele">1.5. Ziele</a></li>
-<li><a href="#_mengengerüst">1.6. Mengengerüst</a></li>
-<li><a href="#_rahmenbedingungen">1.7. Rahmenbedingungen</a></li>
+<li><a href="#_persistenter_maschinenlesbarer_kontext">2.1. Persistenter, maschinenlesbarer Kontext</a></li>
+<li><a href="#_änderungen_auf_anforderungsebene_nachvollziehen">2.2. Änderungen auf Anforderungsebene nachvollziehen</a></li>
+<li><a href="#_planung_vor_dem_coden">2.3. Planung vor dem Coden</a></li>
+<li><a href="#_lebende_dokumentation">2.4. Lebende Dokumentation</a></li>
 </ul>
 </li>
-<li><a href="#_entwurf_wie_mache_ich_es">2. Entwurf "Wie mache ich es"</a>
+<li><a href="#_verzeichnisstruktur_quarkus_projekt">3. Verzeichnisstruktur (Quarkus-Projekt)</a></li>
+<li><a href="#_format_einer_spec">4. Format einer Spec</a>
 <ul class="sectlevel2">
-<li><a href="#_systemarchitektur">2.1. Systemarchitektur</a></li>
-<li><a href="#">2.2. &#8230;&#8203;</a></li>
+<li><a href="#_sprachkonventionen">4.1. Sprachkonventionen</a></li>
 </ul>
 </li>
-<li><a href="#_projekthandbuch_organisatorische_rahmenbedingungen">3. Projekthandbuch "Organisatorische Rahmenbedingungen"</a>
+<li><a href="#_workflow_im_alltag">5. Workflow im Alltag</a>
 <ul class="sectlevel2">
-<li><a href="#_gantt_diagramm">3.1. GANTT-Diagramm</a></li>
+<li><a href="#_schritt_1_änderung_planen_proposal">5.1. Schritt 1: Änderung planen (Proposal)</a></li>
+<li><a href="#_schritt_2_tasks_und_design_festhalten">5.2. Schritt 2: Tasks und Design festhalten</a></li>
+<li><a href="#_schritt_3_spec_delta_vorbereiten">5.3. Schritt 3: Spec-Delta vorbereiten</a></li>
+<li><a href="#_schritt_4_review">5.4. Schritt 4: Review</a></li>
+<li><a href="#_schritt_5_umsetzen_und_spec_aktualisieren">5.5. Schritt 5: Umsetzen und Spec aktualisieren</a></li>
 </ul>
 </li>
+<li><a href="#_arbeiten_mit_ki_agenten">6. Arbeiten mit KI-Agenten</a>
+<ul class="sectlevel2">
+<li><a href="#_kontext_bereitstellen">6.1. Kontext bereitstellen</a></li>
+<li><a href="#_spec_pflege_durch_den_agenten">6.2. Spec-Pflege durch den Agenten</a></li>
+</ul>
+</li>
+<li><a href="#_zusammenfassung">7. Zusammenfassung</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
-<div id="preamble">
+<div class="sect1">
+<h2 id="_motivation"><a class="anchor" href="#_motivation"></a>1. Motivation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><span class="icon"><a class="image" href="https://raw.githubusercontent.com/htl-leonding-college/asciidoctor-docker-template/master/asciidocs/sysspec.adoc"><i class="fa fa-file-text-o"></i></a></span> ‏ ‏ ‎
-<span class="icon"><a class="image" href="https://github.com/htl-leonding-college/asciidoctor-docker-template"><i class="fa fa-github-square"></i></a></span> ‏ ‏ ‎
-<span class="icon"><a class="image" href="https://htl-leonding.github.io/"><i class="fa fa-home"></i></a></span></p>
+<p>Beim agentischen Programmieren (Claude Code, Cursor, Copilot etc.) verliert der Agent nach jeder Session seinen gesamten Kontext.
+Er weiß nicht mehr, was das System leisten soll, welche Designentscheidungen getroffen wurden oder warum etwas so gebaut ist, wie es ist.
+Je größer die Codebase, desto gravierender wird dieses Problem: Der Agent muss sich jedes Mal neu orientieren, interpretiert Code ohne Hintergrundwissen und trifft Entscheidungen, die früheren Designentscheidungen widersprechen können.</p>
+</div>
+<div class="paragraph">
+<p>Das Framework <a href="https://openspec.dev">OpenSpec</a> adressiert genau dieses Problem.
+Die hier beschriebene Anleitung setzt die Kernprinzipien von OpenSpec <strong>ohne zusätzliches Tooling</strong> um – ausschließlich mit Markdown-Dateien und einer Verzeichniskonvention.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_pflichtenheft_was_mache_ich"><a class="anchor" href="#_pflichtenheft_was_mache_ich"></a>1. Pflichtenheft "Was mache ich"</h2>
+<h2 id="_kernprinzipien"><a class="anchor" href="#_kernprinzipien"></a>2. Kernprinzipien</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_ausgangssituation"><a class="anchor" href="#_ausgangssituation"></a>1.1. Ausgangssituation</h3>
+<h3 id="_persistenter_maschinenlesbarer_kontext"><a class="anchor" href="#_persistenter_maschinenlesbarer_kontext"></a>2.1. Persistenter, maschinenlesbarer Kontext</h3>
 <div class="paragraph">
-<p>Die HTL Leonding ist eine HTL im oö. Zentralraum mit ca. 1000 Schülern und den Fachabteilungen Medientechnik, Informatik, &#8230;&#8203;.</p>
+<p>Specs sind funktionale Anforderungen, die als Dateien im Repository leben.
+Sie geben dem Agenten bei jeder neuen Session sofort Orientierung: Was soll das System leisten?
+Welche Szenarien sind abgedeckt?
+Welche Constraints gelten?</p>
+</div>
+<div class="paragraph">
+<p>Der Agent liest die relevante Spec, <em>bevor</em> er Code anfasst, und arbeitet gegen eine klare Anforderung – nicht gegen seine eigene Interpretation des bestehenden Codes.
+Alle weiteren Vorteile ergeben sich aus diesem Grundprinzip.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_istzustand"><a class="anchor" href="#_istzustand"></a>1.2. Istzustand</h3>
+<h3 id="_änderungen_auf_anforderungsebene_nachvollziehen"><a class="anchor" href="#_änderungen_auf_anforderungsebene_nachvollziehen"></a>2.2. Änderungen auf Anforderungsebene nachvollziehen</h3>
+<div class="paragraph">
+<p>Bei jeder Änderung wird ein „Spec-Delta" erzeugt, das zeigt, <em>was sich an den Anforderungen ändert</em> – nicht nur am Code.
+Reviewer können die Absicht einer Änderung in Sekunden verstehen, ohne sich durch den Code graben zu müssen.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_planung_vor_dem_coden"><a class="anchor" href="#_planung_vor_dem_coden"></a>2.3. Planung vor dem Coden</h3>
+<div class="paragraph">
+<p>Über einen Proposal-Workflow wird ein strukturierter Plan mit Aufgaben, Designentscheidungen und Spec-Deltas erstellt, <em>bevor</em> Code geschrieben wird.
+Fehlausrichtungen werden frühzeitig erkannt und korrigiert.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lebende_dokumentation"><a class="anchor" href="#_lebende_dokumentation"></a>2.4. Lebende Dokumentation</h3>
+<div class="paragraph">
+<p>Specs verschwinden nicht mit dem Ende einer Chat-Session und gehen nicht verloren, wenn jemand das Team verlässt.
+Neue Teammitglieder können sich über die Spec-Bibliothek in das System einlesen.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_verzeichnisstruktur_quarkus_projekt"><a class="anchor" href="#_verzeichnisstruktur_quarkus_projekt"></a>3. Verzeichnisstruktur (Quarkus-Projekt)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Die Benennung der Spec-Ordner folgt dem Schema <code>domäne-fähigkeit</code> (z.B. <code>auth-login</code>, <code>order-checkout</code>) und spiegelt idealerweise die Java-Paketstruktur wider.</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre>Beschreibung der speziellen Situation zB in der Abteilung</pre>
+<pre class="rouge highlight"><code data-lang="text">my-quarkus-app/
+├── specs/                              <i class="conum" data-value="1"></i><b>(1)</b>
+│   ├── auth-login/
+│   │   └── spec.md
+│   ├── auth-session/
+│   │   └── spec.md
+│   ├── user-registration/
+│   │   └── spec.md
+│   ├── order-checkout/
+│   │   └── spec.md
+│   └── notification-email/
+│       └── spec.md
+│
+├── changes/                            <i class="conum" data-value="2"></i><b>(2)</b>
+│   └── add-remember-me/
+│       ├── proposal.md
+│       ├── design.md
+│       ├── tasks.md
+│       └── specs/
+│           └── auth-session/
+│               └── spec.md
+│
+├── src/                                <i class="conum" data-value="3"></i><b>(3)</b>
+│   ├── main/
+│   │   ├── java/com/example/
+│   │   │   ├── auth/
+│   │   │   │   ├── LoginResource.java
+│   │   │   │   ├── SessionService.java
+│   │   │   │   └── ...
+│   │   │   ├── user/
+│   │   │   ├── order/
+│   │   │   └── notification/
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── ...
+│   └── test/
+│       └── java/com/example/
+├── pom.xml
+└── README.md</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Lebende Spezifikationen – eine pro Fähigkeit/Feature</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Geplante Änderungen (temporär, bis umgesetzt und gemergt)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Quarkus-Quellcode, Paketstruktur spiegelt die Spec-Ordner</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_problemstellung"><a class="anchor" href="#_problemstellung"></a>1.3. Problemstellung</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_aufgabenstellung"><a class="anchor" href="#_aufgabenstellung"></a>1.4. Aufgabenstellung</h3>
-<div class="sect3">
-<h4 id="_funktionale_anforderungen"><a class="anchor" href="#_funktionale_anforderungen"></a>1.4.1. Funktionale Anforderungen</h4>
-<div class="imageblock">
-<div class="content">
-<img src="images/wireframe.png" alt="wireframe" width="376" height="84">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_nichtfunktionale_anforderungen_nfa"><a class="anchor" href="#_nichtfunktionale_anforderungen_nfa"></a>1.4.2. Nichtfunktionale Anforderungen (NFA)</h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="_ziele"><a class="anchor" href="#_ziele"></a>1.5. Ziele</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_mengengerüst"><a class="anchor" href="#_mengengerüst"></a>1.6. Mengengerüst</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_rahmenbedingungen"><a class="anchor" href="#_rahmenbedingungen"></a>1.7. Rahmenbedingungen</h3>
+<div class="sect1">
+<h2 id="_format_einer_spec"><a class="anchor" href="#_format_einer_spec"></a>4. Format einer Spec</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>zB Vorgaben vom Auftraggeber</p>
+<p>Jede <code>spec.md</code> folgt einem einheitlichen Aufbau:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="gh"># auth-session</span>
+
+<span class="gu">## Purpose</span>
+Verwaltung des Session-Lebenszyklus: Erstellung, Validierung, Ablauf.
+
+<span class="gu">## Requirements</span>
+
+<span class="gu">### Session-Erstellung</span>
+Das System MUSS bei erfolgreicher Authentifizierung ein JWT erzeugen.
+
+<span class="gu">#### Szenario: Erfolgreicher Login</span>
+<span class="p">-</span> GEGEBEN ein Benutzer mit gültigen Credentials
+<span class="p">-</span> WENN er sich über POST /api/auth/login authentifiziert
+<span class="p">-</span> DANN erhält er ein JWT mit 24h Gültigkeit
+<span class="p">-</span> UND das Token enthält die Benutzer-Rolle
+
+<span class="gu">### Session-Ablauf</span>
+Das System MUSS Sessions nach konfigurierter Dauer invalidieren.
+
+<span class="gu">#### Szenario: Token abgelaufen</span>
+<span class="p">-</span> GEGEBEN ein authentifizierter Benutzer
+<span class="p">-</span> WENN das Token abgelaufen ist
+<span class="p">-</span> DANN antwortet das System mit 401
+<span class="p">-</span> UND der Client muss sich erneut authentifizieren
+
+<span class="gu">## Constraints</span>
+<span class="p">-</span> Tokens werden nicht serverseitig gespeichert (stateless)
+<span class="p">-</span> Refresh-Tokens werden in HttpOnly-Cookies transportiert</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sprachkonventionen"><a class="anchor" href="#_sprachkonventionen"></a>4.1. Sprachkonventionen</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Schlüsselwort</th>
+<th class="tableblock halign-left valign-top">Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MUSS / SHALL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Zwingende Anforderung</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOLL / SHOULD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Empfohlene Anforderung, Abweichung begründen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">KANN / MAY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optionale Anforderung</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GEGEBEN / GIVEN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Vorbedingung eines Szenarios</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WENN / WHEN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auslösende Aktion</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DANN / THEN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Erwartetes Ergebnis</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_workflow_im_alltag"><a class="anchor" href="#_workflow_im_alltag"></a>5. Workflow im Alltag</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_schritt_1_änderung_planen_proposal"><a class="anchor" href="#_schritt_1_änderung_planen_proposal"></a>5.1. Schritt 1: Änderung planen (Proposal)</h3>
+<div class="paragraph">
+<p>Lege unter <code>changes/feature-name/</code> eine <code>proposal.md</code> an:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="gh"># Proposal: Remember-Me-Funktion</span>
+
+<span class="gu">## Motivation</span>
+Benutzer müssen sich täglich neu einloggen, was die UX verschlechtert.
+
+<span class="gu">## Änderung</span>
+<span class="p">-</span> Checkbox "Angemeldet bleiben" im Login-Formular
+<span class="p">-</span> Verlängerte Session-Dauer (30 Tage) via Refresh-Token
+
+<span class="gu">## Betroffene Specs</span>
+<span class="p">-</span> auth-session (Session-Dauer wird konfigurierbar)
+<span class="p">-</span> auth-login (neuer Parameter)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schritt_2_tasks_und_design_festhalten"><a class="anchor" href="#_schritt_2_tasks_und_design_festhalten"></a>5.2. Schritt 2: Tasks und Design festhalten</h3>
+<div class="paragraph">
+<p>In <code>tasks.md</code> die konkreten Implementierungsschritte auflisten.
+In <code>design.md</code> technische Entscheidungen dokumentieren (z.B. „Refresh-Token in DB vs. Cookie-only").</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="markdown"><span class="gh"># Design: Remember-Me</span>
+
+<span class="gu">## Entscheidung: Token-Speicherung</span>
+<span class="gs">**Gewählt:**</span> HttpOnly-Cookie mit Refresh-Token
+<span class="gs">**Alternativen:**</span> Serverseitige Session-DB
+<span class="gs">**Begründung:**</span> Stateless-Architektur beibehalten, kein zusätzlicher Infrastrukturaufwand</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schritt_3_spec_delta_vorbereiten"><a class="anchor" href="#_schritt_3_spec_delta_vorbereiten"></a>5.3. Schritt 3: Spec-Delta vorbereiten</h3>
+<div class="paragraph">
+<p>Kopiere die betroffene <code>spec.md</code> nach <code>changes/feature-name/specs/</code> und schreibe die Zielversion.
+Im PR wird der Diff zwischen alter und neuer Spec sichtbar.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="diff">### Session-Ablauf
+<span class="gd">- Das System MUSS Sessions nach 24 Stunden invalidieren.
+</span><span class="gi">+ Das System MUSS Sessions nach konfigurierter Dauer invalidieren.
+</span><span class="err">
+</span><span class="gi">+ ### Erweiterte Session (Remember Me)
++ Das System MUSS bei aktivierter "Angemeldet bleiben"-Option
++ eine Session-Dauer von 30 Tagen gewähren.
++
++ #### Szenario: Remember-Me aktiv
++ - GEGEBEN ein Benutzer aktiviert "Angemeldet bleiben"
++ - WENN er sich erfolgreich authentifiziert
++ - DANN erhält er ein Refresh-Token mit 30 Tagen Gültigkeit
++ - UND das Token wird als HttpOnly-Cookie gesetzt</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schritt_4_review"><a class="anchor" href="#_schritt_4_review"></a>5.4. Schritt 4: Review</h3>
+<div class="paragraph">
+<p>Vor dem Coden wird das Proposal samt Spec-Delta reviewt – von einem Kollegen oder auch nur von dir selbst.
+Dieser Review dauert Minuten, erspart aber Stunden an Nacharbeit.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schritt_5_umsetzen_und_spec_aktualisieren"><a class="anchor" href="#_schritt_5_umsetzen_und_spec_aktualisieren"></a>5.5. Schritt 5: Umsetzen und Spec aktualisieren</h3>
+<div class="paragraph">
+<p>Nach der Implementierung:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Spec-Deltas in die echten <code>specs/</code>-Dateien übernehmen</p>
+</li>
+<li>
+<p>Den <code>changes/</code>-Eintrag löschen oder archivieren</p>
+</li>
+<li>
+<p>Alles zusammen committen – Code und Spec ändern sich im gleichen PR</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_entwurf_wie_mache_ich_es"><a class="anchor" href="#_entwurf_wie_mache_ich_es"></a>2. Entwurf "Wie mache ich es"</h2>
+<h2 id="_arbeiten_mit_ki_agenten"><a class="anchor" href="#_arbeiten_mit_ki_agenten"></a>6. Arbeiten mit KI-Agenten</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_systemarchitektur"><a class="anchor" href="#_systemarchitektur"></a>2.1. Systemarchitektur</h3>
-
+<h3 id="_kontext_bereitstellen"><a class="anchor" href="#_kontext_bereitstellen"></a>6.1. Kontext bereitstellen</h3>
+<div class="paragraph">
+<p>Weise den Agenten zu Beginn einer Session auf die relevanten Specs hin:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">Lies bitte specs/auth-session/spec.md und specs/auth-login/spec.md.
+Ich möchte die Remember-Me-Funktion gemäß
+changes/add-remember-me/proposal.md umsetzen.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Der Agent hat damit sofort den nötigen Kontext und arbeitet gegen die definierten Anforderungen.</p>
+</div>
 </div>
 <div class="sect2">
-<h3 id=""><a class="anchor" href="#"></a>2.2. &#8230;&#8203;</h3>
-
+<h3 id="_spec_pflege_durch_den_agenten"><a class="anchor" href="#_spec_pflege_durch_den_agenten"></a>6.2. Spec-Pflege durch den Agenten</h3>
+<div class="paragraph">
+<p>Der Agent kann auch beim Erstellen und Aktualisieren von Specs helfen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">Erstelle eine neue Spec unter specs/notification-email/spec.md
+für den E-Mail-Versand bei Bestellbestätigung.
+Orientiere dich am Format der bestehenden Specs.</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_projekthandbuch_organisatorische_rahmenbedingungen"><a class="anchor" href="#_projekthandbuch_organisatorische_rahmenbedingungen"></a>3. Projekthandbuch "Organisatorische Rahmenbedingungen"</h2>
+<h2 id="_zusammenfassung"><a class="anchor" href="#_zusammenfassung"></a>7. Zusammenfassung</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_gantt_diagramm"><a class="anchor" href="#_gantt_diagramm"></a>3.1. GANTT-Diagramm</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Artefakt</th>
+<th class="tableblock halign-left valign-top">Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>specs/&lt;name&gt;/spec.md</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lebende Anforderungsdokumentation pro Feature</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>changes/&lt;name&gt;/proposal.md</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Was und warum einer geplanten Änderung</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>changes/&lt;name&gt;/design.md</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Technische Entscheidungen und Alternativen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>changes/&lt;name&gt;/tasks.md</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Aufgaben-Breakdown für die Implementierung</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>changes/&lt;name&gt;/specs/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spec-Deltas – zeigen die Anforderungsänderung</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>mit User-Stories (definiert in YouTrack)</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/gantt-protoype.png" alt="gantt protoype" width="353" height="100">
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="minutes-of-meeting.html">Protokollvorlage</a></p>
-</li>
-<li>
-<p><a href="demo.html">Demo</a></p>
-</li>
-</ul>
-</div>
+<p>Die Specs werden eingecheckt, durchlaufen den gleichen PR-Prozess wie Code und bilden so eine <strong>versionierte, maschinenlesbare Wissensbasis</strong>, die sowohl Menschen als auch KI-Agenten als verlässlichen Kontext nutzen können.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0.0<br>
 Last updated 2026-04-15 08:06:17 UTC
 </div>
 </div>
