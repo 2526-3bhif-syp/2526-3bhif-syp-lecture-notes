@@ -1241,7 +1241,7 @@ Kontext unterscheidet sich stark
 
 *Fragen*:
 
-* Welche Hauptprobleme im agentischen Programmieren versucht openSpec zu lösen?
+* Welche Hauptprobleme im agentischen Programmieren versucht openspec.dev zu lösen?
 +
 .Antwort
 [%collapsible]
@@ -1263,6 +1263,15 @@ KI-Agenten verlieren nach jeder Session ihren Kontext. Sie wissen nicht, was das
 * *Vor einer Änderung legst du unter changes/ ein Proposal* an – was, warum, welche Specs betroffen sind – und schreibst die Zielversion der betroffenen Specs dazu.
 * Du *reviewst Plan und Spec-Delta*, bevor eine Zeile Code geschrieben wird.
 * Nach der Umsetzung übernimmst du die neuen Specs, räumst den Change-Ordner auf und commitest alles zusammen. *Der Agent* liest die Specs als Kontext und *arbeitet gegen die definierten Anforderungen statt gegen seine eigene Interpretation*.
+====
+
+* Erläutern Sie die Begriffe "Brownfield" und "Greenfield" im Kontext von openspec.dev.
++
+.Antwort
+[%collapsible]
+====
+* Greenfield: Ein neues Projekt, das von Grund auf neu entwickelt wird. Wird ein neues Projekt "von der grünen Wiese" erstellt, ohne irgendwelche Altlasten oder Einschränkungen, so ist es zunächst ein Greenfield-Projekt.
+* Brownfield: Beim ersten *change request* (spec delta) wird das Projekt zu einem Brownfield-Projekt.
 ====
 ****
 
