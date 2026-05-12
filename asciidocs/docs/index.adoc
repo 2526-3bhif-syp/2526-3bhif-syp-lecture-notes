@@ -29,7 +29,7 @@ Testtermine:
  * [.line-through]#2025-11-25# 2025-12-02: 1. Test
 * 2026-01-13: 2. Test
 * 2026-04-21: 3. Test
-* 2026-06-09: 4. Test
+* 2026-06-02: 4. Test (verschoben vom 9. auf 2. auf Wunsch der Klasse)
 
 === Static Site Generators
 
@@ -1313,9 +1313,100 @@ Man muss bei Änderungen zunächst einen `change request` nach openspec erstelle
 // ?si=jZrBze10XxLOMyiD
 
 
+== 2026-04-28
+
+=== MQTT
+
+image::mqtt.png[]
+
+* Broker
+* synchron / asynchron
+* QoS (Quality of Service)
+* Retained Messages
+* Publish-Subscribe-Pattern vs. ObserverPattern
++
+[cols="1,1,1", options="header"]
+|===
+| Merkmal | Observer | Pub-Sub
+
+| *Kopplung*
+| direkt (tight)
+| indirekt (loose)
+
+| *Vermittler*
+| keiner
+| Broker / Event Bus
+
+| *Kennen sich?*
+| ja
+| nein
+
+| *Timing*
+| meist synchron
+| meist asynchron
+
+| *Scope*
+| ein Prozess
+| auch über Prozesse/Netzwerk
+
+| *Skalierbarkeit*
+| begrenzt
+| hoch
+
+| *Beispiele*
+| Java Swing Listeners, `addEventListener`
+| Kafka, RabbitMQ, Redis Pub/Sub
+|===
 
 
+* Was ist ein Protokoll?
+** http
+** ...
 
+
+== 2026-05-12
+
+=== openSpec
+
+* https://openspec.dev
+* global installieren
+
+----
+npm install -g @fission-ai/openspec@latest
+----
+
+=== Ablauf
+
+* Beginnen mit */opsx:explore*
+
+* anschließend */opsx:propose*: Hier kann er gut mit Spezifikationen umgehen.
+
+* Dann einen cold start
+** create continuation prompt
+** /clear
+** read continuation prompt
+
+* */opsx:apply*
+
+* *commit* (ev. auch push)
+
+* /opsx:sync
+
+* /opsx:archive
+
+==== tmux
+
+Ein Terminal, das nicht beendet wird, wenn man die ssh-session beendet. Mit "tmux attach" kann man sich wieder mit der Session verbinden.
+
+=== Skills
+
+==== Front Matter
+
+* Definieren, wann ein Skill ausgeführt wird
+
+=== ZimaBlade
+
+* Wie Raspberry nur schneller
 
 
 
