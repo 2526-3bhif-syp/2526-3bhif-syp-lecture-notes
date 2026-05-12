@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-04-15</span>
+<span id="revdate">2026-05-12</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -672,6 +672,19 @@ pre.rouge .gs {
 <li><a href="#_kubernetes_k8s">24.4. Kubernetes (K8S)</a></li>
 </ul>
 </li>
+<li><a href="#_2026_04_28">25. 2026-04-28</a>
+<ul class="sectlevel2">
+<li><a href="#_mqtt">25.1. MQTT</a></li>
+</ul>
+</li>
+<li><a href="#_2026_05_12">26. 2026-05-12</a>
+<ul class="sectlevel2">
+<li><a href="#_openspec_2">26.1. openSpec</a></li>
+<li><a href="#_ablauf">26.2. Ablauf</a></li>
+<li><a href="#_skills">26.3. Skills</a></li>
+<li><a href="#_zimablade">26.4. ZimaBlade</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -724,7 +737,7 @@ pre.rouge .gs {
 <p>2026-04-21: 3. Test</p>
 </li>
 <li>
-<p>2026-06-09: 4. Test</p>
+<p>2026-06-02: 4. Test (verschoben vom 9. auf 2. auf Wunsch der Klasse)</p>
 </li>
 </ul>
 </div>
@@ -3081,11 +3094,200 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_04_28"><a class="anchor" href="#_2026_04_28"></a>25. 2026-04-28</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_mqtt"><a class="anchor" href="#_mqtt"></a>25.1. MQTT</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/mqtt.png" alt="mqtt">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Broker</p>
+</li>
+<li>
+<p>synchron / asynchron</p>
+</li>
+<li>
+<p>QoS (Quality of Service)</p>
+</li>
+<li>
+<p>Retained Messages</p>
+</li>
+<li>
+<p>Publish-Subscribe-Pattern vs. ObserverPattern</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Merkmal</th>
+<th class="tableblock halign-left valign-top">Observer</th>
+<th class="tableblock halign-left valign-top">Pub-Sub</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Kopplung</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">direkt (tight)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">indirekt (loose)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Vermittler</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keiner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Broker / Event Bus</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Kennen sich?</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ja</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nein</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Timing</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">meist synchron</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">meist asynchron</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Scope</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ein Prozess</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">auch über Prozesse/Netzwerk</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Skalierbarkeit</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">begrenzt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">hoch</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Beispiele</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Java Swing Listeners, <code>addEventListener</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kafka, RabbitMQ, Redis Pub/Sub</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Was ist ein Protokoll?</p>
+<div class="ulist">
+<ul>
+<li>
+<p>http</p>
+</li>
+<li>
+<p>&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_05_12"><a class="anchor" href="#_2026_05_12"></a>26. 2026-05-12</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_openspec_2"><a class="anchor" href="#_openspec_2"></a>26.1. openSpec</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://openspec.dev" class="bare">https://openspec.dev</a></p>
+</li>
+<li>
+<p>global installieren</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>npm install -g @fission-ai/openspec@latest</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ablauf"><a class="anchor" href="#_ablauf"></a>26.2. Ablauf</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Beginnen mit <strong>/opsx:explore</strong></p>
+</li>
+<li>
+<p>anschließend <strong>/opsx:propose</strong>: Hier kann er gut mit Spezifikationen umgehen.</p>
+</li>
+<li>
+<p>Dann einen cold start</p>
+<div class="ulist">
+<ul>
+<li>
+<p>create continuation prompt</p>
+</li>
+<li>
+<p>/clear</p>
+</li>
+<li>
+<p>read continuation prompt</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>/opsx:apply</strong></p>
+</li>
+<li>
+<p><strong>commit</strong> (ev. auch push)</p>
+</li>
+<li>
+<p>/opsx:sync</p>
+</li>
+<li>
+<p>/opsx:archive</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_tmux"><a class="anchor" href="#_tmux"></a>26.2.1. tmux</h4>
+<div class="paragraph">
+<p>Ein Terminal, das nicht beendet wird, wenn man die ssh-session beendet. Mit "tmux attach" kann man sich wieder mit der Session verbinden.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_skills"><a class="anchor" href="#_skills"></a>26.3. Skills</h3>
+<div class="sect3">
+<h4 id="_front_matter"><a class="anchor" href="#_front_matter"></a>26.3.1. Front Matter</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Definieren, wann ein Skill ausgeführt wird</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_zimablade"><a class="anchor" href="#_zimablade"></a>26.4. ZimaBlade</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Wie Raspberry nur schneller</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-04-15 08:14:43 UTC
+Last updated 2026-05-12 09:47:35 UTC
 </div>
 </div>
 </body>
