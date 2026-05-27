@@ -1409,7 +1409,43 @@ Ein Terminal, das nicht beendet wird, wenn man die ssh-session beendet. Mit "tmu
 * Wie Raspberry nur schneller
 
 
+== 2026-05-26
 
+=== openSpec
+
+* Erläuterung des Ablaufs bei openSpec
+* Beantwortung von Fragen
+
+=== Kubernetes
+
+==== Kubernetes Cluster
+
+image::k8s-nodes.png[]
+
+==== Kubernetes Deployment
+
+image::k8s-deployment.png[]
+
+==== Docker Build Command
+
+image::k8s-docker-build-command-1.png[]
+
+image::k8s-docker-build-command-2.png[]
+
+==== Kubernetes Elemente
+
+image::k8s-elemente.png[]
+
+==== Bsp
+
+image::k8s-example.png[]
+
+==== Deployment auf Minikube
+
+* kein Ingress
+* aber mit Port Forwarding erreichbar
+
+image::k8s-storage.png[]
 
 
 
