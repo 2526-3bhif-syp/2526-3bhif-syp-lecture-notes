@@ -1448,8 +1448,40 @@ image::k8s-example.png[]
 image::k8s-storage.png[]
 
 
+== 2026-06-02
 
+=== 4. Leistungsfeststellung
 
+=== AI-Demo
+
+* Erstellen eines einfachen REST-Endpoints mit
+** openSpec
+** claude-cli
+
+Das Demoprojekt befindet sich in "labs/ai-demo"
+
+* Projekt starten:
+
+.DB starten im ersten Terminal-Fenster:
+[source,bash]
+----
+cd docker
+docker compose up -d
+----
+
+.Anwendung starten im zweiten Terminal-Fenster:
+[source,bash]
+----
+./mvnw clean quarkus:dev
+----
+
+Dann mit Browser auf api zugreifen: http://localhost:8080/api/vehicles
+
+==== Token sparen
+
+* Bezeichner immer unter Anführungszeichen setzen
+* Caveman verwenden
+* Continuation Prompts createn (in Verzeichnis `continuations/`) und refreshen.
 
 
 

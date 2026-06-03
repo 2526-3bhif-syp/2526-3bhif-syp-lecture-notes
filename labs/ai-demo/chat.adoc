@@ -1,0 +1,47 @@
+/openspec:explore
+Erstelle die Spezifikation für eine Quarkus Applikation, die eine Entity-Klasse "Vehicle" mit den Attributen "id", "make", "model" und "construction_year" enthält. Implementiere einen RESTful Endpoint, um Fahrzeuge zu erstellen, abzurufen, zu aktualisieren und zu löschen (CRUD-Operationen). Verwende JPA für die Datenpersistierung und postgres als gedockerte Datenbank. Stelle sicher, dass die API JSON als Datenformat verwendet und implementiere grundlegende Validierungen für die Eingabedaten.
+
+Beachte:
+* Verwende das Repository-Pattern für die Datenzugriffsschicht und nicht das Active Record Pattern.
+* Verwende für die Unit-Tests "assertj-core" 3.27.7 und "assertj-db" 3.0.2 für die Datenbanktests. Verwende insbesondere assertThat() als Test-Matcher.
+* Verwende auch beim Testen mit "restAssured" die assertThat() Methode für die Überprüfung der API-Antworten.
+* Implementiere die REST-Endpoints unter dem Pfad "/api/vehicles".
+* Verwende eine postgres 18, also die neueste Version, als Datenbank.
+* Nenne die Datenbank "db" mit username "app" und password "app".
+* Die Datenbank soll mit docker-compose gestartet werden. Das file "docker-compose.yaml" ist im Verzeichnis "docker" zu erstellen.
+* Für den Primary key "id" soll eine Sequenze "vehicle_id_seq" verwendet werden, die automatisch inkrementiert wird.
+* Die Klasse "vehicle" erhält den Präfix "AI_" für den Tabellennamen also "AI_VEHICLE". Die ist über die "@Column" Annotation zu definieren.
+* Die Attribute in der Tabelle erhalten den ersten Buchstaben der Klasse als Präfix also "V_ID", "V_MAKE", "V_MODEL" und "V_CONSTRUCTION_YEAR". Auch diese sind über die "@Column" Annotation zu definieren.
+
+/openspec:archive
+
+/opensepc:sync
+
+create a continuation prompt in folder "continuations"
+
+// wegen db fehler erstelle ich lieber einen bind mount statt eines named volumes
+// zuerst in initialisere ich docker, dh es werden alle docker elemente (container, images, volumes, networks, ...) gelöscht
+// dann nochmnals ausprobieren, ob db funktioniert
+//( falls nicht Umstieg auf bin mount volumes
+
+// oder man lagert das problem zum ki agenten aus
+warum funktioniert mein docker-compose file nicht? Es gibt einen Fehler mit der Datenbank, die nicht startet. Ich habe bereits versucht, die Datenbank mit einem bind mount zu starten, aber es funktioniert immer noch nicht. Kannst du mir helfen, das Problem zu identifizieren und zu lösen?
+
+// Es hat sich herausgestellt, dass im docker-compose.yaml der Prad zu den Db-Files nicht korrekt war.
+
+commit all
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
