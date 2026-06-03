@@ -8,6 +8,7 @@ This document outlines the current state and structure of the Quarkus Vehicle AP
 - **Java Version:** 21+ (configured release 21)
 - **Database:** PostgreSQL 18
   - **Docker Setup:** Run via `docker compose -f docker/docker-compose.yaml up -d`
+    - *Note on PostgreSQL 18 Volume Mount:* The container volume must be mounted at `/var/lib/postgresql` (instead of `/var/lib/postgresql/data`) because PostgreSQL 18 stores its files in a versioned directory structure `/var/lib/postgresql/18/docker`. Mounting only `/var/lib/postgresql/data` causes database startup failures.
   - **Database name:** `db`
   - **Username/Password:** `app` / `app`
 - **Data Access:** Repository Pattern (explicitly avoiding Active Record / PanacheEntity).
@@ -39,10 +40,11 @@ This document outlines the current state and structure of the Quarkus Vehicle AP
 
 1. Bootstrapped Quarkus with Panache, Jackson, Validator, and Postgres dependencies.
 2. Formulated and synced the `vehicle-api` capability specification.
-3. Created the Docker Compose PostgreSQL 18 config.
+3. Created the Docker Compose PostgreSQL 18 config (with Volume Mount fixed for Postgres 18 compatibility).
 4. Mapped the `Vehicle` entity according to exact column name prefixes.
 5. Implemented JAX-RS CRUD endpoints with validations under `/api/vehicles`.
 6. Verified integration tests and database state assertions compile and validate successfully.
+7. Committed all created and modified project files (including .gitignore configurations).
 
 ## Next Steps
 
