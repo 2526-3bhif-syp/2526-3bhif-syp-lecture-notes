@@ -1484,7 +1484,27 @@ Dann mit Browser auf api zugreifen: http://localhost:8080/api/vehicles
 * Continuation Prompts createn (in Verzeichnis `continuations/`) und refreshen.
 
 
+==== openspec
 
+[cols="1,3", options="header"]
+|===
+| OpenSpec-Befehl | Erklärung
+
+| `openspec:explore`
+| Analysiert den aktuellen Projektzustand und sammelt Kontext, Anforderungen und bestehende Artefakte.
+
+| `openspec:propose`
+| Erstellt auf Basis der Analyse einen Änderungsvorschlag (Spec-Delta) mit geplanter Umsetzung.
+
+| `openspec:apply`
+| Setzt den freigegebenen Vorschlag um und überführt die geplanten Änderungen in den Arbeitsstand.
+
+| `openspec:sync`
+| Synchronisiert den aktuellen Stand zwischen Spezifikation und Umsetzung, damit beides konsistent bleibt.
+
+| `openspec:archive`
+| Archiviert abgeschlossene Änderungen, um den Change-Verlauf sauber und nachvollziehbar zu halten.
+|===
 
 
 
