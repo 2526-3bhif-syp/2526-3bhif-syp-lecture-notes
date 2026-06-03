@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-05-27</span>
+<span id="revdate">2026-06-03</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -689,6 +689,12 @@ pre.rouge .gs {
 <ul class="sectlevel2">
 <li><a href="#_openspec_3">27.1. openSpec</a></li>
 <li><a href="#_kubernetes">27.2. Kubernetes</a></li>
+</ul>
+</li>
+<li><a href="#_2026_06_02">28. 2026-06-02</a>
+<ul class="sectlevel2">
+<li><a href="#_4_leistungsfeststellung">28.1. 4. Leistungsfeststellung</a></li>
+<li><a href="#_ai_demo">28.2. AI-Demo</a></li>
 </ul>
 </li>
 </ul>
@@ -3373,11 +3379,82 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_06_02"><a class="anchor" href="#_2026_06_02"></a>28. 2026-06-02</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_4_leistungsfeststellung"><a class="anchor" href="#_4_leistungsfeststellung"></a>28.1. 4. Leistungsfeststellung</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_ai_demo"><a class="anchor" href="#_ai_demo"></a>28.2. AI-Demo</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Erstellen eines einfachen REST-Endpoints mit</p>
+<div class="ulist">
+<ul>
+<li>
+<p>openSpec</p>
+</li>
+<li>
+<p>claude-cli</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Das Demoprojekt befindet sich in "labs/ai-demo"</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Projekt starten:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">DB starten im ersten Terminal-Fenster:</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><span class="nb">cd </span>docker
+docker compose up <span class="nt">-d</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Anwendung starten im zweiten Terminal-Fenster:</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">./mvnw clean quarkus:dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Dann mit Browser auf api zugreifen: <a href="http://localhost:8080/api/vehicles" class="bare">http://localhost:8080/api/vehicles</a></p>
+</div>
+<div class="sect3">
+<h4 id="_token_sparen"><a class="anchor" href="#_token_sparen"></a>28.2.1. Token sparen</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Bezeichner immer unter Anführungszeichen setzen</p>
+</li>
+<li>
+<p>Caveman verwenden</p>
+</li>
+<li>
+<p>Continuation Prompts createn (in Verzeichnis <code>continuations/</code>) und refreshen.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-05-27 07:56:16 UTC
+Last updated 2026-06-03 07:40:46 UTC
 </div>
 </div>
 </body>
