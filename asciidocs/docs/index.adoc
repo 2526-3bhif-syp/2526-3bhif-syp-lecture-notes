@@ -1530,4 +1530,11 @@ Dann mit Browser auf api zugreifen: http://localhost:8080/api/vehicles
 
 include::ai-demo.adoc[leveloffset=+2]
 
+Noch offen:
 
+* Welche Sprache soll verwendet werden?
+** deutsch vs englisch
+
+* Wie werden Skills erstellt?
+
+* Aufgaben im Hintergrund
