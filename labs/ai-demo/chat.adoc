@@ -27,13 +27,20 @@ create a continuation prompt in folder "continuations"
 // oder man lagert das problem zum ki agenten aus
 warum funktioniert mein docker-compose file nicht? Es gibt einen Fehler mit der Datenbank, die nicht startet. Ich habe bereits versucht, die Datenbank mit einem bind mount zu starten, aber es funktioniert immer noch nicht. Kannst du mir helfen, das Problem zu identifizieren und zu lösen?
 
-// Es hat sich herausgestellt, dass im docker-compose.yaml der Prad zu den Db-Files nicht korrekt war.
+// Es hat sich herausgestellt, dass im docker-compose.yaml der Pfad zu den Db-Files nicht korrekt war.
 
 commit all
 
+/opsx:explore
+Kannst Du mir Demodaten in die Tabelle "AI_VEHICLE" einfügen, damit ich die API testen kann? Bitte füge mindestens 5 Fahrzeuge mit unterschiedlichen Marken, Modellen und Baujahren hinzu. Stelle sicher, dass die Daten realistisch sind und die Validierungen der API erfüllen.
+
+Sprich mit mir darüber
 
 
+a, import.sql
 
+
+füge swagger hinzu
 
 
 

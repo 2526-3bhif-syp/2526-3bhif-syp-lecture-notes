@@ -1,0 +1,71 @@
+Habe im Folder "labs/ai-demo" ein Projekt angelegt, um die Durchführung eines Software-Entwicklungs-Projekts mittel openspec und einem AI-Agent zB claude oder antigravity durchzuführen.
+
+Dabei wird zunächst überprüft, ob am Rechner openspec installiert ist.
+
+* Anschließend werden die einzelnen delta-specs jeweils mit folgenden Phasen erstellt:
+* /opsx:explore
+* /opsx:propose
+* /opsx:apply
+* /opsx:sync
+* /opsx:archive
+* erstellen eines continuation prompts in folder "continuations"
+Dabei werden alle prompts in einem file "chat.adoc" (oder "chat.md") im Verzeichnis "labs/ai-demo" erstellt. Grundsätzlich werden .md-Files verwendet. Allerdings für die Dokumentationen und Spezifikationen (Schnittstelle zum Menschen) ist .adoc besser geeignet, da es sich um AsciiDoc handelt, das für technische Dokumentationen optimiert ist.
+
+Kannst Du mir ein Tutorial in einem file ai-demo.adoc für die Erstellung des angegebenen quarkus-Projekts erstellen, welches in das Dokument "index.adoc" eingebunden werden kann? Das Tutorial soll die Schritte zur Erstellung der Quarkus-Applikation mit der Entity-Klasse "Vehicle", den RESTful Endpoints, der JPA-Konfiguration und der Docker-Compose-Datei für die PostgreSQL-Datenbank detailliert beschreiben. Bitte füge auch Codebeispiele und Erklärungen zu den einzelnen Schritten hinzu, damit es für Entwickler leicht verständlich ist.
+
+Wichtig ist auch darauf hinzuweisen, dass der AI Agent nicht sofort mit der Implementierung beginnt, sondern zunächst die Spezifikation erstellt und mit dem Entwickler bespricht, bevor er mit der Umsetzung beginnt. Dies stellt sicher, dass die Anforderungen klar definiert sind und Missverständnisse vermieden werden.
+
+Bitte inkludiere ai-demo.adoc unter das Kapitel "2026-06-09" in der Datei lecture-notes.adoc.
+
+Im Kapitel "/opsx:explore" soll der Codeblock die Beschriftung "chat.adoc" erhalten.
+
+
+
+
+Schreibe im Kapitel "Erstellung eines Continuation Prompts" noch zwei Code-Blocks dazu:
+
+Beschriftung: Erstellung eines Continuation Prompts
+Inhalt: Erstelle einen continuation prompt in folder "continuations".
+
+Beschriftung: Update des Continuation Prompts
+Inhalt: update the continuation prompt in folder "continuations"
+
+
+
+Eigentlich reicht:
+Beschriftung: Update des Continuation Prompts
+Inhalt: update the continuation prompt in folder "continuations"
+Ändere den Codeblock entsprechend, damit er die Aktualisierung des Continuation Prompts beschreibt.
+
+Schreibe im Kapitel "/opsx:sync" hinzu, dass die Gesamtspezifikation um die jeweilige delta-Spezifikation erweitert wird und so eine vollständige Spezifikation entsteht.
+
+Ändere die Überschrift "Tutorial: Quarkus-Applikation mit openSpec und AI-Agenten" zu "Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten"
+
+Im Kapitel "Phase 1: Installation & Vorbereitungs-Check" schreibe hinzu, dass openspec auf der Shell installiert werden muss und nicht in der CLI des AI Agenten.
+
+Bitte streiche die Bemerkung, dass die Specs und Dokumentationen im adoc-Format erstellt werden, da dies in diesem Projekt so nicht durchgeführt wurde. Alle Specs sind im md-Format erstellt worden. Ev. kann am Ende des Tutorials noch ein Hinweis hinzugefügt werden, dass die Spezifikationen ins adoc-Format konvertiert werden können, was für technische Dokumentationen besser geeignet ist.
+
+Kannst Du das Bild "ai-agent-and-ide.png" in das Tutorial einfügen, um die Zusammenarbeit zwischen dem AI-Agenten und der IDE zu veranschaulichen? Bitte platziere das Bild an einer geeigneten Stelle im Tutorial, um den Kontext zu verdeutlichen. Das Bild sollte die Interaktion zwischen dem AI-Agenten und der Entwicklungsumgebung zeigen, um den Prozess der Spezifikationserstellung und Implementierung zu illustrieren.
+
+
+Mache die Inhalte des Kapitels "Phase 3: Technische Implementierung" collapsibel, da der Schwerpunkt ja auf der Entwicklung mit dem AI-Agenten liegt und die technische Implementierung eher als ergänzende Information dient. Dadurch können Leser, die sich mehr auf die Spezifikationserstellung konzentrieren möchten, die technischen Details bei Bedarf einblenden.
+
+Mache auch die Inhalte des Kapitels "Phase 4: Validierung & Testing" collapsibel, um den Fokus auf die Zusammenarbeit mit dem AI-Agenten zu legen und die technischen Details bei Bedarf zugänglich zu machen.
+Achte darauf, dass vor Überschriften immer eine Leerzeile ist, da sonst die Formatierung in AsciiDoc nicht korrekt dargestellt wird.
+
+Das Bild "ai-agent-and-ide.png" soll die maximale Seitenbreite nutzen
+
+
+Das Bild "ai-agent-and-ide.png" soll direkt vor der Überschrift "Phase 1: Installation & Vorbereitungs-Check" eingefügt werden, um den Kontext der Zusammenarbeit zwischen dem AI-Agenten und der IDE zu verdeutlichen. Darunter soll angführt werden, dass sämtliche Eingaben links im AI-Agenten Fenster durchgeführt werden. Rechts kann man sich die Ergebnisse in einem beliebigen Editor bzw IDE ansehen. Wir verwenden Jetbrains, da es eine sehr gute Unterstützung bietet:
+* für Datenbanken (Zugrauff auf DB und Erstellung von ER-Diagrammen)
+* für den Zugriff Endpoints (zB REST, GraphQL, ...) mit dem "Jetbrains HTTP-Client"
+* zur Ausführung der Tests (zB Unit-Tests, Integrationstests, ...) mit JUnit
+
+
+Kannst Du noch im Kapitel "Konzept & Workflow" hinzufügen, dass die Software in kleinen Schritten entwickelt wird. Jeder dieser Inkrements wird vorher sauber spezifiziert, bevor mit der Implementierung begonnen wird. So können die einzelnen Vereinbarungen im Scrum-Entwicklungsprozess eingehalten werden, wie zB die Definition of Done (DoD). Dies ermöglicht eine klare Strukturierung des Entwicklungsprozesses und stellt sicher, dass alle Beteiligten ein gemeinsames Verständnis der Anforderungen und Ziele haben, bevor mit der Umsetzung begonnen wird.
+
+
+
+
+
+

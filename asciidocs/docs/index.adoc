@@ -1506,6 +1506,8 @@ Dann mit Browser auf api zugreifen: http://localhost:8080/api/vehicles
 | Archiviert abgeschlossene Änderungen, um den Change-Verlauf sauber und nachvollziehbar zu halten.
 |===
 
+== 2026-06-09
 
+include::ai-demo.adoc[leveloffset=+2]
 
 
