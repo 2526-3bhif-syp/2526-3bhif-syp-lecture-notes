@@ -65,7 +65,9 @@ Das Bild "ai-agent-and-ide.png" soll direkt vor der Überschrift "Phase 1: Insta
 Kannst Du noch im Kapitel "Konzept & Workflow" hinzufügen, dass die Software in kleinen Schritten entwickelt wird. Jeder dieser Inkrements wird vorher sauber spezifiziert, bevor mit der Implementierung begonnen wird. So können die einzelnen Vereinbarungen im Scrum-Entwicklungsprozess eingehalten werden, wie zB die Definition of Done (DoD). Dies ermöglicht eine klare Strukturierung des Entwicklungsprozesses und stellt sicher, dass alle Beteiligten ein gemeinsames Verständnis der Anforderungen und Ziele haben, bevor mit der Umsetzung begonnen wird.
 
 
+Ergänze, dass auch die Commits und push als eigene phase betrachtet werden können. Der KI-Agent vergibt so eigene - oft sehr sinnvolle - Commit-Messages. Auch das push wird vom KI-Agenten durchgeführt. Füge zwei Textblocks hinzu mit "commit" und "push"
+
+Möchte, dass commit und push nach Erstellung/Update des Continuation Prompts durchgeführt werden, damit die Änderungen direkt im Repository festgehalten werden. Dies ermöglicht eine bessere Nachverfolgung der Änderungen und stellt sicher, dass die Spezifikationen und Implementierungen stets auf dem neuesten Stand sind.
 
 
-
-
+Schreibe statt "Fortsetzungs-Prompts" lieber "Continuation Prompts", da dies die gängige Terminologie ist und besser verständlich ist.

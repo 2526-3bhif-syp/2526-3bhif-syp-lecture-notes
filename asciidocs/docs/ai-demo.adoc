@@ -82,21 +82,32 @@ Nach der Freigabe des Proposals (Freigabe des Spec-Deltas und des Umsetzungsplan
 In dieser Phase wird überprüft, ob die Implementierung exakt mit den Spezifikationen übereinstimmt und alle Tests grün sind. Dabei wird die Gesamtspezifikation um die jeweilige Delta-Spezifikation (Spec-Delta) erweitert, wodurch eine konsistente und vollständige Spezifikation des Gesamtsystems entsteht.
 
 === 5. `/opsx:archive`
-Die abgeschlossenen Änderungen werden in die lebende Spezifikation übernommen. Der temporäre `changes/`-Ordner wird aufgeräumt und die Änderungen werden via Git committet:
-
-[source,bash]
-----
-git add .
-git commit -m "feat: implement vehicle crud endpoints with postgres persistence #1"
-----
+Die abgeschlossenen Änderungen werden in die lebende Spezifikation übernommen und der temporäre `changes/`-Ordner wird aufgeräumt.
 
 === 6. Erstellung eines Continuation Prompts
-Um bei einer neuen Session sofort wieder produktiv starten zu können, wird im Ordner `continuations/` ein Fortsetzungs-Prompt erstellt. Bei einem Neustart kann der Kontext über `/clear` gelöscht und der Continuation-Prompt eingelesen werden, was Token spart und Fehlinterpretationen verhindert.
+Um bei einer neuen Session sofort wieder produktiv starten zu können, wird im Ordner `continuations/` ein Continuation Prompt erstellt. Bei einem Neustart kann der Kontext über `/clear` gelöscht und der Continuation-Prompt eingelesen werden, was Token spart und Fehlinterpretationen verhindert.
 
 .Update des Continuation Prompts
 [source,text]
 ----
 update the continuation prompt in folder "continuations"
+----
+
+=== 7. `commit` und `push`
+Die Schritte `commit` und `push` werden nach der Erstellung bzw. dem Update des Continuation Prompts durchgeführt. Dadurch werden alle Änderungen – einschließlich des aktualisierten Continuation Prompts – direkt im Repository gesichert. Dies ermöglicht eine lückenlose Nachverfolgung der Änderungen und stellt sicher, dass Spezifikationen, Implementierungen und Continuation Prompts im Repository stets auf dem neuesten Stand und konsistent sind.
+
+Wenn der Entwickler dem Agenten den Befehl erteilt, die Änderungen zu committen, vergibt der Agent selbstständig oft sehr präzise und sinnvolle Commit-Messages (z. B. nach dem Conventional Commits Standard), die den tatsächlichen Änderungsumfang beschreiben. Auch das Pushen der Änderungen auf das Remote-Repository wird direkt vom AI-Agenten ausgeführt.
+
+.Commit der Änderungen
+[source,text]
+----
+commit
+----
+
+.Push der Commits
+[source,text]
+----
+push
 ----
 
 ---
