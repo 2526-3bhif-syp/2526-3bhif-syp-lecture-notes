@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-06-03</span>
+<span id="revdate">2026-06-13</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -695,6 +695,11 @@ pre.rouge .gs {
 <ul class="sectlevel2">
 <li><a href="#_4_leistungsfeststellung">28.1. 4. Leistungsfeststellung</a></li>
 <li><a href="#_ai_demo">28.2. AI-Demo</a></li>
+</ul>
+</li>
+<li><a href="#_2026_06_09">29. 2026-06-09</a>
+<ul class="sectlevel2">
+<li><a href="#_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten">29.1. Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten</a></li>
 </ul>
 </li>
 </ul>
@@ -3487,11 +3492,616 @@ docker compose up <span class="nt">-d</span></code></pre>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_06_09"><a class="anchor" href="#_2026_06_09"></a>29. 2026-06-09</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten"><a class="anchor" href="#_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten"></a>29.1. Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten</h3>
+<div class="paragraph">
+<p>Dieses Tutorial beschreibt die schrittweise Durchführung eines Software-Entwicklungs-Projekts im Verzeichnis <code>labs/ai-demo</code> unter der Verwendung des Frameworks <strong>openSpec</strong> und eines AI-Agenten (wie z. B. Claude Code oder Antigravity).</p>
+</div>
+<div class="paragraph">
+<p>Ziel ist die Erstellung einer Quarkus-Applikation zur Verwaltung von Fahrzeugen (CRUD-Operationen) mit einer PostgreSQL-Datenbank.</p>
+</div>
+<div class="sect3">
+<h4 id="_konzept_workflow"><a class="anchor" href="#_konzept_workflow"></a>29.1.1. Konzept &amp; Workflow</h4>
+<div class="paragraph">
+<p>Bei der Entwicklung mit AI-Agenten verliert das LLM nach jeder Session den Kontext. <strong>openSpec</strong> löst dieses Problem, indem funktionale Anforderungen direkt im Repository persistiert werden.</p>
+</div>
+<div class="paragraph">
+<p>Dabei wird die Software konsequent in kleinen Schritten (Inkrementen) entwickelt. Jedes dieser Inkremente wird vorher sauber spezifiziert, bevor mit der eigentlichen Implementierung begonnen wird. So können Vereinbarungen aus dem Scrum-Entwicklungsprozess (wie z. B. die <strong>Definition of Done (DoD)</strong>) exakt eingehalten werden. Dieser Ansatz ermöglicht eine klare Strukturierung des Entwicklungsprozesses und stellt sicher, dass alle Beteiligten – Mensch wie Maschine – ein gemeinsames Verständnis der Anforderungen und Ziele haben, noch bevor Code geschrieben wird.</p>
+</div>
+<div class="paragraph">
+<p>Für dieses Projekt nutzen wir folgendes Setup:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Spezifikationen (Specs):</strong> Alle funktionalen und technischen Spezifikationen werden im <code>.md</code>-Format (Markdown) verfasst.</p>
+</li>
+<li>
+<p><strong>Chat-Verlauf:</strong> Alle Prompts und Interaktionen werden in der Datei <code>labs/ai-demo/chat.md</code> (oder <code>chat.adoc</code>) dokumentiert.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="imageblock">
+<div class="content">
+<img src="images/ai-agent-and-ide.png" alt="Zusammenarbeit zwischen AI-Agent und IDE" width="100%">
+</div>
+</div>
+<div class="paragraph">
+<p>Sämtliche Eingaben werden links im AI-Agenten-Fenster durchgeführt. Rechts kann man sich die Ergebnisse in einem beliebigen Editor bzw. einer IDE ansehen. Wir verwenden JetBrains, da es eine sehr gute Unterstützung bietet:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>für Datenbanken (Zugriff auf DB und Erstellung von ER-Diagrammen)</p>
+</li>
+<li>
+<p>für den Zugriff auf Endpoints (z. B. REST, GraphQL, &#8230;&#8203;) mit dem "JetBrains HTTP-Client"</p>
+</li>
+<li>
+<p>zur Ausführung der Tests (z. B. Unit-Tests, Integrationstests, &#8230;&#8203;) mit JUnit</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_phase_1_installation_vorbereitungs_check"><a class="anchor" href="#_phase_1_installation_vorbereitungs_check"></a>29.1.2. Phase 1: Installation &amp; Vorbereitungs-Check</h4>
+<div class="paragraph">
+<p>Bevor gestartet wird, muss überprüft werden, ob <code>openspec</code> auf dem Entwicklungsrechner installiert ist.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Die Installation und Ausführung von <code>openspec</code> muss direkt in der System-Shell (Terminal/Eingabeaufforderung) des Rechners durchgeführt werden und nicht in der CLI-Umgebung des AI-Agenten (wie z. B. Claude Code).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># Überprüfen, ob openSpec global installiert ist</span>
+openspec <span class="nt">--version</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Sollte das Tool nicht installiert sein, kann es mit folgendem Befehl global installiert werden:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">npm <span class="nb">install</span> <span class="nt">-g</span> @fission-ai/openspec@latest</code></pre>
+</div>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="_phase_2_der_openspec_workflow_delta_specs"><a class="anchor" href="#_phase_2_der_openspec_workflow_delta_specs"></a>29.1.3. Phase 2: Der openSpec-Workflow (Delta-Specs)</h4>
+<div class="paragraph">
+<p>Der Entwicklungsprozess wird über vordefinierte Phasen gesteuert, die als Befehle in den Chat eingegeben werden. Jedes Feature durchläuft diese Phasen als Spec-Delta.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong>Kein sofortiger Code-Start!</strong> Der AI-Agent darf nicht sofort mit der Implementierung beginnen. Zuerst wird die Spezifikation erstellt, verfeinert und im Detail mit dem Entwickler besprochen. Erst nach der expliziten Freigabe des Proposals durch den Entwickler startet die Umsetzung. Das stellt sicher, dass die Anforderungen präzise definiert sind und Missverständnisse vor dem Schreiben von Code ausgeräumt werden.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_1_opsxexplore"><a class="anchor" href="#_1_opsxexplore"></a>1. <code>/opsx:explore</code></h5>
+<div class="paragraph">
+<p>In dieser Phase analysiert der AI-Agent den aktuellen Zustand des Projekts, liest bestehende Anforderungen und verschafft sich den notwendigen Kontext.</p>
+</div>
+<div class="listingblock">
+<div class="title">chat.adoc</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="asciidoc">/opsx:explore
+Erstelle die Spezifikation für eine Quarkus Applikation, die eine Entity-Klasse "Vehicle" mit den Attributen "id", "make", "model" und "construction_year" enthält. Implementiere einen RESTful Endpoint, um Fahrzeuge zu erstellen, abzurufen, zu aktualisieren und zu löschen (CRUD-Operationen). Verwende JPA für die Datenpersistierung und postgres als gedockerte Datenbank. Stelle sicher, dass die API JSON als Datenformat verwendet und implementiere grundlegende Validierungen für die Eingabedaten.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_2_opsxpropose"><a class="anchor" href="#_2_opsxpropose"></a>2. <code>/opsx:propose</code></h5>
+<div class="paragraph">
+<p>Der Agent erstellt ein Proposal (Änderungsvorschlag) unter <code>changes/</code> mit dem geplanten Vorgehen und dem Spec-Delta.</p>
+</div>
+<div class="paragraph">
+<p><strong>Review &amp; Abstimmung:</strong> Der Entwickler prüft dieses Proposal sorgfältig und diskutiert es bei Bedarf mit dem Agenten. Dies ist das wichtigste Kontrollorgan, um sicherzustellen, dass keine Fehlentwicklungen stattfinden.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_3_opsxapply"><a class="anchor" href="#_3_opsxapply"></a>3. <code>/opsx:apply</code></h5>
+<div class="paragraph">
+<p>Nach der Freigabe des Proposals (Freigabe des Spec-Deltas und des Umsetzungsplans) durch den Entwickler beginnt die eigentliche Implementierung. Der Agent schreibt den Java-Code, die Konfigurationsdateien und die Docker-Compose-Konfiguration.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_4_opsxsync"><a class="anchor" href="#_4_opsxsync"></a>4. <code>/opsx:sync</code></h5>
+<div class="paragraph">
+<p>In dieser Phase wird überprüft, ob die Implementierung exakt mit den Spezifikationen übereinstimmt und alle Tests grün sind. Dabei wird die Gesamtspezifikation um die jeweilige Delta-Spezifikation (Spec-Delta) erweitert, wodurch eine konsistente und vollständige Spezifikation des Gesamtsystems entsteht.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_5_opsxarchive"><a class="anchor" href="#_5_opsxarchive"></a>5. <code>/opsx:archive</code></h5>
+<div class="paragraph">
+<p>Die abgeschlossenen Änderungen werden in die lebende Spezifikation übernommen. Der temporäre <code>changes/</code>-Ordner wird aufgeräumt und die Änderungen werden via Git committet:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"feat: implement vehicle crud endpoints with postgres persistence #1"</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_6_erstellung_eines_continuation_prompts"><a class="anchor" href="#_6_erstellung_eines_continuation_prompts"></a>6. Erstellung eines Continuation Prompts</h5>
+<div class="paragraph">
+<p>Um bei einer neuen Session sofort wieder produktiv starten zu können, wird im Ordner <code>continuations/</code> ein Fortsetzungs-Prompt erstellt. Bei einem Neustart kann der Kontext über <code>/clear</code> gelöscht und der Continuation-Prompt eingelesen werden, was Token spart und Fehlinterpretationen verhindert.</p>
+</div>
+<div class="listingblock">
+<div class="title">Update des Continuation Prompts</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">update the continuation prompt in folder "continuations"</code></pre>
+</div>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_phase_3_technische_implementierung"><a class="anchor" href="#_phase_3_technische_implementierung"></a>29.1.4. Phase 3: Technische Implementierung</h4>
+<div class="paragraph">
+<p>Im Folgenden sind die Kernkomponenten des erstellten Quarkus-Projekts detailliert aufgeführt.</p>
+</div>
+<details>
+<summary class="title">Technische Implementierungsdetails einblenden</summary>
+<div class="content">
+<div class="paragraph">
+<p>=== 1. Docker-Datenbank-Konfiguration (<code>docker/docker-compose.yaml</code>)
+Die PostgreSQL-Datenbank läuft in Version 18 in einem Docker-Container.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="yaml"><span class="na">services</span><span class="pi">:</span>
+  <span class="na">postgres</span><span class="pi">:</span>
+    <span class="na">image</span><span class="pi">:</span> <span class="s">postgres:18</span>
+    <span class="na">container_name</span><span class="pi">:</span> <span class="s">postgres-db</span>
+    <span class="na">environment</span><span class="pi">:</span>
+      <span class="na">POSTGRES_DB</span><span class="pi">:</span> <span class="s">db</span>
+      <span class="na">POSTGRES_USER</span><span class="pi">:</span> <span class="s">app</span>
+      <span class="na">POSTGRES_PASSWORD</span><span class="pi">:</span> <span class="s">app</span>
+    <span class="na">ports</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">5432:5432"</span>
+    <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">pgdata:/var/lib/postgresql</span>
+
+<span class="na">volumes</span><span class="pi">:</span>
+  <span class="na">pgdata</span><span class="pi">:</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>=== 2. JPA-Entity-Klasse (<code>Vehicle.java</code>)
+Die Entity-Klasse verwendet spezifische Tabellen- und Spaltenpräfixe (<code>AI_</code> bzw. <code>V_</code>) und Validierungs-Annotations sowie OpenAPI-Metadaten.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">org.acme.vehicle.entity</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">jakarta.persistence.Column</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.persistence.Entity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.persistence.GeneratedValue</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.persistence.GenerationType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.persistence.Id</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.persistence.SequenceGenerator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.persistence.Table</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.validation.constraints.Min</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.validation.constraints.NotBlank</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.validation.constraints.NotNull</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.microprofile.openapi.annotations.media.Schema</span><span class="o">;</span>
+
+<span class="nd">@Entity</span>
+<span class="nd">@Table</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"AI_VEHICLE"</span><span class="o">)</span>
+<span class="nd">@Schema</span><span class="o">(</span><span class="n">description</span> <span class="o">=</span> <span class="s">"A vehicle record"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Vehicle</span> <span class="o">{</span>
+
+    <span class="nd">@Id</span>
+    <span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="nc">GenerationType</span><span class="o">.</span><span class="na">SEQUENCE</span><span class="o">,</span> <span class="n">generator</span> <span class="o">=</span> <span class="s">"vehicle_seq"</span><span class="o">)</span>
+    <span class="nd">@SequenceGenerator</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"vehicle_seq"</span><span class="o">,</span> <span class="n">sequenceName</span> <span class="o">=</span> <span class="s">"vehicle_id_seq"</span><span class="o">,</span> <span class="n">allocationSize</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"V_ID"</span><span class="o">)</span>
+    <span class="nd">@Schema</span><span class="o">(</span><span class="n">readOnly</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">example</span> <span class="o">=</span> <span class="s">"1"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Server-generated primary key"</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">;</span>
+
+    <span class="nd">@NotBlank</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">"Make must not be blank"</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"V_MAKE"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+    <span class="nd">@Schema</span><span class="o">(</span><span class="n">example</span> <span class="o">=</span> <span class="s">"Volkswagen"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Manufacturer of the vehicle"</span><span class="o">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">make</span><span class="o">;</span>
+
+    <span class="nd">@NotBlank</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">"Model must not be blank"</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"V_MODEL"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+    <span class="nd">@Schema</span><span class="o">(</span><span class="n">example</span> <span class="o">=</span> <span class="s">"Golf VII"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Model designation"</span><span class="o">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">model</span><span class="o">;</span>
+
+    <span class="nd">@NotNull</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">"Construction year must not be null"</span><span class="o">)</span>
+    <span class="nd">@Min</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="mi">1886</span><span class="o">,</span> <span class="n">message</span> <span class="o">=</span> <span class="s">"Construction year must be 1886 or later"</span><span class="o">)</span>
+    <span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"V_CONSTRUCTION_YEAR"</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+    <span class="nd">@Schema</span><span class="o">(</span><span class="n">example</span> <span class="o">=</span> <span class="s">"2015"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Year the vehicle was manufactured (&gt;= 1886)"</span><span class="o">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="nc">Integer</span> <span class="n">construction_year</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Vehicle</span><span class="o">()</span> <span class="o">{</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="nf">Vehicle</span><span class="o">(</span><span class="nc">String</span> <span class="n">make</span><span class="o">,</span> <span class="nc">String</span> <span class="n">model</span><span class="o">,</span> <span class="nc">Integer</span> <span class="n">construction_year</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">make</span> <span class="o">=</span> <span class="n">make</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">construction_year</span> <span class="o">=</span> <span class="n">construction_year</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// Getter and Setter</span>
+    <span class="kd">public</span> <span class="nc">Long</span> <span class="nf">getId</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">id</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setId</span><span class="o">(</span><span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getMake</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">make</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setMake</span><span class="o">(</span><span class="nc">String</span> <span class="n">make</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">make</span> <span class="o">=</span> <span class="n">make</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getModel</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">model</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setModel</span><span class="o">(</span><span class="nc">String</span> <span class="n">model</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">Integer</span> <span class="nf">getConstruction_year</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">construction_year</span><span class="o">;</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setConstruction_year</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">construction_year</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">construction_year</span> <span class="o">=</span> <span class="n">construction_year</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>=== 3. Repository-Schicht (<code>VehicleRepository.java</code>)
+Zur Datenabfrage wird das <strong>Repository-Pattern</strong> (über PanacheRepository) und nicht das Active-Record-Pattern verwendet.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">org.acme.vehicle.repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.quarkus.hibernate.orm.panache.PanacheRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.enterprise.context.ApplicationScoped</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.acme.vehicle.entity.Vehicle</span><span class="o">;</span>
+
+<span class="nd">@ApplicationScoped</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VehicleRepository</span> <span class="kd">implements</span> <span class="nc">PanacheRepository</span><span class="o">&lt;</span><span class="nc">Vehicle</span><span class="o">&gt;</span> <span class="o">{</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>=== 4. REST-Endpoint (<code>VehicleResource.java</code>)
+Der RESTful Endpoint ist unter <code>/api/vehicles</code> erreichbar und stellt CRUD-Operationen unter Verwendung von JSON bereit.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">org.acme.vehicle.resource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">jakarta.inject.Inject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.transaction.Transactional</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.validation.Valid</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.ws.rs.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.ws.rs.core.MediaType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.ws.rs.core.Response</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.ws.rs.core.Response.Status</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.net.URI</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.acme.vehicle.entity.Vehicle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.acme.vehicle.repository.VehicleRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.microprofile.openapi.annotations.Operation</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.microprofile.openapi.annotations.responses.APIResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.eclipse.microprofile.openapi.annotations.tags.Tag</span><span class="o">;</span>
+
+<span class="nd">@Path</span><span class="o">(</span><span class="s">"/api/vehicles"</span><span class="o">)</span>
+<span class="nd">@Produces</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
+<span class="nd">@Consumes</span><span class="o">(</span><span class="nc">MediaType</span><span class="o">.</span><span class="na">APPLICATION_JSON</span><span class="o">)</span>
+<span class="nd">@Tag</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Vehicles"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"CRUD operations on vehicles"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VehicleResource</span> <span class="o">{</span>
+
+    <span class="nd">@Inject</span>
+    <span class="nc">VehicleRepository</span> <span class="n">repository</span><span class="o">;</span>
+
+    <span class="nd">@GET</span>
+    <span class="nd">@Operation</span><span class="o">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s">"List all vehicles"</span><span class="o">)</span>
+    <span class="nd">@APIResponse</span><span class="o">(</span><span class="n">responseCode</span> <span class="o">=</span> <span class="s">"200"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Array of vehicles"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Vehicle</span><span class="o">&gt;</span> <span class="nf">list</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="o">.</span><span class="na">listAll</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@GET</span>
+    <span class="nd">@Path</span><span class="o">(</span><span class="s">"/{id}"</span><span class="o">)</span>
+    <span class="nd">@Operation</span><span class="o">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s">"Get a vehicle by ID"</span><span class="o">)</span>
+    <span class="nd">@APIResponse</span><span class="o">(</span><span class="n">responseCode</span> <span class="o">=</span> <span class="s">"200"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Vehicle found"</span><span class="o">)</span>
+    <span class="nd">@APIResponse</span><span class="o">(</span><span class="n">responseCode</span> <span class="o">=</span> <span class="s">"404"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Vehicle not found"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">Response</span> <span class="nf">get</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">"id"</span><span class="o">)</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="o">.</span><span class="na">findByIdOptional</span><span class="o">(</span><span class="n">id</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">vehicle</span> <span class="o">-&gt;</span> <span class="nc">Response</span><span class="o">.</span><span class="na">ok</span><span class="o">(</span><span class="n">vehicle</span><span class="o">).</span><span class="na">build</span><span class="o">())</span>
+                <span class="o">.</span><span class="na">orElseGet</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="nc">Response</span><span class="o">.</span><span class="na">status</span><span class="o">(</span><span class="nc">Status</span><span class="o">.</span><span class="na">NOT_FOUND</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@POST</span>
+    <span class="nd">@Transactional</span>
+    <span class="nd">@Operation</span><span class="o">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s">"Create a vehicle"</span><span class="o">)</span>
+    <span class="nd">@APIResponse</span><span class="o">(</span><span class="n">responseCode</span> <span class="o">=</span> <span class="s">"201"</span><span class="o">,</span> <span class="n">description</span> <span class="o">=</span> <span class="s">"Vehicle created"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">Response</span> <span class="nf">create</span><span class="o">(</span><span class="nd">@Valid</span> <span class="nc">Vehicle</span> <span class="n">vehicle</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">repository</span><span class="o">.</span><span class="na">persist</span><span class="o">(</span><span class="n">vehicle</span><span class="o">);</span>
+        <span class="k">return</span> <span class="nc">Response</span><span class="o">.</span><span class="na">created</span><span class="o">(</span><span class="no">URI</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"/api/vehicles/"</span> <span class="o">+</span> <span class="n">vehicle</span><span class="o">.</span><span class="na">getId</span><span class="o">()))</span>
+                <span class="o">.</span><span class="na">entity</span><span class="o">(</span><span class="n">vehicle</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@PUT</span>
+    <span class="nd">@Path</span><span class="o">(</span><span class="s">"/{id}"</span><span class="o">)</span>
+    <span class="nd">@Transactional</span>
+    <span class="nd">@Operation</span><span class="o">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s">"Update an existing vehicle"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">Response</span> <span class="nf">update</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">"id"</span><span class="o">)</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">,</span> <span class="nd">@Valid</span> <span class="nc">Vehicle</span> <span class="n">updatedVehicle</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="o">.</span><span class="na">findByIdOptional</span><span class="o">(</span><span class="n">id</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">vehicle</span> <span class="o">-&gt;</span> <span class="o">{</span>
+                    <span class="n">vehicle</span><span class="o">.</span><span class="na">setMake</span><span class="o">(</span><span class="n">updatedVehicle</span><span class="o">.</span><span class="na">getMake</span><span class="o">());</span>
+                    <span class="n">vehicle</span><span class="o">.</span><span class="na">setModel</span><span class="o">(</span><span class="n">updatedVehicle</span><span class="o">.</span><span class="na">getModel</span><span class="o">());</span>
+                    <span class="n">vehicle</span><span class="o">.</span><span class="na">setConstruction_year</span><span class="o">(</span><span class="n">updatedVehicle</span><span class="o">.</span><span class="na">getConstruction_year</span><span class="o">());</span>
+                    <span class="k">return</span> <span class="nc">Response</span><span class="o">.</span><span class="na">ok</span><span class="o">(</span><span class="n">vehicle</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+                <span class="o">})</span>
+                <span class="o">.</span><span class="na">orElseGet</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="nc">Response</span><span class="o">.</span><span class="na">status</span><span class="o">(</span><span class="nc">Status</span><span class="o">.</span><span class="na">NOT_FOUND</span><span class="o">).</span><span class="na">build</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="nd">@DELETE</span>
+    <span class="nd">@Path</span><span class="o">(</span><span class="s">"/{id}"</span><span class="o">)</span>
+    <span class="nd">@Transactional</span>
+    <span class="nd">@Operation</span><span class="o">(</span><span class="n">summary</span> <span class="o">=</span> <span class="s">"Delete a vehicle"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="nc">Response</span> <span class="nf">delete</span><span class="o">(</span><span class="nd">@PathParam</span><span class="o">(</span><span class="s">"id"</span><span class="o">)</span> <span class="nc">Long</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">boolean</span> <span class="n">deleted</span> <span class="o">=</span> <span class="n">repository</span><span class="o">.</span><span class="na">deleteById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">deleted</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="nc">Response</span><span class="o">.</span><span class="na">noContent</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="nc">Response</span><span class="o">.</span><span class="na">status</span><span class="o">(</span><span class="nc">Status</span><span class="o">.</span><span class="na">NOT_FOUND</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>=== 5. Quarkus-Konfiguration (<code>src/main/resources/application.properties</code>)
+Die Anbindung an die PostgreSQL-Datenbank und die Aktivierung von Swagger UI für die interaktive Dokumentation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="properties"><span class="c"># Datasource configuration
+</span><span class="py">quarkus.datasource.db-kind</span><span class="p">=</span><span class="s">postgresql</span>
+<span class="py">quarkus.datasource.username</span><span class="p">=</span><span class="s">app</span>
+<span class="py">quarkus.datasource.password</span><span class="p">=</span><span class="s">app</span>
+<span class="py">quarkus.datasource.jdbc.url</span><span class="p">=</span><span class="s">jdbc:postgresql://localhost:5432/db</span>
+
+<span class="c"># Hibernate ORM configuration
+</span><span class="py">quarkus.hibernate-orm.database.generation</span><span class="p">=</span><span class="s">drop-and-create</span>
+<span class="py">quarkus.hibernate-orm.log.sql</span><span class="p">=</span><span class="s">true</span>
+<span class="py">quarkus.hibernate-orm.sql-load-script</span><span class="p">=</span><span class="s">no-file</span>
+<span class="err">%</span><span class="py">dev.quarkus.hibernate-orm.sql-load-script</span><span class="p">=</span><span class="s">import.sql</span>
+
+<span class="c"># OpenAPI / Swagger UI
+</span><span class="py">quarkus.swagger-ui.always-include</span><span class="p">=</span><span class="s">true</span>
+<span class="py">quarkus.smallrye-openapi.info-title</span><span class="p">=</span><span class="s">Vehicle API</span>
+<span class="py">quarkus.smallrye-openapi.info-version</span><span class="p">=</span><span class="s">1.0.0</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>=== 6. SQL-Initialisierung (<code>src/main/resources/import.sql</code>)
+Hier werden Standard-Testdaten beim Start im <code>%dev</code>-Profil geladen:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">AI_VEHICLE</span> <span class="p">(</span><span class="n">V_ID</span><span class="p">,</span> <span class="n">V_MAKE</span><span class="p">,</span> <span class="n">V_MODEL</span><span class="p">,</span> <span class="n">V_CONSTRUCTION_YEAR</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Volkswagen'</span><span class="p">,</span> <span class="s1">'Golf VII'</span><span class="p">,</span> <span class="mi">2015</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">AI_VEHICLE</span> <span class="p">(</span><span class="n">V_ID</span><span class="p">,</span> <span class="n">V_MAKE</span><span class="p">,</span> <span class="n">V_MODEL</span><span class="p">,</span> <span class="n">V_CONSTRUCTION_YEAR</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'BMW'</span><span class="p">,</span> <span class="s1">'M3 E46'</span><span class="p">,</span> <span class="mi">2003</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">AI_VEHICLE</span> <span class="p">(</span><span class="n">V_ID</span><span class="p">,</span> <span class="n">V_MAKE</span><span class="p">,</span> <span class="n">V_MODEL</span><span class="p">,</span> <span class="n">V_CONSTRUCTION_YEAR</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">'Tesla'</span><span class="p">,</span> <span class="s1">'Model 3'</span><span class="p">,</span> <span class="mi">2022</span><span class="p">);</span>
+<span class="k">ALTER</span> <span class="n">SEQUENCE</span> <span class="n">vehicle_id_seq</span> <span class="k">RESTART</span> <span class="k">WITH</span> <span class="mi">100</span><span class="p">;</span></code></pre>
+</div>
+</div>
+</div>
+</details>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="_phase_4_validierung_testing"><a class="anchor" href="#_phase_4_validierung_testing"></a>29.1.5. Phase 4: Validierung &amp; Testing</h4>
+<div class="paragraph">
+<p>Die Qualitätssicherung erfolgt über zwei Arten von Tests, wobei Assertions konsequent mit <code>assertThat()</code> durchgeführt werden.</p>
+</div>
+<details>
+<summary class="title">Validierungs- und Testing-Details einblenden</summary>
+<div class="content">
+<div class="paragraph">
+<p>=== 1. Integrationstest der REST-API mit REST-Assured (<code>VehicleResourceTest.java</code>)</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">org.acme.vehicle.resource</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">io</span><span class="o">.</span><span class="na">restassured</span><span class="o">.</span><span class="na">RestAssured</span><span class="o">.</span><span class="na">given</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">core</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.quarkus.test.junit.QuarkusTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.restassured.http.ContentType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">io.restassured.response.Response</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.acme.vehicle.entity.Vehicle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.MethodOrderer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Order</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.TestMethodOrder</span><span class="o">;</span>
+
+<span class="nd">@QuarkusTest</span>
+<span class="nd">@TestMethodOrder</span><span class="o">(</span><span class="nc">MethodOrderer</span><span class="o">.</span><span class="na">OrderAnnotation</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VehicleResourceTest</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="nc">Long</span> <span class="n">createdId</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@Order</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testCreateVehicle</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Vehicle</span> <span class="n">vehicle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vehicle</span><span class="o">(</span><span class="s">"Tesla"</span><span class="o">,</span> <span class="s">"Model S"</span><span class="o">,</span> <span class="mi">2022</span><span class="o">);</span>
+
+        <span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">given</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">ContentType</span><span class="o">.</span><span class="na">JSON</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">vehicle</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">when</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"/api/vehicles"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">then</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">statusCode</span><span class="o">(</span><span class="mi">201</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">extract</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">response</span><span class="o">();</span>
+
+        <span class="nc">Vehicle</span> <span class="n">created</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">as</span><span class="o">(</span><span class="nc">Vehicle</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">created</span><span class="o">).</span><span class="na">isNotNull</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">created</span><span class="o">.</span><span class="na">getId</span><span class="o">()).</span><span class="na">isNotNull</span><span class="o">();</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">created</span><span class="o">.</span><span class="na">getMake</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"Tesla"</span><span class="o">);</span>
+
+        <span class="n">createdId</span> <span class="o">=</span> <span class="n">created</span><span class="o">.</span><span class="na">getId</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@Order</span><span class="o">(</span><span class="mi">2</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testGetVehicle</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">given</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">when</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"/api/vehicles/"</span> <span class="o">+</span> <span class="n">createdId</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">then</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">statusCode</span><span class="o">(</span><span class="mi">200</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">extract</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">response</span><span class="o">();</span>
+
+        <span class="nc">Vehicle</span> <span class="n">vehicle</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">as</span><span class="o">(</span><span class="nc">Vehicle</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">vehicle</span><span class="o">.</span><span class="na">getMake</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"Tesla"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@Order</span><span class="o">(</span><span class="mi">3</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testCreateValidationFail</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Vehicle</span> <span class="n">invalid</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vehicle</span><span class="o">(</span><span class="s">""</span><span class="o">,</span> <span class="s">"Model 3"</span><span class="o">,</span> <span class="mi">1800</span><span class="o">);</span> <span class="c1">// Fails due to blank make and year &lt; 1886</span>
+        <span class="n">given</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">contentType</span><span class="o">(</span><span class="nc">ContentType</span><span class="o">.</span><span class="na">JSON</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">body</span><span class="o">(</span><span class="n">invalid</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">when</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="s">"/api/vehicles"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">then</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">statusCode</span><span class="o">(</span><span class="mi">400</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>=== 2. Datenbank-Zustandstest mit AssertJ-DB (<code>VehicleDatabaseTest.java</code>)
+Mit <code>assertj-db</code> wird der Zustand der Datenbank direkt geprüft, um sicherzustellen, dass Hibernate die Entitäten korrekt speichert.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="java"><span class="kn">package</span> <span class="nn">org.acme.vehicle.repository</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">io.quarkus.test.junit.QuarkusTest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.inject.Inject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">jakarta.transaction.Transactional</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.DataSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.acme.vehicle.entity.Vehicle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.assertj.db.type.AssertDbConnection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.assertj.db.type.AssertDbConnectionFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.assertj.db.type.Table</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">assertj</span><span class="o">.</span><span class="na">db</span><span class="o">.</span><span class="na">api</span><span class="o">.</span><span class="na">Assertions</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.jupiter.api.Test</span><span class="o">;</span>
+
+<span class="nd">@QuarkusTest</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">VehicleDatabaseTest</span> <span class="o">{</span>
+
+    <span class="nd">@Inject</span>
+    <span class="nc">DataSource</span> <span class="n">dataSource</span><span class="o">;</span>
+
+    <span class="nd">@Inject</span>
+    <span class="nc">VehicleRepository</span> <span class="n">repository</span><span class="o">;</span>
+
+    <span class="nd">@Test</span>
+    <span class="nd">@Transactional</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testDatabaseState</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">AssertDbConnection</span> <span class="n">connection</span> <span class="o">=</span> <span class="nc">AssertDbConnectionFactory</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="n">dataSource</span><span class="o">).</span><span class="na">create</span><span class="o">();</span>
+
+        <span class="nc">Table</span> <span class="n">table</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">table</span><span class="o">(</span><span class="s">"AI_VEHICLE"</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">initialRows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="na">getRowsList</span><span class="o">().</span><span class="na">size</span><span class="o">();</span>
+
+        <span class="nc">Vehicle</span> <span class="n">vehicle</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Vehicle</span><span class="o">(</span><span class="s">"Audi"</span><span class="o">,</span> <span class="s">"A4"</span><span class="o">,</span> <span class="mi">2021</span><span class="o">);</span>
+        <span class="n">repository</span><span class="o">.</span><span class="na">persistAndFlush</span><span class="o">(</span><span class="n">vehicle</span><span class="o">);</span>
+
+        <span class="nc">Table</span> <span class="n">updatedTable</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="na">table</span><span class="o">(</span><span class="s">"AI_VEHICLE"</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">updatedTable</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">hasNumberOfRows</span><span class="o">(</span><span class="n">initialRows</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">row</span><span class="o">(</span><span class="n">initialRows</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="s">"V_MAKE"</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"Audi"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="s">"V_MODEL"</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"A4"</span><span class="o">)</span>
+                <span class="o">.</span><span class="na">value</span><span class="o">(</span><span class="s">"V_CONSTRUCTION_YEAR"</span><span class="o">).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="mi">2021</span><span class="o">);</span>
+
+        <span class="n">repository</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">vehicle</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre>
+</div>
+</div>
+</div>
+</details>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="_phase_5_starten_des_projekts"><a class="anchor" href="#_phase_5_starten_des_projekts"></a>29.1.6. Phase 5: Starten des Projekts</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><span class="c"># 1. Terminal: Docker-Datenbank starten</span>
+<span class="nb">cd </span>labs/ai-demo/docker
+docker compose up <span class="nt">-d</span>
+
+<span class="c"># 2. Terminal: Quarkus-App im Dev-Modus starten</span>
+<span class="nb">cd </span>labs/ai-demo
+./mvnw clean quarkus:dev</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Die API ist erreichbar unter: <code><a href="http://localhost:8080/api/vehicles" class="bare">http://localhost:8080/api/vehicles</a></code></p>
+</li>
+<li>
+<p>Swagger UI ist im Dev-Modus erreichbar unter: <code><a href="http://localhost:8080/q/swagger-ui/" class="bare">http://localhost:8080/q/swagger-ui/</a></code></p>
+</li>
+</ul>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="_konvertierung_in_das_asciidoc_format_adoc"><a class="anchor" href="#_konvertierung_in_das_asciidoc_format_adoc"></a>29.1.7. Konvertierung in das AsciiDoc-Format (.adoc)</h4>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Obwohl in diesem Projekt alle Spezifikationen standardmäßig im <code>.md</code>-Format (Markdown) erstellt wurden, empfiehlt es sich für die finale technische Dokumentation (Mensch-Maschine-Schnittstelle), diese in das <code>.adoc</code>-Format (AsciiDoc) zu konvertieren. AsciiDoc ist für technische Dokumentationen optimiert und bietet mächtigere Features wie Tabellen-Stile, Includes, Callouts und eine bessere Layout-Steuerung beim Generieren von PDFs oder HTML-Seiten.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-06-03 07:44:20 UTC
+Last updated 2026-06-13 09:56:47 UTC
 </div>
 </div>
 </body>
