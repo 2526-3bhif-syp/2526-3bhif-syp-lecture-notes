@@ -3707,24 +3707,39 @@ Erstelle die Spezifikation für eine Quarkus Applikation, die eine Entity-Klasse
 <div class="sect4">
 <h5 id="_5_opsxarchive"><a class="anchor" href="#_5_opsxarchive"></a>5. <code>/opsx:archive</code></h5>
 <div class="paragraph">
-<p>Die abgeschlossenen Änderungen werden in die lebende Spezifikation übernommen. Der temporäre <code>changes/</code>-Ordner wird aufgeräumt und die Änderungen werden via Git committet:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="rouge highlight"><code data-lang="bash">git add <span class="nb">.</span>
-git commit <span class="nt">-m</span> <span class="s2">"feat: implement vehicle crud endpoints with postgres persistence #1"</span></code></pre>
-</div>
+<p>Die abgeschlossenen Änderungen werden in die lebende Spezifikation übernommen und der temporäre <code>changes/</code>-Ordner wird aufgeräumt.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="_6_erstellung_eines_continuation_prompts"><a class="anchor" href="#_6_erstellung_eines_continuation_prompts"></a>6. Erstellung eines Continuation Prompts</h5>
 <div class="paragraph">
-<p>Um bei einer neuen Session sofort wieder produktiv starten zu können, wird im Ordner <code>continuations/</code> ein Fortsetzungs-Prompt erstellt. Bei einem Neustart kann der Kontext über <code>/clear</code> gelöscht und der Continuation-Prompt eingelesen werden, was Token spart und Fehlinterpretationen verhindert.</p>
+<p>Um bei einer neuen Session sofort wieder produktiv starten zu können, wird im Ordner <code>continuations/</code> ein Continuation Prompt erstellt. Bei einem Neustart kann der Kontext über <code>/clear</code> gelöscht und der Continuation-Prompt eingelesen werden, was Token spart und Fehlinterpretationen verhindert.</p>
 </div>
 <div class="listingblock">
 <div class="title">Update des Continuation Prompts</div>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="text">update the continuation prompt in folder "continuations"</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_7_commit_und_push"><a class="anchor" href="#_7_commit_und_push"></a>7. <code>commit</code> und <code>push</code></h5>
+<div class="paragraph">
+<p>Die Schritte <code>commit</code> und <code>push</code> werden nach der Erstellung bzw. dem Update des Continuation Prompts durchgeführt. Dadurch werden alle Änderungen – einschließlich des aktualisierten Continuation Prompts – direkt im Repository gesichert. Dies ermöglicht eine lückenlose Nachverfolgung der Änderungen und stellt sicher, dass Spezifikationen, Implementierungen und Continuation Prompts im Repository stets auf dem neuesten Stand und konsistent sind.</p>
+</div>
+<div class="paragraph">
+<p>Wenn der Entwickler dem Agenten den Befehl erteilt, die Änderungen zu committen, vergibt der Agent selbstständig oft sehr präzise und sinnvolle Commit-Messages (z. B. nach dem Conventional Commits Standard), die den tatsächlichen Änderungsumfang beschreiben. Auch das Pushen der Änderungen auf das Remote-Repository wird direkt vom AI-Agenten ausgeführt.</p>
+</div>
+<div class="listingblock">
+<div class="title">Commit der Änderungen</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">commit</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Push der Commits</div>
+<div class="content">
+<pre class="rouge highlight"><code data-lang="text">push</code></pre>
 </div>
 </div>
 <hr>
@@ -4170,7 +4185,7 @@ docker compose up <span class="nt">-d</span>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-06-13 09:58:54 UTC
+Last updated 2026-06-13 10:07:23 UTC
 </div>
 </div>
 </body>
