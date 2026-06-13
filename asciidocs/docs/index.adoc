@@ -1408,6 +1408,26 @@ Ein Terminal, das nicht beendet wird, wenn man die ssh-session beendet. Mit "tmu
 
 * Wie Raspberry nur schneller
 
+== 2026-05-26
+=== k8s - by Haider Nico
+
+==== Unterschied einer VM zu k8s
+* k8s:
+** jede Maschine = 1 Node
+** k8s trennt die Nodes von Apps/Pods
+
+* Proxmox:
+** virtueller Server => Speicher abhängig
+
+==== warum k8s
+* k8s abstrahiert die Pods von den Nodes (Pod ist egal auf welcher Node er läuft)
+* k8s deployment ist deklarativ (wie z.B. SQL), es beschreibt wie es aussehen soll und k8s führt die nötigen Prozesse aus
+* k8s löst das Problem zu geringer Ressourcen -> es ist skalierbar
+* Skalierbarkeit:
+** wenn Anforderungen an das System sich verändern, kann die Leistungsfähigkeit aufrecht erhalten werden ohne das System ändern zu müssen -> Last-Verteilung
+
+
+
 
 == 2026-05-26
 
