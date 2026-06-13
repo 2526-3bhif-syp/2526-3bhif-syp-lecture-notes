@@ -687,19 +687,24 @@ pre.rouge .gs {
 </li>
 <li><a href="#_2026_05_26">27. 2026-05-26</a>
 <ul class="sectlevel2">
-<li><a href="#_openspec_3">27.1. openSpec</a></li>
-<li><a href="#_kubernetes">27.2. Kubernetes</a></li>
+<li><a href="#_k8s_by_haider_nico">27.1. k8s - by Haider Nico</a></li>
 </ul>
 </li>
-<li><a href="#_2026_06_02">28. 2026-06-02</a>
+<li><a href="#_2026_05_26_2">28. 2026-05-26</a>
 <ul class="sectlevel2">
-<li><a href="#_4_leistungsfeststellung">28.1. 4. Leistungsfeststellung</a></li>
-<li><a href="#_ai_demo">28.2. AI-Demo</a></li>
+<li><a href="#_openspec_3">28.1. openSpec</a></li>
+<li><a href="#_kubernetes">28.2. Kubernetes</a></li>
 </ul>
 </li>
-<li><a href="#_2026_06_09">29. 2026-06-09</a>
+<li><a href="#_2026_06_02">29. 2026-06-02</a>
 <ul class="sectlevel2">
-<li><a href="#_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten">29.1. Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten</a></li>
+<li><a href="#_4_leistungsfeststellung">29.1. 4. Leistungsfeststellung</a></li>
+<li><a href="#_ai_demo">29.2. AI-Demo</a></li>
+</ul>
+</li>
+<li><a href="#_2026_06_09">30. 2026-06-09</a>
+<ul class="sectlevel2">
+<li><a href="#_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten">30.1. Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten</a></li>
 </ul>
 </li>
 </ul>
@@ -3304,7 +3309,71 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 <h2 id="_2026_05_26"><a class="anchor" href="#_2026_05_26"></a>27. 2026-05-26</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_openspec_3"><a class="anchor" href="#_openspec_3"></a>27.1. openSpec</h3>
+<h3 id="_k8s_by_haider_nico"><a class="anchor" href="#_k8s_by_haider_nico"></a>27.1. k8s - by Haider Nico</h3>
+<div class="sect3">
+<h4 id="_unterschied_einer_vm_zu_k8s"><a class="anchor" href="#_unterschied_einer_vm_zu_k8s"></a>27.1.1. Unterschied einer VM zu k8s</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>k8s:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>jede Maschine = 1 Node</p>
+</li>
+<li>
+<p>k8s trennt die Nodes von Apps/Pods</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Proxmox:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>virtueller Server &#8658; Speicher abhängig</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_warum_k8s"><a class="anchor" href="#_warum_k8s"></a>27.1.2. warum k8s</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>k8s abstrahiert die Pods von den Nodes (Pod ist egal auf welcher Node er läuft)</p>
+</li>
+<li>
+<p>k8s deployment ist deklarativ (wie z.B. SQL), es beschreibt wie es aussehen soll und k8s führt die nötigen Prozesse aus</p>
+</li>
+<li>
+<p>k8s löst das Problem zu geringer Ressourcen &#8594; es ist skalierbar</p>
+</li>
+<li>
+<p>Skalierbarkeit:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>wenn Anforderungen an das System sich verändern, kann die Leistungsfähigkeit aufrecht erhalten werden ohne das System ändern zu müssen &#8594; Last-Verteilung</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_2026_05_26_2"><a class="anchor" href="#_2026_05_26_2"></a>28. 2026-05-26</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_openspec_3"><a class="anchor" href="#_openspec_3"></a>28.1. openSpec</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3317,9 +3386,9 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 <div class="sect2">
-<h3 id="_kubernetes"><a class="anchor" href="#_kubernetes"></a>27.2. Kubernetes</h3>
+<h3 id="_kubernetes"><a class="anchor" href="#_kubernetes"></a>28.2. Kubernetes</h3>
 <div class="sect3">
-<h4 id="_kubernetes_cluster"><a class="anchor" href="#_kubernetes_cluster"></a>27.2.1. Kubernetes Cluster</h4>
+<h4 id="_kubernetes_cluster"><a class="anchor" href="#_kubernetes_cluster"></a>28.2.1. Kubernetes Cluster</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/k8s-nodes.png" alt="k8s nodes">
@@ -3327,7 +3396,7 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_deployment"><a class="anchor" href="#_kubernetes_deployment"></a>27.2.2. Kubernetes Deployment</h4>
+<h4 id="_kubernetes_deployment"><a class="anchor" href="#_kubernetes_deployment"></a>28.2.2. Kubernetes Deployment</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/k8s-deployment.png" alt="k8s deployment">
@@ -3335,7 +3404,7 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 <div class="sect3">
-<h4 id="_docker_build_command"><a class="anchor" href="#_docker_build_command"></a>27.2.3. Docker Build Command</h4>
+<h4 id="_docker_build_command"><a class="anchor" href="#_docker_build_command"></a>28.2.3. Docker Build Command</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/k8s-docker-build-command-1.png" alt="k8s docker build command 1">
@@ -3348,7 +3417,7 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 <div class="sect3">
-<h4 id="_kubernetes_elemente"><a class="anchor" href="#_kubernetes_elemente"></a>27.2.4. Kubernetes Elemente</h4>
+<h4 id="_kubernetes_elemente"><a class="anchor" href="#_kubernetes_elemente"></a>28.2.4. Kubernetes Elemente</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/k8s-elemente.png" alt="k8s elemente">
@@ -3356,7 +3425,7 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 <div class="sect3">
-<h4 id="_bsp"><a class="anchor" href="#_bsp"></a>27.2.5. Bsp</h4>
+<h4 id="_bsp"><a class="anchor" href="#_bsp"></a>28.2.5. Bsp</h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/k8s-example.png" alt="k8s example">
@@ -3364,7 +3433,7 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 <div class="sect3">
-<h4 id="_deployment_auf_minikube"><a class="anchor" href="#_deployment_auf_minikube"></a>27.2.6. Deployment auf Minikube</h4>
+<h4 id="_deployment_auf_minikube"><a class="anchor" href="#_deployment_auf_minikube"></a>28.2.6. Deployment auf Minikube</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3385,14 +3454,14 @@ Anbei erhalten Sie die (sehr detaillierten) Vorgaben lt. Prof. Aberger [download
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2026_06_02"><a class="anchor" href="#_2026_06_02"></a>28. 2026-06-02</h2>
+<h2 id="_2026_06_02"><a class="anchor" href="#_2026_06_02"></a>29. 2026-06-02</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_4_leistungsfeststellung"><a class="anchor" href="#_4_leistungsfeststellung"></a>28.1. 4. Leistungsfeststellung</h3>
+<h3 id="_4_leistungsfeststellung"><a class="anchor" href="#_4_leistungsfeststellung"></a>29.1. 4. Leistungsfeststellung</h3>
 
 </div>
 <div class="sect2">
-<h3 id="_ai_demo"><a class="anchor" href="#_ai_demo"></a>28.2. AI-Demo</h3>
+<h3 id="_ai_demo"><a class="anchor" href="#_ai_demo"></a>29.2. AI-Demo</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -3437,7 +3506,7 @@ docker compose up <span class="nt">-d</span></code></pre>
 <p>Dann mit Browser auf api zugreifen: <a href="http://localhost:8080/api/vehicles" class="bare">http://localhost:8080/api/vehicles</a></p>
 </div>
 <div class="sect3">
-<h4 id="_token_sparen"><a class="anchor" href="#_token_sparen"></a>28.2.1. Token sparen</h4>
+<h4 id="_token_sparen"><a class="anchor" href="#_token_sparen"></a>29.2.1. Token sparen</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3453,7 +3522,7 @@ docker compose up <span class="nt">-d</span></code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_openspec_4"><a class="anchor" href="#_openspec_4"></a>28.2.2. openspec</h4>
+<h4 id="_openspec_4"><a class="anchor" href="#_openspec_4"></a>29.2.2. openspec</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -3493,10 +3562,10 @@ docker compose up <span class="nt">-d</span></code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_2026_06_09"><a class="anchor" href="#_2026_06_09"></a>29. 2026-06-09</h2>
+<h2 id="_2026_06_09"><a class="anchor" href="#_2026_06_09"></a>30. 2026-06-09</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten"><a class="anchor" href="#_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten"></a>29.1. Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten</h3>
+<h3 id="_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten"><a class="anchor" href="#_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten"></a>30.1. Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten</h3>
 <div class="paragraph">
 <p>Dieses Tutorial beschreibt die schrittweise Durchführung eines Software-Entwicklungs-Projekts im Verzeichnis <code>labs/ai-demo</code> unter der Verwendung des Frameworks <strong>openSpec</strong> und eines AI-Agenten (wie z. B. Claude Code oder Antigravity).</p>
 </div>
@@ -3504,7 +3573,7 @@ docker compose up <span class="nt">-d</span></code></pre>
 <p>Ziel ist die Erstellung einer Quarkus-Applikation zur Verwaltung von Fahrzeugen (CRUD-Operationen) mit einer PostgreSQL-Datenbank.</p>
 </div>
 <div class="sect3">
-<h4 id="_konzept_workflow"><a class="anchor" href="#_konzept_workflow"></a>29.1.1. Konzept &amp; Workflow</h4>
+<h4 id="_konzept_workflow"><a class="anchor" href="#_konzept_workflow"></a>30.1.1. Konzept &amp; Workflow</h4>
 <div class="paragraph">
 <p>Bei der Entwicklung mit AI-Agenten verliert das LLM nach jeder Session den Kontext. <strong>openSpec</strong> löst dieses Problem, indem funktionale Anforderungen direkt im Repository persistiert werden.</p>
 </div>
@@ -3548,7 +3617,7 @@ docker compose up <span class="nt">-d</span></code></pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_phase_1_installation_vorbereitungs_check"><a class="anchor" href="#_phase_1_installation_vorbereitungs_check"></a>29.1.2. Phase 1: Installation &amp; Vorbereitungs-Check</h4>
+<h4 id="_phase_1_installation_vorbereitungs_check"><a class="anchor" href="#_phase_1_installation_vorbereitungs_check"></a>30.1.2. Phase 1: Installation &amp; Vorbereitungs-Check</h4>
 <div class="paragraph">
 <p>Bevor gestartet wird, muss überprüft werden, ob <code>openspec</code> auf dem Entwicklungsrechner installiert ist.</p>
 </div>
@@ -3583,7 +3652,7 @@ openspec <span class="nt">--version</span></code></pre>
 <hr>
 </div>
 <div class="sect3">
-<h4 id="_phase_2_der_openspec_workflow_delta_specs"><a class="anchor" href="#_phase_2_der_openspec_workflow_delta_specs"></a>29.1.3. Phase 2: Der openSpec-Workflow (Delta-Specs)</h4>
+<h4 id="_phase_2_der_openspec_workflow_delta_specs"><a class="anchor" href="#_phase_2_der_openspec_workflow_delta_specs"></a>30.1.3. Phase 2: Der openSpec-Workflow (Delta-Specs)</h4>
 <div class="paragraph">
 <p>Der Entwicklungsprozess wird über vordefinierte Phasen gesteuert, die als Befehle in den Chat eingegeben werden. Jedes Feature durchläuft diese Phasen als Spec-Delta.</p>
 </div>
@@ -3662,7 +3731,7 @@ git commit <span class="nt">-m</span> <span class="s2">"feat: implement vehicle 
 </div>
 </div>
 <div class="sect3">
-<h4 id="_phase_3_technische_implementierung"><a class="anchor" href="#_phase_3_technische_implementierung"></a>29.1.4. Phase 3: Technische Implementierung</h4>
+<h4 id="_phase_3_technische_implementierung"><a class="anchor" href="#_phase_3_technische_implementierung"></a>30.1.4. Phase 3: Technische Implementierung</h4>
 <div class="paragraph">
 <p>Im Folgenden sind die Kernkomponenten des erstellten Quarkus-Projekts detailliert aufgeführt.</p>
 </div>
@@ -3910,7 +3979,7 @@ Hier werden Standard-Testdaten beim Start im <code>%dev</code>-Profil geladen:</
 <hr>
 </div>
 <div class="sect3">
-<h4 id="_phase_4_validierung_testing"><a class="anchor" href="#_phase_4_validierung_testing"></a>29.1.5. Phase 4: Validierung &amp; Testing</h4>
+<h4 id="_phase_4_validierung_testing"><a class="anchor" href="#_phase_4_validierung_testing"></a>30.1.5. Phase 4: Validierung &amp; Testing</h4>
 <div class="paragraph">
 <p>Die Qualitätssicherung erfolgt über zwei Arten von Tests, wobei Assertions konsequent mit <code>assertThat()</code> durchgeführt werden.</p>
 </div>
@@ -4053,7 +4122,7 @@ Mit <code>assertj-db</code> wird der Zustand der Datenbank direkt geprüft, um s
 <hr>
 </div>
 <div class="sect3">
-<h4 id="_phase_5_starten_des_projekts"><a class="anchor" href="#_phase_5_starten_des_projekts"></a>29.1.6. Phase 5: Starten des Projekts</h4>
+<h4 id="_phase_5_starten_des_projekts"><a class="anchor" href="#_phase_5_starten_des_projekts"></a>30.1.6. Phase 5: Starten des Projekts</h4>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight"><code data-lang="bash"><span class="c"># 1. Terminal: Docker-Datenbank starten</span>
@@ -4078,7 +4147,7 @@ docker compose up <span class="nt">-d</span>
 <hr>
 </div>
 <div class="sect3">
-<h4 id="_konvertierung_in_das_asciidoc_format_adoc"><a class="anchor" href="#_konvertierung_in_das_asciidoc_format_adoc"></a>29.1.7. Konvertierung in das AsciiDoc-Format (.adoc)</h4>
+<h4 id="_konvertierung_in_das_asciidoc_format_adoc"><a class="anchor" href="#_konvertierung_in_das_asciidoc_format_adoc"></a>30.1.7. Konvertierung in das AsciiDoc-Format (.adoc)</h4>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -4101,7 +4170,7 @@ docker compose up <span class="nt">-d</span>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-06-13 09:56:47 UTC
+Last updated 2026-06-13 09:58:54 UTC
 </div>
 </div>
 </body>
