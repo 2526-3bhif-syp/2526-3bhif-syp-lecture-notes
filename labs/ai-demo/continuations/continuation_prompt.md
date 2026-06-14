@@ -33,8 +33,10 @@ This document outlines the current state and structure of the Quarkus Vehicle AP
 - **Resource Class:** [VehicleResource.java](file:///Users/stuetz/SynologyDrive/htl/skripten/pre.syp.itp.3jg/2526.3bhif.syp/2526-3bhif-syp-lecture-notes/labs/ai-demo/src/main/java/org/acme/vehicle/resource/VehicleResource.java)
 - **docker-compose.yaml:** [docker-compose.yaml](file:///Users/stuetz/SynologyDrive/htl/skripten/pre.syp.itp.3jg/2526.3bhif.syp/2526-3bhif-syp-lecture-notes/labs/ai-demo/docker/docker-compose.yaml)
 - **application.properties:** [application.properties](file:///Users/stuetz/SynologyDrive/htl/skripten/pre.syp.itp.3jg/2526.3bhif.syp/2526-3bhif-syp-lecture-notes/labs/ai-demo/src/main/resources/application.properties)
+- **import.sql:** [import.sql](file:///Users/stuetz/SynologyDrive/htl/skripten/pre.syp.itp.3jg/2526.3bhif.syp/2526-3bhif-syp-lecture-notes/labs/ai-demo/src/main/resources/import.sql)
 - **API Tests:** [VehicleResourceTest.java](file:///Users/stuetz/SynologyDrive/htl/skripten/pre.syp.itp.3jg/2526.3bhif.syp/2526-3bhif-syp-lecture-notes/labs/ai-demo/src/test/java/org/acme/vehicle/resource/VehicleResourceTest.java)
 - **Database Tests:** [VehicleDatabaseTest.java](file:///Users/stuetz/SynologyDrive/htl/skripten/pre.syp.itp.3jg/2526.3bhif.syp/2526-3bhif-syp-lecture-notes/labs/ai-demo/src/test/java/org/acme/vehicle/repository/VehicleDatabaseTest.java)
+- **OpenAPI Smoke Tests:** [OpenApiSmokeTest.java](file:///Users/stuetz/SynologyDrive/htl/skripten/pre.syp.itp.3jg/2526.3bhif.syp/2526-3bhif-syp-lecture-notes/labs/ai-demo/src/test/java/org/acme/vehicle/openapi/OpenApiSmokeTest.java)
 
 ## What Was Completed
 
@@ -44,10 +46,13 @@ This document outlines the current state and structure of the Quarkus Vehicle AP
 4. Mapped the `Vehicle` entity according to exact column name prefixes.
 5. Implemented JAX-RS CRUD endpoints with validations under `/api/vehicles`.
 6. Verified integration tests and database state assertions compile and validate successfully.
-7. Committed all created and modified project files (including .gitignore configurations).
+7. Seeded 7 realistic vehicles in `import.sql` for the `%dev` profile to facilitate API testing.
+8. Added Swagger UI and SmallRye OpenAPI support, verified by `OpenApiSmokeTest`.
+9. Committed and synced all project files and specs.
 
 ## Next Steps
 
 1. Start the database locally (`docker compose -f docker/docker-compose.yaml up -d`).
-2. Run the application or tests (`mvn clean test`).
-3. Formulate a new OpenSpec change if additional functionality is required (e.g., adding user management, Swagger UI support, pagination, etc.).
+2. Run the application in dev mode (`./mvnw clean quarkus:dev`) and access Swagger UI at `http://localhost:8080/q/swagger-ui/` or the endpoint at `http://localhost:8080/api/vehicles`.
+3. Run tests using `./mvnw test`.
+4. Formulate new OpenSpec change requests (under `openspec/changes/`) when additional features are requested.
