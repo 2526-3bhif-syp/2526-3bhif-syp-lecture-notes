@@ -1538,3 +1538,95 @@ Noch offen:
 * Wie werden Skills erstellt?
 
 * Aufgaben im Hintergrund
+
+
+
+== 2026-06-16
+
+=== openSpec-Phases
+
+image::ai-openspec-phases.png[]
+
+=== The Ralph-Loop
+
+image::ai-ralph-loop.png[]
+
+==== Overview
+
+**Ralph** (https://github.com/snarktank/ralph[snarktank/ralph]) is a simple but clever agentic loop — a bash script that repeatedly runs an AI coding agent (Claude Code or Amp) until the task is done or a maximum iteration count is reached.
+
+==== How the Loop Works
+
+Each iteration follows the same steps:
+
+. **Read a prompt** — the agent reads `prompt.md` or `CLAUDE.md`, which describes the current task or PRD
+. **Run the AI agent** — executes with full permissions (`--dangerously-skip-permissions`) and captures the output
+. **Check for completion** — looks for a `<promise>COMPLETE</promise>` signal in the output
+. **If not done** — sleeps 2 seconds and starts the next iteration
+. **Repeat** — up to `MAX_ITERATIONS` (default: 10)
+
+[source,bash]
+----
+for i in $(seq 1 $MAX_ITERATIONS); do
+    OUTPUT=$(claude --dangerously-skip-permissions --print < "$SCRIPT_DIR/CLAUDE.md")
+
+    if echo "$OUTPUT" | grep -q "<promise>COMPLETE</promise>"; then
+        echo "Ralph completed all tasks!"
+        exit 0
+    fi
+
+    sleep 2
+done
+----
+
+==== Extra Features
+
+progress tracking::
+Appends agent output to a `progress.txt` log file across iterations.
+
+branch-aware archiving::
+Detects Git branch changes and archives the previous run's PRD and progress log automatically.
+
+multi-agent support::
+Supports both **Claude Code** and **Amp** as the underlying agent via the `--tool` flag.
+
+==== The Key Insight
+
+The loop pattern solves a fundamental agent limitation: a single LLM call has a finite context window and time budget.
+
+By running the agent repeatedly and letting it read its own progress file each iteration, Ralph enables **long-running tasks** that span multiple agent sessions — the agent picks up where it left off.
+
+[NOTE]
+====
+The file system acts as shared memory between iterations. The agent writes its state to disk; the next iteration reads it back.
+====
+
+It is essentially a **persistent outer loop** around a stateless agent:
+
+[ditaa]
+....
++------------------+
+|   ralph.sh loop  |
+|                  |
+|  +------------+  |
+|  | Read prompt|  |
+|  +-----+------+  |
+|        |         |
+|  +-----v------+  |
+|  | Run agent  |  |
+|  +-----+------+  |
+|        |         |
+|  +-----v------+  |
+|  |  COMPLETE? +--+--> exit 0
+|  +-----+------+  |
+|        | no       |
+|  +-----v------+  |
+|  | sleep 2s   |  |
+|  +-----+------+  |
+|        |         |
+|  next iteration  |
++------------------+
+....
+
+
+
