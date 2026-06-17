@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-06-13</span>
+<span id="revdate">2026-06-17</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -705,6 +705,12 @@ pre.rouge .gs {
 <li><a href="#_2026_06_09">30. 2026-06-09</a>
 <ul class="sectlevel2">
 <li><a href="#_tutorial_erstellung_eines_backends_mit_openspec_und_ai_agenten">30.1. Tutorial: Erstellung eines Backends mit openSpec und AI-Agenten</a></li>
+</ul>
+</li>
+<li><a href="#_2026_06_16">31. 2026-06-16</a>
+<ul class="sectlevel2">
+<li><a href="#_openspec_phases">31.1. openSpec-Phases</a></li>
+<li><a href="#_the_ralph_loop">31.2. The Ralph-Loop</a></li>
 </ul>
 </li>
 </ul>
@@ -4204,11 +4210,127 @@ docker compose up <span class="nt">-d</span>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_2026_06_16"><a class="anchor" href="#_2026_06_16"></a>31. 2026-06-16</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_openspec_phases"><a class="anchor" href="#_openspec_phases"></a>31.1. openSpec-Phases</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/ai-openspec-phases.png" alt="ai openspec phases">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_the_ralph_loop"><a class="anchor" href="#_the_ralph_loop"></a>31.2. The Ralph-Loop</h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/ai-ralph-loop.png" alt="ai ralph loop">
+</div>
+</div>
+<div class="sect3">
+<h4 id="_overview"><a class="anchor" href="#_overview"></a>31.2.1. Overview</h4>
+<div class="paragraph">
+<p><strong>Ralph</strong> (<a href="https://github.com/snarktank/ralph">snarktank/ralph</a>) is a simple but clever agentic loop — a bash script that repeatedly runs an AI coding agent (Claude Code or Amp) until the task is done or a maximum iteration count is reached.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how_the_loop_works"><a class="anchor" href="#_how_the_loop_works"></a>31.2.2. How the Loop Works</h4>
+<div class="paragraph">
+<p>Each iteration follows the same steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Read a prompt</strong> — the agent reads <code>prompt.md</code> or <code>CLAUDE.md</code>, which describes the current task or PRD</p>
+</li>
+<li>
+<p><strong>Run the AI agent</strong> — executes with full permissions (<code>--dangerously-skip-permissions</code>) and captures the output</p>
+</li>
+<li>
+<p><strong>Check for completion</strong> — looks for a <code>&lt;promise&gt;COMPLETE&lt;/promise&gt;</code> signal in the output</p>
+</li>
+<li>
+<p><strong>If not done</strong> — sleeps 2 seconds and starts the next iteration</p>
+</li>
+<li>
+<p><strong>Repeat</strong> — up to <code>MAX_ITERATIONS</code> (default: 10)</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash"><span class="k">for </span>i <span class="k">in</span> <span class="si">$(</span><span class="nb">seq </span>1 <span class="nv">$MAX_ITERATIONS</span><span class="si">)</span><span class="p">;</span> <span class="k">do
+    </span><span class="nv">OUTPUT</span><span class="o">=</span><span class="si">$(</span>claude <span class="nt">--dangerously-skip-permissions</span> <span class="nt">--print</span> &lt; <span class="s2">"</span><span class="nv">$SCRIPT_DIR</span><span class="s2">/CLAUDE.md"</span><span class="si">)</span>
+
+    <span class="k">if </span><span class="nb">echo</span> <span class="s2">"</span><span class="nv">$OUTPUT</span><span class="s2">"</span> | <span class="nb">grep</span> <span class="nt">-q</span> <span class="s2">"&lt;promise&gt;COMPLETE&lt;/promise&gt;"</span><span class="p">;</span> <span class="k">then
+        </span><span class="nb">echo</span> <span class="s2">"Ralph completed all tasks!"</span>
+        <span class="nb">exit </span>0
+    <span class="k">fi
+
+    </span><span class="nb">sleep </span>2
+<span class="k">done</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_extra_features"><a class="anchor" href="#_extra_features"></a>31.2.3. Extra Features</h4>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">progress tracking</dt>
+<dd>
+<p>Appends agent output to a <code>progress.txt</code> log file across iterations.</p>
+</dd>
+<dt class="hdlist1">branch-aware archiving</dt>
+<dd>
+<p>Detects Git branch changes and archives the previous run&#8217;s PRD and progress log automatically.</p>
+</dd>
+<dt class="hdlist1">multi-agent support</dt>
+<dd>
+<p>Supports both <strong>Claude Code</strong> and <strong>Amp</strong> as the underlying agent via the <code>--tool</code> flag.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_the_key_insight"><a class="anchor" href="#_the_key_insight"></a>31.2.4. The Key Insight</h4>
+<div class="paragraph">
+<p>The loop pattern solves a fundamental agent limitation: a single LLM call has a finite context window and time budget.</p>
+</div>
+<div class="paragraph">
+<p>By running the agent repeatedly and letting it read its own progress file each iteration, Ralph enables <strong>long-running tasks</strong> that span multiple agent sessions — the agent picks up where it left off.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The file system acts as shared memory between iterations. The agent writes its state to disk; the next iteration reads it back.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>It is essentially a <strong>persistent outer loop</strong> around a stateless agent:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/diag-ditaa-md5-fd744ccbf8f4ba3a7f2c03374cda258c.png" alt="Diagram" width="340" height="350">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-06-13 10:10:15 UTC
+Last updated 2026-06-17 13:40:07 UTC
 </div>
 </div>
 </body>
