@@ -1629,4 +1629,15 @@ It is essentially a **persistent outer loop** around a stateless agent:
 ....
 
 
+=== UI-Testing
+
+* https://github.com/jsdom/jsdom
+* https://playwright.dev/
+
+
+
+
+
+
+
 
