@@ -1635,7 +1635,74 @@ It is essentially a **persistent outer loop** around a stateless agent:
 * https://playwright.dev/
 
 
+=== Tmux
 
+==== Managing Remote AI Agents with tmux
+
+Running CLI-based AI agents like `claude-code` or `antigravity-cli` on a remote server requires a stable environment. If your SSH connection drops during a long-running code generation task, the process dies.
+
+Using `tmux` (Terminal Multiplexer) solves this problem by keeping your session alive on the server, even if your local machine disconnects.
+
+==== Starting or Rejoining an AI Agent Session
+
+To connect to your remote server and either start a new dedicated AI session or instantly resume an existing one, run this optimized SSH command from your local terminal:
+
+[source,bash]
+----
+ssh myname@192.168.1.xx -t "tmux attach -t ai-agent || tmux new -s ai-agent"
+----
+
+* `attach -t ai-agent`: Attempts to reconnect to a running session named *ai-agent*.
+* `|| tmux new -s ai-agent`: If no session exists, the `||` (OR) operator triggers the creation of a brand new session with that name.
+
+Once inside, you can safely launch your agent:
+
+[source,bash]
+----
+claude-code
+----
+
+==== Essential Session Control Controls
+
+While inside `tmux`, all commands are preceded by the prefix shortcut `Ctrl+b`.
+
+[cols="2,3", options="header"]
+|===
+| Action | Key Combination / Command
+| *Detach* (Leave agent running in background) | Press `Ctrl+b`, then release and press `d`
+| *Kill current window/pane* | Press `Ctrl+d` or type `exit`
+| *Interactively switch sessions* | Press `Ctrl+b`, then release and press `s`
+|===
+
+==== Managing Sessions from the Outside
+
+If you are logged into the server normally (outside of `tmux`) and want to check on or terminate your AI processes, use the following management commands.
+
+===== Listing Active Sessions
+To see if your agent is still running in the background:
+[source,bash]
+----
+tmux ls
+----
+
+===== Terminating a Specific Session
+When your AI agent has finished its task and you want to close the session completely (killing all background processes inside it):
+[source,bash]
+----
+tmux kill-session -t ai-agent
+----
+
+===== Emergency Reset
+To kill all `tmux` sessions and processes on the server at once:
+[source,bash]
+----
+tmux kill-server
+----
+
+[IMPORTANT]
+====
+Always *detach* (`Ctrl+b` -> `d`) if you want the AI agent to keep processing your files while your computer is asleep or offline. Only use `kill-session` when the work is completely done.
+====
 
 
 
