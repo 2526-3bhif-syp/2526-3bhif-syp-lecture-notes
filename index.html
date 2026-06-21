@@ -565,7 +565,7 @@ pre.rouge .gs {
 <div class="details">
 <span id="author" class="author">Thomas Stütz, Peter Bauer</span><br>
 <span id="revnumber">version 1.0.0,</span>
-<span id="revdate">2026-06-17</span>
+<span id="revdate">2026-06-21</span>
 <br><span id="revremark">Lecture Notes for Courses at HTL Leonding</span>
 </div>
 <div id="toc" class="toc2">
@@ -712,6 +712,7 @@ pre.rouge .gs {
 <li><a href="#_openspec_phases">31.1. openSpec-Phases</a></li>
 <li><a href="#_the_ralph_loop">31.2. The Ralph-Loop</a></li>
 <li><a href="#_ui_testing">31.3. UI-Testing</a></li>
+<li><a href="#_tmux_2">31.4. Tmux</a></li>
 </ul>
 </li>
 </ul>
@@ -4338,13 +4339,139 @@ docker compose up <span class="nt">-d</span>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_tmux_2"><a class="anchor" href="#_tmux_2"></a>31.4. Tmux</h3>
+<div class="sect3">
+<h4 id="_managing_remote_ai_agents_with_tmux"><a class="anchor" href="#_managing_remote_ai_agents_with_tmux"></a>31.4.1. Managing Remote AI Agents with tmux</h4>
+<div class="paragraph">
+<p>Running CLI-based AI agents like <code>claude-code</code> or <code>antigravity-cli</code> on a remote server requires a stable environment. If your SSH connection drops during a long-running code generation task, the process dies.</p>
+</div>
+<div class="paragraph">
+<p>Using <code>tmux</code> (Terminal Multiplexer) solves this problem by keeping your session alive on the server, even if your local machine disconnects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_starting_or_rejoining_an_ai_agent_session"><a class="anchor" href="#_starting_or_rejoining_an_ai_agent_session"></a>31.4.2. Starting or Rejoining an AI Agent Session</h4>
+<div class="paragraph">
+<p>To connect to your remote server and either start a new dedicated AI session or instantly resume an existing one, run this optimized SSH command from your local terminal:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">ssh myname@192.168.1.xx <span class="nt">-t</span> <span class="s2">"tmux attach -t ai-agent || tmux new -s ai-agent"</span></code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>attach -t ai-agent</code>: Attempts to reconnect to a running session named <strong>ai-agent</strong>.</p>
+</li>
+<li>
+<p><code>|| tmux new -s ai-agent</code>: If no session exists, the <code>||</code> (OR) operator triggers the creation of a brand new session with that name.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once inside, you can safely launch your agent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">claude-code</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_essential_session_control_controls"><a class="anchor" href="#_essential_session_control_controls"></a>31.4.3. Essential Session Control Controls</h4>
+<div class="paragraph">
+<p>While inside <code>tmux</code>, all commands are preceded by the prefix shortcut <code>Ctrl+b</code>.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Action</th>
+<th class="tableblock halign-left valign-top">Key Combination / Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Detach</strong> (Leave agent running in background)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>Ctrl+b</code>, then release and press <code>d</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Kill current window/pane</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>Ctrl+d</code> or type <code>exit</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Interactively switch sessions</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Press <code>Ctrl+b</code>, then release and press <code>s</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_managing_sessions_from_the_outside"><a class="anchor" href="#_managing_sessions_from_the_outside"></a>31.4.4. Managing Sessions from the Outside</h4>
+<div class="paragraph">
+<p>If you are logged into the server normally (outside of <code>tmux</code>) and want to check on or terminate your AI processes, use the following management commands.</p>
+</div>
+<div class="sect4">
+<h5 id="_listing_active_sessions"><a class="anchor" href="#_listing_active_sessions"></a>Listing Active Sessions</h5>
+<div class="paragraph">
+<p>To see if your agent is still running in the background:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">tmux <span class="nb">ls</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_terminating_a_specific_session"><a class="anchor" href="#_terminating_a_specific_session"></a>Terminating a Specific Session</h5>
+<div class="paragraph">
+<p>When your AI agent has finished its task and you want to close the session completely (killing all background processes inside it):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">tmux kill-session <span class="nt">-t</span> ai-agent</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_emergency_reset"><a class="anchor" href="#_emergency_reset"></a>Emergency Reset</h5>
+<div class="paragraph">
+<p>To kill all <code>tmux</code> sessions and processes on the server at once:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="bash">tmux kill-server</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Always <strong>detach</strong> (<code>Ctrl+b</code> &#8594; <code>d</code>) if you want the AI agent to keep processing your files while your computer is asleep or offline. Only use <code>kill-session</code> when the work is completely done.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
 Version 1.0.0<br>
-Last updated 2026-06-17 13:58:08 UTC
+Last updated 2026-06-21 09:46:25 UTC
 </div>
 </div>
 </body>
